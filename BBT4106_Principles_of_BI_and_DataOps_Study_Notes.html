@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBT4106 – Principles of Business Intelligence and the DataOps Philosophy</title>
+<style>
+  :root{
+    --ink:#1c2430;
+    --sub:#5b6672;
+    --line:#e3e7ec;
+    --accent:#1f6f5c;
+    --accent-soft:#e7f3ef;
+    --accent2:#8a4b2c;
+    --accent2-soft:#f6ede4;
+    --bg:#fbfaf7;
+    --card:#ffffff;
+    --code-bg:#282c34;
+    --code-ink:#e6e6e6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family: Georgia, 'Times New Roman', serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  header.top{
+    background:linear-gradient(135deg,#16332c,#1f6f5c);
+    color:#f3f7f5;
+    padding:36px 24px 30px;
+    text-align:center;
+  }
+  header.top .eyebrow{
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-size:.78rem;
+    opacity:.85;
+    margin-bottom:10px;
+  }
+  header.top h1{
+    font-size:2rem;
+    margin:0 0 10px;
+    font-weight:700;
+  }
+  header.top .meta{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:.85rem;
+    opacity:.9;
+  }
+  nav.toc{
+    max-width:980px;
+    margin:-22px auto 30px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    box-shadow:0 6px 18px rgba(20,40,35,.08);
+    padding:18px 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:.85rem;
+  }
+  nav.toc .toc-title{
+    font-weight:700;
+    color:var(--accent);
+    margin-bottom:8px;
+    font-family: Georgia, serif;
+    font-size:1rem;
+  }
+  nav.toc ol{
+    columns:2;
+    -webkit-columns:2;
+    column-gap:24px;
+    margin:0;
+    padding-left:1.1em;
+  }
+  nav.toc li{ break-inside: avoid; margin-bottom:5px; }
+  nav.toc a{ color:var(--ink); text-decoration:none; }
+  nav.toc a:hover{ color:var(--accent); text-decoration:underline; }
+
+  main{ max-width:860px; margin:0 auto; padding:0 20px 60px; }
+
+  section{ margin-bottom:44px; scroll-margin-top:16px; }
+
+  h2.sec-title{
+    font-size:1.5rem;
+    color:var(--accent);
+    border-bottom:3px solid var(--accent);
+    padding-bottom:8px;
+    margin:0 0 18px;
+  }
+  h3.sub-title{
+    font-size:1.15rem;
+    color:var(--accent2);
+    margin:26px 0 10px;
+  }
+  p{ margin:0 0 12px; }
+  ul, ol{ margin:0 0 14px; padding-left:1.3em; }
+  li{ margin-bottom:6px; }
+
+  blockquote.pull{
+    font-family: Georgia, serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--accent2);
+    border-left:4px solid var(--accent2);
+    background:var(--accent2-soft);
+    margin:0 0 20px;
+    padding:12px 18px;
+    border-radius:0 8px 8px 0;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px 20px;
+    margin:0 0 16px;
+  }
+
+  .figure{
+    background:var(--accent-soft);
+    border:1px dashed var(--accent);
+    border-radius:10px;
+    padding:16px 18px;
+    margin:0 0 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:.92rem;
+  }
+  .figure .cap{
+    font-weight:700;
+    color:var(--accent);
+    display:block;
+    margin-bottom:8px;
+    font-family: Georgia, serif;
+  }
+
+  .flow{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:.85rem;
+  }
+  .flow .step{
+    background:var(--card);
+    border:1px solid var(--accent);
+    color:var(--accent);
+    border-radius:6px;
+    padding:6px 12px;
+    font-weight:700;
+  }
+  .flow .arrow{ color:var(--accent2); font-weight:700; }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:0 0 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:.88rem;
+  }
+  th, td{
+    border:1px solid var(--line);
+    padding:8px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{
+    background:var(--accent);
+    color:#fff;
+    font-weight:700;
+  }
+  tr:nth-child(even) td{ background:#f6f5f1; }
+
+  code, pre.code{
+    font-family: 'Courier New', monospace;
+  }
+  pre.code{
+    background:var(--code-bg);
+    color:var(--code-ink);
+    padding:14px 16px;
+    border-radius:8px;
+    overflow-x:auto;
+    font-size:.85rem;
+    line-height:1.5;
+    margin:0 0 16px;
+  }
+  code.inline{
+    background:#eef0f2;
+    padding:1px 6px;
+    border-radius:4px;
+    font-size:.88em;
+  }
+
+  .term{
+    border-left:4px solid var(--accent);
+    padding:10px 16px;
+    background:#fff;
+    margin:0 0 14px;
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent);
+    border-radius:0 8px 8px 0;
+  }
+  .term .t{ font-weight:700; color:var(--accent); font-family: Arial, Helvetica, sans-serif; }
+
+  .note{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:.85rem;
+    color:var(--sub);
+    background:#f2f2ee;
+    border-radius:8px;
+    padding:12px 16px;
+    margin:0 0 16px;
+  }
+  .note .label{ font-weight:700; color:var(--ink); }
+
+  .pillars{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .pillar{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:12px 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:.88rem;
+  }
+  .pillar .num{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    border-radius:50%;
+    width:24px; height:24px;
+    text-align:center;
+    line-height:24px;
+    font-size:.78rem;
+    margin-right:8px;
+    font-weight:700;
+  }
+
+  @media (max-width:640px){
+    nav.toc ol{ columns:1; }
+    .pillars{ grid-template-columns:1fr; }
+    header.top h1{ font-size:1.5rem; }
+  }
+
+  footer.page-footer{
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:.78rem;
+    color:var(--sub);
+    padding:20px;
+    border-top:1px solid var(--line);
+    max-width:860px;
+    margin:0 auto;
+  }
+
+  .exam-box{
+    background:var(--accent-soft);
+    border:1px solid var(--accent);
+    border-radius:10px;
+    padding:18px 22px;
+  }
+  .exam-box h2{
+    margin-top:0;
+    color:var(--accent);
+    font-size:1.3rem;
+  }
+  .exam-q{ font-weight:700; color:var(--accent2); margin-bottom:4px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="eyebrow">BBT4106 · BCM3104 · Week 1–3 · Dr Allan O. Omondi · 2026</div>
+  <h1>Principles of Business Intelligence and the DataOps Philosophy</h1>
+  <div class="meta">Complete Study Notes — aligned to lecture slides (239 slides) · Strathmore University</div>
+</header>
+
+<nav class="toc">
+  <div class="toc-title">Contents</div>
+  <ol>
+    <li><a href="#s1">Definition of Technical Jargon</a></li>
+    <li><a href="#s2">Terminologies for Data in BI</a></li>
+    <li><a href="#s3">Parametric &amp; Non-Parametric Algorithms</a></li>
+    <li><a href="#s4">The Bias-Variance Trade-Off</a></li>
+    <li><a href="#s5">Underfitting and Overfitting</a></li>
+    <li><a href="#s6">Data Products</a></li>
+    <li><a href="#s7">Challenges Faced by Data Teams</a></li>
+    <li><a href="#s8">DevOps (Continuous Delivery)</a></li>
+    <li><a href="#s9">The 7 Pillars of DataOps</a></li>
+    <li><a href="#s10">The DevOps &amp; DataOps Toolchain</a></li>
+    <li><a href="#s11">Software Configuration Management</a></li>
+    <li><a href="#s12">Branches for Team Governance</a></li>
+    <li><a href="#s13">Git Merge, Rebase &amp; Squash</a></li>
+    <li><a href="#s14">Commit Messages</a></li>
+    <li><a href="#s15">Pull Requests</a></li>
+    <li><a href="#s16">Reversing Changes in Git</a></li>
+    <li><a href="#s17">Moving Work Around in Git</a></li>
+    <li><a href="#s18">Three-Part Versioning</a></li>
+    <li><a href="#s19">Git Workflows</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="s1">
+  <h2 class="sec-title">01 Definition of Technical Jargon</h2>
+  <p>Decision-making benefits from using past data to predict the future, then acting on those predictions — e.g. forecasting item demand from past sales to avoid overstocking or understocking. A business usually holds data across many departments (Porter's Value Chain: primary functions like inbound logistics, operations, outbound logistics, marketing &amp; sales, service; support functions like HR, technology management, procurement, firm infrastructure).</p>
+
+  <h3 class="sub-title">Data Marts, Data Warehouses &amp; Data Lakes</h3>
+  <p>For performance and organisational control, businesses extract data from multiple sources and load it into a shared store.</p>
+  <div class="term"><span class="t">Data mart</span> — a subset of a data warehouse, oriented to one department/function.</div>
+  <div class="term"><span class="t">Data warehouse</span> — stores data for the whole business, using a unified schema (easier querying, some redundancy).</div>
+  <div class="term"><span class="t">Data lake</span> — gathers data with little pre-processing; keeps structured, semi-structured &amp; unstructured data. Needs flexible querying tools (NoSQL — "Not Only SQL"), e.g. Spark SQL, SPARQL, Cypher, Gremlin, MongoDB Query.</div>
+
+  <h3 class="sub-title">Data Mining vs Data Analytics vs Business Analyst</h3>
+  <p><strong>Data mining</strong> discovers new patterns/rules from large volumes of data — it uses techniques from probability, statistics, linear algebra, AI, and programming, and does <em>not</em> start from a prior hypothesis.</p>
+  <p><strong>Data analytics</strong> starts from a hypothesis or question ("why did sales drop last quarter?") and focuses on answering it to drive action, using tools like SQL, Power BI, Excel.</p>
+  <div class="figure"><span class="cap">Gold Mine Analogy</span>Data mining is the excavation — digging through raw data to find a vein of gold (a hidden pattern) without knowing exactly where it is. Data analytics is the jewellery store — taking that raw gold and refining it into something usable (a report or strategy).</div>
+
+  <table>
+    <tr><th>Feature</th><th>Data Mining</th><th>Data Analytics</th></tr>
+    <tr><td>Primary goal</td><td>Finding hidden patterns/correlations</td><td>Answering specific questions</td></tr>
+    <tr><td>Starting point</td><td>Large, often unstructured datasets</td><td>A specific hypothesis or business need</td></tr>
+    <tr><td>Human element</td><td>Mostly automated/algorithmic</td><td>Highly interpretive, strategy-focused</td></tr>
+  </table>
+
+  <p>A <strong>business analyst</strong> focuses on improving business processes, operations and strategy — acting as a liaison between stakeholders, doing stakeholder interviews, gap analysis, requirement specification, and process improvement. Data mining finds patterns → data analytics turns them into insight → business analysis turns insight into an organisational solution.</p>
+  <div class="note"><span class="label">Quick tip:</span> Enjoy math/coding → data mining/data science. Enjoy storytelling with data → data analytics. Enjoy problem-solving with people → business analysis.</div>
+
+  <h3 class="sub-title">Deductive &amp; Inductive Reasoning</h3>
+  <p>Knowledge progresses from raw <strong>data → information → knowledge</strong> (the DIKAR model: Data–Information–Knowledge–Action–Results).</p>
+  <div class="term"><span class="t">Deductive reasoning</span> — applies prespecified general rules to discover new specific information.</div>
+  <div class="term"><span class="t">Inductive reasoning</span> — applies observed specific data to discover new general rules. Data mining applies inductive reasoning.</div>
+  <p>Discovered knowledge can be represented as rules, propositional logic, or structured forms (decision trees, neural networks, regression models). Types of knowledge discovered: <strong>association rules</strong> (e.g. cart items "a" and "b" imply "c"), <strong>classification hierarchies</strong>, <strong>clusters</strong>, <strong>time-series patterns</strong>, and <strong>sequential patterns</strong>.</p>
+
+  <h3 class="sub-title">Knowledge Discovery in Databases (KDD)</h3>
+  <p>KDD is a methodology for applying inductive reasoning to discover generalisable knowledge, in 9 iterative steps:</p>
+  <div class="figure"><span class="cap">The 9 Steps of KDD</span>
+    <div class="flow">
+      <span class="step">1. Problem Definition</span><span class="arrow">→</span>
+      <span class="step">2. Data Selection</span><span class="arrow">→</span>
+      <span class="step">3. Cleansing &amp; Pre-Processing</span><span class="arrow">→</span>
+      <span class="step">4. Data Transformation</span><span class="arrow">→</span>
+      <span class="step">5. Select Mining Task</span><span class="arrow">→</span>
+      <span class="step">6. Select Mining Algorithm</span><span class="arrow">→</span>
+      <span class="step">7. Utilisation</span><span class="arrow">→</span>
+      <span class="step">8. Interpretation &amp; Evaluation</span><span class="arrow">→</span>
+      <span class="step">9. Consolidation</span>
+    </div>
+  </div>
+  <ol>
+    <li><strong>Problem Definition &amp; Goal Setting</strong> — understand the problem, end-user requirements, and environment.</li>
+    <li><strong>Data Selection</strong> — discover and integrate accessible data ethically (informed consent) and without bias (representative sample); done by the data engineer.</li>
+    <li><strong>Data Cleansing &amp; Pre-Processing</strong> — remove outliers/noise, impute missing data (e.g. fixing invalid postal codes, currency symbols).</li>
+    <li><strong>Data Transformation</strong> — scaling, centering, standardisation, normalisation, Box-Cox/Yeo-Johnson transforms; encoding (one-hot, label/ordinal); dimensionality reduction. Done by the data analyst.</li>
+    <li><strong>Selection of the Data Mining Task</strong> — describe (associations/clusters), predict (class/value), or optimise (prescribe action).</li>
+    <li><strong>Selection of the Data Mining Algorithm</strong> — "bench test" several algorithms, shortlist top performers.</li>
+    <li><strong>Utilisation of the Algorithm</strong> — train the model; hyperparameter tuning and ensembling.</li>
+    <li><strong>Interpretation &amp; Evaluation</strong> — validated by domain experts (not the IT practitioner) — e.g. via Hugging Face Spaces, Render, Streamlit. If invalid, repeat from Step 2.</li>
+    <li><strong>Consolidation</strong> — operationalise the knowledge into an information system; the hardest step, since production data is dynamic (not the clean "lab" data used to design the model).</li>
+  </ol>
+  <div class="note"><span class="label">Note:</span> Data mining must be preceded by significant data preparation (Steps 1–4) before it yields useful, decision-influencing information. Modern non-linear/iterative alternatives to KDD include CRISP-DM, Scrum, Data-Driven Scrum, Kanban, SEMMA, and TDSP.</div>
+
+  <h3 class="sub-title">Business Intelligence, Data Science &amp; Machine Learning</h3>
+  <div class="term"><span class="t">Business Intelligence (BI)</span> — the process of creating a culture that makes evidence-based, rational decisions from insights that are accurate, reliable, timely, and actionable (Olszak, 2016). Gartner reframed BI as "Information-as-a-Service" — a culture where every employee can make evidence-based decisions.</div>
+  <div class="term"><span class="t">Data Science</span> — an interdisciplinary field (statistics, visualisation, social science, NLP, data mining) used primarily for <em>scientific</em> purposes. Data mining is a subset of data science.</div>
+  <div class="term"><span class="t">Machine Learning (ML)</span> — teaches a system to learn/adapt from data using algorithms, without explicit human instructions (unlike data mining, which relies on and is designed for human consumption).</div>
+  <div class="card">
+    <strong>Tom Mitchell's Learning Problem Triplet (1997):</strong> "A machine learns with respect to task <em>T</em>, performance <em>P</em>, and experience <em>E</em>, if it reliably improves <em>P</em> at <em>T</em> following <em>E</em>."<br><br>
+    Example — Task: classify spam emails. Performance: % correctly classified. Experience: watching users mark emails "Spam".<br><br>
+    This describes <strong>Narrow AI</strong>: being excellent at one task (P at T) does not imply general intelligence. "Machine Learning" is an anthropomorphism — the machine performs statistical convergence, not conscious reasoning.
+  </div>
+  <p>Relationship between fields: <strong>AI</strong> enables decisions without human intervention → <strong>Machine Learning</strong> (Supervised, Unsupervised, Semi-Supervised/Reinforcement) provides statistical tools to analyse data → <strong>Deep Learning</strong> mimics the brain via neural networks (ANN for numeric data, CNN for images, RNN for time series, Transformers for NLP/sequential data — the backbone of LLMs) → <strong>Data Science</strong> wraps all of this plus the scientific method and domain knowledge.</p>
+
+  <h3 class="sub-title">AI Accelerators</h3>
+  <p>Specialised hardware that speeds up repetitive, parallelisable AI workloads (matrix multiplication, tensor operations) by offloading them from the CPU.</p>
+  <table>
+    <tr><th>Accelerator</th><th>Role</th></tr>
+    <tr><td>GPU</td><td>Many parallel cores; ideal for training deep neural networks (enabled by NVIDIA's CUDA platform)</td></tr>
+    <tr><td>TPU</td><td>Google's ASIC for tensor operations; large-scale training/inference on GCP</td></tr>
+    <tr><td>NPU</td><td>Low-power, real-time on-device inference (voice assistants, edge AI)</td></tr>
+    <tr><td>FPGA</td><td>Reconfigurable hardware, tailored to specific workloads</td></tr>
+    <tr><td>ASIC</td><td>Fixed-purpose chip — maximum efficiency, no flexibility (a TPU is one example)</td></tr>
+  </table>
+</section>
+
+<section id="s2">
+  <h2 class="sec-title">02 Terminologies Used to Describe Data in BI</h2>
+  <p>Data can be described from two perspectives:</p>
+
+  <h3 class="sub-title">Statistical Perspective</h3>
+  <p>Frames data as a hypothetical function <em>f</em> the algorithm is trying to learn: <code class="inline">Output = f(Input)</code>. Multiple input variables form an <strong>input vector</strong>. Input variables are <strong>independent variables (X)</strong>; the output variable is the <strong>dependent variable (Y)</strong>: <code class="inline">Y = f(X)</code>. Example: <code class="inline">Exam Score = f(Hours of Study)</code>.</p>
+
+  <h3 class="sub-title">Computer Science Perspective</h3>
+  <p>A row of data = an <strong>instance</strong> (an observation about an entity). A column = a <strong>feature</strong> (or attribute). The output feature is the <strong>target</strong> — also the <strong>prediction</strong>.</p>
+  <div class="flow">
+    <span class="step">Prediction</span><span class="arrow">=</span><span class="step">Program(Instance)</span>
+  </div>
+  <p>A <strong>model</strong> is the specific representation of knowledge learned from data; an <strong>algorithm</strong> provides the process of learning that representation: <code class="inline">Model = Algorithm(Historical Data)</code>, then <code class="inline">Prediction = Model(New Data)</code>.</p>
+  <p>Data mining/ML algorithms learn a target function <em>f</em> mapping X → Y (<strong>predictive modelling</strong> — the most common data mining task). There is also an <strong>irreducible error (e)</strong> independent of X — e.g. missing attributes needed to fully characterise the true mapping.</p>
+</section>
+
+<section id="s3">
+  <h2 class="sec-title">03 Parametric &amp; Non-Parametric Algorithms</h2>
+  <table>
+    <tr><th></th><th>Parametric (linear)</th><th>Non-Parametric (non-linear)</th></tr>
+    <tr><td>Assumptions</td><td>Strong assumptions about the mapping form</td><td>Few/no assumptions</td></tr>
+    <tr><td>Steps</td><td>1. Choose a function form 2. Learn coefficients (e.g. β₀+β₁X₁+β₂X₂=0)</td><td>Free to learn any functional form</td></tr>
+    <tr><td>Data needs</td><td>Less data</td><td>More data</td></tr>
+    <tr><td>Speed</td><td>Faster to train</td><td>Slower to train</td></tr>
+    <tr><td>Power</td><td>Limited/constrained complexity</td><td>More powerful, flexible</td></tr>
+    <tr><td>Examples</td><td>Linear regression, logistic regression, LDA, Perceptron, Naïve Bayes</td><td>Decision trees, kNN, Random Forest, hierarchical clustering, SVM (non-linear kernel), multi-layer neural networks</td></tr>
+    <tr><td>Weakness</td><td>Poor fit to complex real-world data</td><td>Prone to overfitting, harder to explain</td></tr>
+  </table>
+</section>
+
+<section id="s4">
+  <h2 class="sec-title">04 The Bias-Variance Trade-Off</h2>
+  <p>Model error is either <strong>bias error</strong>, <strong>variance error</strong>, or <strong>irreducible error</strong> (cannot be reduced regardless of algorithm — caused by the problem's framing, e.g. unknown influencing variables).</p>
+
+  <h3 class="sub-title">Bias Error</h3>
+  <p>The simplifying assumptions a model makes to learn the target function faster. Linear/parametric algorithms (e.g. linear/logistic regression, LDA) have high bias — fast to learn, easy to understand, but less generalisable.</p>
+  <p><strong>Causes of bias:</strong></p>
+  <ol>
+    <li><strong>Biased training data</strong> — e.g. a hiring model trained only on graduates from specific private universities perpetuates representation bias.</li>
+    <li><strong>Limited or skewed data</strong> — e.g. a "VIP customer" model trained 90% on high-density urban stores misses high-value peri-urban spenders (sampling bias).</li>
+    <li><strong>Oversimplification bias</strong> — underfitting from a model too simple for the data's complexity.</li>
+    <li><strong>Poor feature selection</strong> — e.g. a decision tree using "place of residence" purely because it gives a clean mathematical split, even though it is unethical.</li>
+  </ol>
+
+  <h3 class="sub-title">Variance Error</h3>
+  <p>How much the model's estimate changes when you swap training batches. Non-linear algorithms have high variance — large changes in the learned model when the training set changes. High training accuracy is actually a <em>red flag</em> for high variance.</p>
+  <p><strong>Causes of variance:</strong></p>
+  <ol>
+    <li><strong>Model complexity ("over-thinker" effect)</strong> — the model memorises training points instead of learning the trend.</li>
+    <li><strong>Small training datasets</strong> — under ~200,000 observations is generally too few for data mining/ML; random outliers get treated as universal laws.</li>
+    <li><strong>Curse of dimensionality</strong> — too many features relative to rows creates fake correlations (e.g. a credit model "learning" that Firefox users who like scrambled eggs never default).</li>
+  </ol>
+  <div class="note"><span class="label">Remember:</span> Bias is an error of assumptions (thinking you already know the answer); variance is an error of sensitivity (being too influenced by what you just saw). Decreasing bias increases variance and vice versa — the goal is low bias <em>and</em> low variance.</div>
+</section>
+
+<section id="s5">
+  <h2 class="sec-title">05 Underfitting and Overfitting</h2>
+  <p><strong>Generalisation</strong> is how well concepts learned by a model apply to examples not seen during training.</p>
+  <table>
+    <tr><th>Aspect</th><th>Underfitting</th><th>Optimal (sweet spot)</th><th>Overfitting</th></tr>
+    <tr><td>Model type</td><td>Too simple (parametric/linear)</td><td>Just right</td><td>Too complex (non-parametric/non-linear)</td></tr>
+    <tr><td>Bias</td><td>High</td><td>Low</td><td>Very low</td></tr>
+    <tr><td>Variance</td><td>Low</td><td>Low</td><td>High</td></tr>
+    <tr><td>Generalisation</td><td>Poor</td><td>Excellent</td><td>Poor</td></tr>
+  </table>
+  <p><strong>Overfitting</strong> — learning training data too well at the expense of generalising; more common in flexible non-parametric algorithms. Mitigated using resampling methods or a held-back validation dataset.</p>
+  <p><strong>Underfitting</strong> — failing to learn the problem sufficiently; easy to detect with a good performance metric, then fix by trying an alternative algorithm.</p>
+  <p>The "sweet spot" is just before test-set error starts rising again as the model overfits. <strong>k-fold cross validation</strong> is the gold-standard resampling technique: train the model <em>k</em> times on different folds and summarise results. If accuracy varies wildly between folds (e.g. 90%, 50%, 88%) that's a high-variance model caught hiding behind a few lucky data points. 5-fold or 10-fold CV is standard practice.</p>
+  <div class="note"><span class="label">Validation vs test set:</span> The validation set is used <em>during</em> training to tune the model (find the sweet spot); the test set is the "final exam" used once at the end to confirm the model actually works.</div>
+</section>
+
+<section id="s6">
+  <h2 class="sec-title">06 Data Products</h2>
+  <blockquote class="pull">Data is the new oil — but raw oil is useless. A data product is the refinery.</blockquote>
+  <p>A <strong>data product</strong> is a purposefully designed digital asset that packages data, logic, and interfaces to deliver reliable, timely, actionable insight for its intended users — it is <strong>purposeful</strong> (solves a defined problem), <strong>reliable</strong> (tested, maintained, trusted), and <strong>actionable</strong>.</p>
+  <table>
+    <tr><th>Raw Data</th><th>Data Product</th></tr>
+    <tr><td>Collected passively</td><td>Designed intentionally</td></tr>
+    <tr><td>No defined user</td><td>Built for specific users</td></tr>
+    <tr><td>No quality guarantee</td><td>Tested and validated</td></tr>
+    <tr><td>Requires expertise to interpret</td><td>Delivers ready-to-use insight</td></tr>
+    <tr><td>No ownership</td><td>Has an accountable owner</td></tr>
+  </table>
+
+  <h3 class="sub-title">Examples</h3>
+  <ul>
+    <li><strong>Analytical/Reporting:</strong> interactive sales dashboards, brand-sentiment tracking</li>
+    <li><strong>Predictive:</strong> churn prediction, demand forecasting</li>
+    <li><strong>Operational/Real-Time:</strong> fraud detection (e.g. M-Pesa), algorithmic trading</li>
+    <li><strong>Experience/Personalisation:</strong> recommendation engines (Netflix), NLP chatbots (banking assistants)</li>
+    <li><strong>Data Access:</strong> data APIs (weather data for logistics), geospatial analysis for site selection</li>
+  </ul>
+
+  <h3 class="sub-title">Defining a Data Product — 6 Questions</h3>
+  <ol>
+    <li><strong>Problem Definition</strong> — what, where, since when, why unsolved, who's affected? Distinguish the symptom ("sales are declining") from the root problem ("sales team has no regional product-line visibility").</li>
+    <li><strong>Data Sources</strong> — which departments hold the relevant data?</li>
+    <li><strong>User Requirements</strong> — what does the user <em>need</em> (not just want)?</li>
+    <li><strong>Data Transformations Required</strong> — cleaning, aggregation, modelling needed.</li>
+    <li><strong>Intended Users</strong> — internal-facing (employee dashboard) vs external-facing (customer-facing score).</li>
+    <li><strong>Priority/Ranking</strong> — value relative to other data products competing for resources.</li>
+  </ol>
+  <p>Success is measured by what a user <em>cannot</em> do today versus what they <em>can</em> do after the product ships — e.g. a loan officer moving from manually reviewing 500 applications/week to a risk-scoring model processing 10,000 consistently.</p>
+  <p>Data products are built using structured methodologies (CRISP-DM, Data-Driven Scrum/Kanban, KDD, TDSP, SEMMA) in incremental milestones, not one big release. Testing is essential — unit, integration, load, and API reliability testing, done continuously.</p>
+  <div class="note"><span class="label">Lifecycle:</span> A data product isn't complete until it's in production with a go-live date and a named owner. Without an accountable owner: data goes stale, models drift, dashboards show last quarter's figures as current, and fraud systems become liabilities.</div>
+</section>
+
+<section id="s7">
+  <h2 class="sec-title">07 Challenges Faced by Data Teams</h2>
+  <ol>
+    <li><strong>Friction with the business team</strong> — business expects delivery in days, data teams historically deliver in months.</li>
+    <li><strong>Demand outstrips capacity</strong> — multiple departments request data products simultaneously, creating backlog.</li>
+    <li><strong>Manual/waterfall processes reduce capacity</strong> — any change causes a domino effect through the lifecycle. Agile methodologies produce Minimum Viable Products (MVPs) with "small wins" instead.</li>
+    <li><strong>Unplanned work reduces output</strong> — informal ad-hoc requests hijack planned time.</li>
+    <li><strong>Ungoverned self-service</strong> — teams avoid the data team ("loading data takes too long", "I can't trust the data"), leading to silos and duplicated/divergent datasets.</li>
+  </ol>
+  <div class="card">
+    <strong>Data Mesh (Dehghani, 2022)</strong> addresses silos via four pillars: Domain-Driven data ownership, Data as a product, Self-Service infrastructure platform, and Federated computational governance. Domain teams own and maintain their own data products rather than centralising everything in one data team.
+  </div>
+  <p>Organisations aim to balance <strong>Governance</strong> and <strong>Agility</strong> — sometimes called "governed agility" or "agile governance".</p>
+</section>
+
+<section id="s8">
+  <h2 class="sec-title">08 DevOps (based on Continuous Delivery)</h2>
+  <p><strong>DevOps</strong> — introduced in 2009 by Patrick Debois — is a set of practices, tools, and cultural philosophy that automates and integrates software development (DEV) and IT operations (OPS) to deliver better software, faster. It traces back to Lean Manufacturing (Taylor, Fayol; pioneered at Toyota by Shingo and Ohno in the 1930s).</p>
+  <div class="figure"><span class="cap">The DevOps loop</span>
+    <div class="flow">
+      <span class="step">Plan</span><span class="arrow">→</span><span class="step">Develop</span><span class="arrow">→</span><span class="step">Test</span><span class="arrow">→</span><span class="step">Deploy (DEV)</span><span class="arrow">→</span><span class="step">Release</span><span class="arrow">→</span><span class="step">Operate</span><span class="arrow">→</span><span class="step">Monitor (OPS)</span><span class="arrow">↻</span>
+    </div>
+  </div>
+  <p>DEV cycles are measured in hours (at most days) — this requires MVPs. OPS matures from weekly/monthly deployments toward continuous deployment with regression monitoring.</p>
+  <table>
+    <tr><th>Variant</th><th>Focus</th></tr>
+    <tr><td>DevSecOps</td><td>Security built into the pipeline, not bolted on at the end</td></tr>
+    <tr><td>DataOps</td><td>DevOps principles applied to data pipelines and ML workflows</td></tr>
+    <tr><td>MLOps</td><td>Managing the ML model lifecycle in production</td></tr>
+    <tr><td>GitOps</td><td>Infrastructure/deployment config stored and driven from Git</td></tr>
+    <tr><td>FinOps</td><td>Cloud cost management and financial accountability</td></tr>
+  </table>
+  <p><strong>DataOps</strong> is a collaborative data-management practice improving communication, integration, and automation of data flows between data managers and consumers, creating feedback loops for continuous delivery. Without a methodology, teams solve the wrong problem in the wrong order. Without continuous delivery, a good data product breaks silently in production and nobody notices until a bad decision is made (e.g. a bad loan approved).</p>
+</section>
+
+<section id="s9">
+  <h2 class="sec-title">09 The 7 Pillars of DataOps</h2>
+  <div class="pillars">
+    <div class="pillar"><span class="num">1</span><strong>ELT and the Spirit of ELT</strong> — load data in raw form first, transform after (faster loading, no detail lost, supports governance/auditability/lineage). Exception: EtLT when regulation requires removing PII before mining (Kenya Data Protection Act 2019, GDPR, HIPAA, FERPA, PCI DSS, SOC 1/2/3, FedRAMP).</div>
+    <div class="pillar"><span class="num">2</span><strong>CI/CD</strong> — frequently integrate changed code with the central repo, build, test, and keep it deployable on demand; DATA cycle measured in hours/days. Built on SCM (e.g. Git) plus tools like Jenkins.</div>
+    <div class="pillar"><span class="num">3</span><strong>Component Design &amp; Maintainability</strong> — small, atomic, reusable pieces of code, guided by Unix philosophy: clarity over cleverness, transparency, modularity, composition, orthogonality, simplicity, documentation, minimised interdependency, design for debugging.</div>
+    <div class="pillar"><span class="num">4</span><strong>Environment Management</strong> — quickly spin up environments that mirror production (even duplicating terabytes of data), typically via Cloud Service Providers (GCP, AWS, Azure, OCI, Alibaba Cloud).</div>
+    <div class="pillar"><span class="num">5</span><strong>Governance &amp; Change Control</strong> — every change, test, and approval fully documented and retained to prove how data has been used.</div>
+    <div class="pillar"><span class="num">6</span><strong>Automated Data Testing</strong> — catches errors before production; paired with ongoing monitoring of production data/artifact quality (not just system uptime).</div>
+    <div class="pillar"><span class="num">7</span><strong>Collaboration &amp; Self-Service</strong> — collaboration is a behaviour (psychological safety, shared accountability, aligned incentives), not a tool you deploy.</div>
+  </div>
+  <p>Together, the goal is to run the data team like a high-performing, predictable, quality-oriented manufacturing line — delivering high-quality data faster.</p>
+</section>
+
+<section id="s10">
+  <h2 class="sec-title">10 The DevOps and DataOps Toolchain</h2>
+  <p>A <strong>toolchain</strong> is an ordered set of tools chained so each tool's output feeds the next — like stations on a manufacturing production line.</p>
+  <div class="note"><span class="label">Watch out for toolchain sprawl:</span> each new tool solves a real problem, but 14 disconnected tools later, onboarding takes weeks just to configure a laptop. Consolidation is usually more valuable than addition — master a few essential tools deeply (Git being foundational) before reaching for more.</div>
+</section>
+
+<section id="s11">
+  <h2 class="sec-title">11 Software Configuration Management (SCM)</h2>
+  <p>SCM manages changes to source code, configuration files, and dependencies — aiming for consistency, traceability, and reproducibility.</p>
+  <table>
+    <tr><th>Centralized VCS (e.g. SVN, CVS)</th><th>Distributed VCS (e.g. Git — Linus Torvalds, 2005)</th></tr>
+    <tr><td>Single authoritative server</td><td>Every developer clones the full repo + history</td></tr>
+    <tr><td>Requires network access for most operations</td><td>Commit/branch/merge locally, offline</td></tr>
+  </table>
+  <p>The <strong>remote repository (origin)</strong> — hosted on GitHub/GitLab/Bitbucket — is the shared reference point. The <strong>local repository</strong> has a working directory (edit files), a hidden <code class="inline">.git</code> directory (history/metadata), and a <strong>staging area (index)</strong> — an intermediate space where changes are reviewed before committing, enabling precise, logical commits.</p>
+  <div class="figure"><span class="cap">Git workflow</span>
+    <div class="flow">
+      <span class="step">Working Directory</span><span class="arrow">git add →</span>
+      <span class="step">Staging Area</span><span class="arrow">git commit →</span>
+      <span class="step">Local Repository</span><span class="arrow">git push ⇄ git pull</span>
+      <span class="step">Remote Repository (origin)</span>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Requirement → Task (Issue) → Sub-Task Mapping</h3>
+  <div class="flow">
+    <span class="step">Data Collected (surveys, interviews, case studies, literature)</span><span class="arrow">→</span>
+    <span class="step">Data Analyzed (thematic/descriptive/inferential)</span><span class="arrow">→</span>
+    <span class="step">Requirements Listed (functional &amp; non-functional)</span><span class="arrow">→</span>
+    <span class="step">Technical Tasks — created as GitHub/GitLab Issues</span><span class="arrow">→</span>
+    <span class="step">Sub-Tasks (where necessary)</span>
+  </div>
+  <p>An issue is created in the origin, and a branch is created to address it (a branch can hold several commits).</p>
+</section>
+
+<section id="s12">
+  <h2 class="sec-title">12 Branches for Team Governance</h2>
+  <p>A branch is a governance decision, not just a Git feature. <code class="inline">main</code> should always stay stable and deployable; features, bug fixes, and hotfixes each get their own branch. If a feature fails, its branch is simply deleted with no damage to main. Code review happens on the branch before it touches main (via a Pull Request); conflicts during merge are a natural part of collaboration, not a failure.</p>
+  <div class="flow">
+    <span class="step">Branch #1 → PR → Code Review → Merge</span><span class="arrow">→</span>
+    <span class="step">Branch #2 (next task)</span><span class="arrow">→</span>
+    <span class="step">Branch #3</span><span class="arrow">→</span>
+    <span class="step">Branch #4 (sub-task)</span>
+  </div>
+  <p>Three ways to merge into main: <strong>Git Merge</strong>, <strong>Git Rebase</strong>, <strong>Squash Commits</strong>.</p>
+</section>
+
+<section id="s13">
+  <h2 class="sec-title">13 Git Merge, Git Rebase &amp; Squash Commits</h2>
+
+  <h3 class="sub-title">Git Merge</h3>
+  <p>Creates a new "merge commit" combining both branches while preserving full history of each — "tying two branches with a knot; the knot and both branches remain." Maintains a complete snapshot of history, but can make it messy.</p>
+  <pre class="code">git checkout main
+git merge feature/1          # creates a merge commit
+
+git merge --ff-only feature/1   # fast-forward: no merge commit, pointer just advances
+git merge --no-ff feature/1     # always creates a merge commit (documents every integration)</pre>
+
+  <h3 class="sub-title">Git Rebase</h3>
+  <p>Changes the base of a branch to the latest commit, then replays the other commits on top. Gives a clean, linear history, but rewrites commit history (reduces traceability).</p>
+  <pre class="code">git checkout feature/1
+git rebase main</pre>
+  <p><strong>Interactive rebase</strong> (<code class="inline">git rebase -i HEAD~2</code>) lets you replace <code class="inline">pick</code> with: <code class="inline">reword</code> (edit message), <code class="inline">squash</code> (fold in, keep messages), <code class="inline">fixup</code> (fold in, discard message), <code class="inline">drop</code> (delete), <code class="inline">edit</code> (pause to amend).</p>
+  <div class="note"><span class="label">Golden rule:</span> Never rebase a branch others have already based work on — rewriting shared history forces a painful reconciliation on everyone else. Rebase is for your own unpublished work.</div>
+
+  <h3 class="sub-title">Squash Commits</h3>
+  <p>Not a standalone command — available via interactive rebase or as a merge option. Folds all commits into one, discarding individual commit details. Useful when a feature branch has messy WIP/typo-fix commits.</p>
+  <pre class="code">git rebase -i HEAD~2        # then choose squash/fixup
+# or
+git merge --squash feature/1</pre>
+
+  <table>
+    <tr><th>Scenario</th><th>Tool</th></tr>
+    <tr><td>Integrating a finished feature into main for a team</td><td><code class="inline">merge --no-ff</code></td></tr>
+    <tr><td>Keeping your local feature branch current with main</td><td><code class="inline">rebase</code></td></tr>
+    <tr><td>Cleaning up messy local commits before a PR</td><td><code class="inline">rebase -i</code></td></tr>
+    <tr><td>Delivering a feature as one clean commit</td><td><code class="inline">merge --squash</code></td></tr>
+    <tr><td>Need a record that two branches were joined</td><td><code class="inline">merge</code></td></tr>
+    <tr><td>Want linear, bisectable history</td><td><code class="inline">rebase</code></td></tr>
+  </table>
+  <div class="note"><span class="label">In an academic context:</span> use <code class="inline">git merge --no-ff</code> for labs/projects/research — it lets your supervisor or examiner see the actual process (commit history, branch evolution), not just the final solution. Still practice rebase and squash in a sandbox repo.</div>
+</section>
+
+<section id="s14">
+  <h2 class="sec-title">14 Commit Messages</h2>
+  <pre class="code">git commit -m "Subject line under 72 characters"</pre>
+  <p>Template for a well-structured merge commit message: What was merged and into where? What does the merge accomplish? Were there conflicts, and how were they resolved? Does it meet the assessment/lab requirements?</p>
+  <div class="note"><span class="label">Why it matters:</span> a well-structured commit message is the difference between submitting an answer and submitting an answer <em>with reasoning</em> — your technical lab notes proving you understood what you did.</div>
+  <pre class="code">git config --global core.editor "code --wait"   # VS Code (recommended for class labs)
+git log --oneline                # quick overview
+git log --oneline --graph        # quick overview as a graph
+git show HEAD                    # full details of the most recent commit
+git log --merges                 # show only merge commits</pre>
+</section>
+
+<section id="s15">
+  <h2 class="sec-title">15 Pull Request</h2>
+  <p>Configure <strong>branch protection rules</strong> on <code class="inline">main</code> so a Pull Request (with at least one approval) is mandatory, not optional — otherwise a developer can push straight to main and skip review entirely. Example ruleset: "pr-and-1-approval-required-to-merge", enforcement Active, targeting the Default branch, requiring 1 approval; allowed merge methods left as Merge / Squash / Rebase.</p>
+</section>
+
+<section id="s16">
+  <h2 class="sec-title">16 Reversing Changes in Git</h2>
+  <table>
+    <tr><th>Command</th><th>Use case</th></tr>
+    <tr><td><code class="inline">git reset &lt;commit&gt;</code> / <code class="inline">git reset HEAD~1</code></td><td>Reverse local, <strong>unpushed</strong> changes (unstaged, not lost)</td></tr>
+    <tr><td><code class="inline">git revert &lt;commit&gt;</code> / <code class="inline">git revert HEAD</code></td><td>Safely undo <strong>shared/pushed</strong> commits by creating a new "undo" commit — original stays in history</td></tr>
+  </table>
+  <p>With <code class="inline">revert</code>, the target is the commit you want to undo; with <code class="inline">reset</code>, the target is the commit you want to land on. Only use <code class="inline">reset</code> on commits not yet pushed — once shared, it rewrites history others may have already pulled.</p>
+
+  <h3 class="sub-title">Git Reflog</h3>
+  <p><code class="inline">git reflog</code> is Git's diary of every HEAD movement (resets, rebases, merges, checkouts, commits) — including ones no longer visible in <code class="inline">git log</code>.</p>
+  <pre class="code">git reflog --relative-date
+git reset HEAD@{51 minutes ago}   # instead of git reset HEAD~1</pre>
+  <div class="note"><span class="label">Limitation:</span> reflog is local-only — not pushed to GitHub, empty on a fresh clone, and entries expire after 90 days by default.</div>
+</section>
+
+<section id="s17">
+  <h2 class="sec-title">17 Moving Work Around in Git</h2>
+  <p>If you accidentally commit to <code class="inline">main</code> (or the wrong branch), use <strong>cherry-pick</strong> to copy specific commits to the correct branch.</p>
+  <pre class="code">git log --oneline                     # Step 1: get the commit ID
+git switch feature/user-profile       # Step 2: switch to the correct branch
+git cherry-pick a1b2c3d               # Step 3: apply the commit (new SHA; original untouched)
+git reset a1b2c3d                     # Step 4: remove the commit from main
+git restore &lt;filename&gt;                # Step 6: discard unstaged changes if needed
+git log --oneline                     # Step 5: verify HEAD is in the right place</pre>
+</section>
+
+<section id="s18">
+  <h2 class="sec-title">18 Three-Part Versioning</h2>
+  <div class="figure"><span class="cap">Semantic Versioning — 2.1.46</span>
+    <div class="flow">
+      <span class="step">MAJOR (2) — significant/incompatible changes</span>
+      <span class="step">MINOR (1) — backward-compatible new features</span>
+      <span class="step">PATCH (46) — backward-compatible bug fixes only</span>
+    </div>
+  </div>
+  <p>Advantages: standardised communication about the nature of an update, and safe dependency management — package managers can be configured to auto-accept non-breaking Minor/Patch updates only.</p>
+</section>
+
+<section id="s19">
+  <h2 class="sec-title">19 Git Workflows</h2>
+  <p>The right workflow depends on the application: installable apps needing multiple simultaneous versions (e.g. mobile apps) vs SaaS apps deployed many times a day (e.g. a streaming web app).</p>
+
+  <table>
+    <tr><th>Workflow</th><th>Best for</th><th>Key idea</th></tr>
+    <tr><td><strong>Git Flow</strong> (Vincent Driessen, 2010)</td><td>Installable mobile/desktop apps, large/regulated teams</td><td>Multiple long-lived branches: main, release, development, feature, bug/hotfix — supports multiple versions running simultaneously</td></tr>
+    <tr><td><strong>GitHub Flow</strong></td><td>Medium-scale SaaS, small agile teams</td><td>One rule: main must always be deployable; medium-lived feature/bug branches</td></tr>
+    <tr><td><strong>Trunk-Based Development</strong></td><td>Large-scale SaaS (current 2026 industry standard)</td><td>Direct commits to main + short-lived (~4hr) feature branches, feature flags hide WIP from production</td></tr>
+  </table>
+
+  <p>In every workflow: a feature branch addresses an Issue mapped to a functional/non-functional requirement, and a Pull Request should trigger a code review (e.g. from a research supervisor) before merging.</p>
+  <div class="note"><span class="label">For research supervision:</span> GitHub Flow works well — it gives you 1–4 weeks to work on an issue and gives your supervisor a chance to review multiple commits in one PR, fitting a 2-week sprint/iteration cadence (Scrum/Kanban).</div>
+  <p>Teams often combine workflows — e.g. trusted internal engineers merge directly into main, while external contributors must go through a PR.</p>
+</section>
+
+<div class="exam-box">
+  <h2>📝 Likely Exam Questions</h2>
+  <p class="exam-q">Q1: Distinguish data mining, data analytics, and business analysis using the student "check-out" example.</p>
+  <p>Data mining discovers the hidden correlation (library + sports complex absence → risk of "checking out mentally") from raw data without a prior hypothesis. Data analytics takes that pattern and asks a specific question ("how do we intervene?"), producing a recommendation (an Early Alert system) and measuring ROI. Business analysis designs the actual business process that makes the recommendation work — stakeholder interviews, gap analysis, requirement specification, and a new SOP. The three roles are complementary: patterns → insights → solutions.</p>
+
+  <p class="exam-q">Q2: Explain the KDD process and why Steps 1–4 matter so much.</p>
+  <p>KDD has 9 iterative steps: problem definition, data selection, cleansing/pre-processing, transformation, mining task selection, algorithm selection, utilisation, interpretation/evaluation, and consolidation. Steps 1–4 (significant data preparation) must precede mining — without ethically-collected, unbiased, cleaned, and properly transformed data, the resulting model cannot yield information that can be trusted for business decisions, no matter how good the chosen algorithm is.</p>
+
+  <p class="exam-q">Q3: Explain the bias-variance trade-off and give one cause of each type of error.</p>
+  <p>Bias error is the simplifying assumption a model makes (high in linear/parametric models); one cause is biased or skewed training data, e.g. sampling bias from an unrepresentative customer base. Variance error is how much the model's estimate changes across different training batches (high in non-linear/non-parametric models); one cause is model complexity — an overly complex model memorising noise instead of the trend. Reducing bias tends to increase variance and vice versa, so the goal is the "sweet spot" balancing both, typically found via k-fold cross-validation.</p>
+
+  <p class="exam-q">Q4: What distinguishes a data product from a raw dataset? List the 6 questions a data product must answer.</p>
+  <p>A data product is intentionally designed for specific users, tested and validated, delivers ready-to-use insight, and has an accountable owner — unlike raw data, which is passively collected with no defined user or quality guarantee. It must answer: (1) what is the problem (root cause, not symptom), (2) what data sources are needed, (3) what users actually require, (4) what transformations are needed, (5) who the intended users are, and (6) how it ranks in priority against other data products.</p>
+
+  <p class="exam-q">Q5: Explain the 7 pillars of DataOps.</p>
+  <p>(1) ELT — load raw data first, transform after, for speed and auditability (EtLT when PII must be stripped for compliance). (2) CI/CD — frequent integration, build, and test cycles measured in hours/days. (3) Component design and maintainability — small, atomic, well-documented, loosely-coupled code. (4) Environment management — quickly replicate production-like environments via cloud providers. (5) Governance and change control — every change/test/approval documented and retained. (6) Automated data testing — paired with ongoing production monitoring. (7) Collaboration and self-service — a cultural behaviour built on psychological safety and shared accountability, not a tool.</p>
+
+  <p class="exam-q">Q6: Compare Git Merge, Git Rebase, and Squash Commits — when should each be used?</p>
+  <p>Git Merge creates a merge commit preserving full history of both branches — ideal when a record of the joined branches is needed (e.g. <code class="inline">--no-ff</code> for academic/audit purposes). Git Rebase replays commits onto a new base for a clean, linear history, but rewrites history — safe only for your own unpublished work. Squash Commits (via rebase or merge) folds all commits into one, useful for delivering a feature as a single clean commit when intermediate WIP commits add noise. In team/academic settings, <code class="inline">merge --no-ff</code> is generally preferred so a supervisor or examiner can see the full development process.</p>
+
+  <p class="exam-q">Q7: Compare Git Flow, GitHub Flow, and Trunk-Based Development.</p>
+  <p>Git Flow (Driessen, 2010) uses multiple long-lived branches (main, release, development, feature, bug/hotfix) and suits installable apps needing several versions running simultaneously, at the cost of added complexity and merge-conflict risk. GitHub Flow uses one rule — main must always be deployable — with medium-lived feature/bug branches, suited to medium-scale SaaS and agile teams with CI/CD. Trunk-Based Development uses direct commits to main plus very short-lived (~4 hour) feature branches and feature flags, suiting large-scale SaaS with strong automated testing and a "culture of excellence" — it is the 2026 industry standard for continuous deployment.</p>
+</div>
+
+</main>
+
+<footer class="page-footer">
+  BBT4106 / BCM3104 · Dr Allan O. Omondi · Strathmore University · 2026 · Study notes compiled from lecture slides
+</footer>
+
+</body>
+</html>
