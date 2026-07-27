@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Innovation & Entrepreneurship — Mind Map</title>
+<style>
+  :root{
+    --ink:#1c2128; --sub:#586069; --line:#e4e7eb; --bg:#ffffff; --panel:#f7f8fa;
+    --accent:#8a3ffc; --accent-ink:#5b21b6; --accent-bg:#f4eeff;
+    --teal:#0f766e; --teal-bg:#e9fbf8;
+    --amber:#b45309; --amber-bg:#fff8e6;
+    --rose:#be123c; --rose-bg:#fff0f3;
+    --blue:#1d4ed8; --blue-bg:#eef2ff;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.5; font-size:15px;}
+  .wrap{max-width:1000px; margin:0 auto; padding:36px 20px 100px;}
+  header{border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:24px;}
+  .kicker{color:var(--sub); font-size:13px; margin-bottom:6px;}
+  h1{font-size:clamp(22px,4vw,30px); margin:0 0 8px;}
+  .subtitle{color:var(--sub); font-size:14.5px;}
+  .controls{display:flex; gap:10px; margin:18px 0 28px; flex-wrap:wrap;}
+  button.ctl{
+    font-size:13.5px; padding:8px 16px; border-radius:20px; border:1px solid var(--line);
+    background:var(--panel); color:var(--ink); cursor:pointer; font-weight:600;
+  }
+  button.ctl:hover{background:#eef0f3;}
+
+  /* root node */
+  .root-node{
+    background:var(--ink); color:#fff; padding:14px 22px; border-radius:12px;
+    font-weight:700; font-size:17px; display:inline-block; margin-bottom:22px;
+  }
+
+  /* branches */
+  details.branch{
+    border-left:3px solid var(--line); margin:10px 0 10px 6px; padding-left:16px;
+  }
+  details.branch > summary{
+    cursor:pointer; list-style:none; font-weight:700; font-size:15.5px;
+    padding:9px 16px; border-radius:9px; margin-left:-6px; display:inline-block;
+    border:1px solid transparent;
+  }
+  details.branch > summary::-webkit-details-marker{display:none;}
+  details.branch > summary::before{content:"▸ "; font-size:12px; opacity:.6;}
+  details.branch[open] > summary::before{content:"▾ "; }
+
+  /* color themes per top branch */
+  .c-purple > summary{background:var(--accent-bg); color:var(--accent-ink); border-color:#d8c8fb;}
+  .c-teal > summary{background:var(--teal-bg); color:var(--teal); border-color:#a7e3db;}
+  .c-amber > summary{background:var(--amber-bg); color:var(--amber); border-color:#f3d19e;}
+  .c-rose > summary{background:var(--rose-bg); color:var(--rose); border-color:#f6c3d0;}
+  .c-blue > summary{background:var(--blue-bg); color:var(--blue); border-color:#c7d2fe;}
+
+  /* sub-branches (nested details) */
+  details.sub{ border-left:2px solid var(--line); margin:6px 0 6px 10px; padding-left:14px;}
+  details.sub > summary{
+    cursor:pointer; list-style:none; font-weight:600; font-size:14px; color:var(--ink);
+    padding:5px 10px; border-radius:7px; background:var(--panel); display:inline-block;
+  }
+  details.sub > summary::-webkit-details-marker{display:none;}
+  details.sub > summary::before{content:"+ "; opacity:.5; font-size:12px;}
+  details.sub[open] > summary::before{content:"– "; opacity:.5;}
+
+  /* leaf list */
+  ul.leaf{ margin:8px 0 10px 24px; padding-left:16px; border-left:2px dotted var(--line);}
+  ul.leaf li{ margin:5px 0; font-size:13.8px; color:#333;}
+  ul.leaf li strong{color:var(--ink);}
+  p.note{ margin:6px 0 6px 24px; font-size:13.5px; color:var(--sub); border-left:2px dotted var(--line); padding-left:16px;}
+
+  table.mini{ margin:8px 0 10px 24px; border-collapse:collapse; font-size:13px; width:calc(100% - 24px);}
+  table.mini th, table.mini td{ border:1px solid var(--line); padding:6px 9px; text-align:left;}
+  table.mini th{ background:var(--panel);}
+
+  .badge{display:inline-block; font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:9px; margin-left:6px; background:var(--rose-bg); color:var(--rose); vertical-align:middle;}
+  footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; color:var(--sub); font-size:12.5px; text-align:center;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">IT Innovation &amp; Entrepreneurship · BBIT4102 / BBIT4202 / BBT4202</div>
+  <h1>Complete Unit Mind Map</h1>
+  <div class="subtitle">Every topic, theory, and framework from the 11 lecture decks + DOI/TAM, in one collapsible map. Click any branch to expand.</div>
+</header>
+
+<div class="controls">
+  <button class="ctl" onclick="document.querySelectorAll('details').forEach(d=>d.open=true)">Expand all</button>
+  <button class="ctl" onclick="document.querySelectorAll('details').forEach(d=>d.open=false)">Collapse all</button>
+</div>
+
+<div class="root-node">IT Innovation &amp; Entrepreneurship</div>
+
+<!-- ============ 1 ============ -->
+<details class="branch c-purple">
+<summary>01 · Recognising Business Opportunities</summary>
+
+<details class="sub"><summary>Opportunity vs. Idea</summary>
+<ul class="leaf">
+<li><strong>Opportunity</strong> — favourable circumstances creating a need; must be attractive, durable, timely, value-anchored</li>
+<li><strong>Idea</strong> — a possible means of pursuing an opportunity (many ideas per opportunity)</li>
+</ul>
+</details>
+
+<details class="sub"><summary>3 approaches to identifying opportunities</summary>
+<ul class="leaf">
+<li><strong>Observing trends</strong> — economic, social, technological, political/regulatory</li>
+<li><strong>Solving a problem</strong> — often personally experienced</li>
+<li><strong>Finding gaps in the marketplace</strong> — niches too small for mainstream players</li>
+</ul>
+</details>
+
+<details class="sub"><summary>4 trend categories</summary>
+<ul class="leaf">
+<li>Economic forces (recession → discount/pay-later models)</li>
+<li>Social forces (aging population, mobile use, wellness)</li>
+<li>Technological advances (new categories spawn industries)</li>
+<li>Political/regulatory change (compliance-driven opportunity)</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Personal characteristics that aid recognition</summary>
+<ul class="leaf">
+<li>Prior industry experience</li>
+<li>Cognitive factors — "entrepreneurial alertness"</li>
+<li>Social networks — <strong>weak ties</strong> beat strong ties for novel ideas (40–50% of founders got idea from a contact)</li>
+<li>Creativity — 5-stage creative process</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Idea generation techniques</summary>
+<ul class="leaf">
+<li>Brainstorming (no criticism, fast, freewheeling)</li>
+<li>Focus groups (5–10 people, moderator-led)</li>
+<li>Observation, surveys</li>
+<li>Library/internet research (BizMiner, ProQuest, IBISWorld, Mintel)</li>
+<li>Trade shows, customer advisory boards</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Idea assessment &amp; opportunity analysis</summary>
+<ul class="leaf">
+<li>Identify value proposition → talk to customers → assess market → analyse competitors → set financial targets → stress-test</li>
+<li>Reality check: ~85% of new businesses close within 5 years (usually resources/management/financing, not fraud)</li>
+<li>5-phase opportunity analysis: seize → investigate via market research → develop business plan → determine resources → manage distinguishing features</li>
+<li>Evaluation matrix: market clarity, financial return, competitive advantage, management/risk strength</li>
+</ul>
+</details>
+</details>
+
+<!-- ============ 2 ============ -->
+<details class="branch c-purple">
+<summary>02 · Entrepreneurship Mindset</summary>
+
+<details class="sub"><summary>Definitions</summary>
+<ul class="leaf">
+<li><strong>Entrepreneur</strong> — identifies opportunity, organizes resources, bears risk, keeps reward; <em>implements</em>, not just ideates</li>
+<li><strong>Entrepreneurship</strong> — the process of identifying/pursuing opportunity through to running the venture</li>
+<li>4 things it encompasses: creative problem solving, opportunity identification, research, innovation</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Characteristics of entrepreneurs (+ examples)</summary>
+<table class="mini">
+<tr><th>Trait</th><th>Example</th></tr>
+<tr><td>Innovation</td><td>Elon Musk</td></tr>
+<tr><td>Risk-taking</td><td>Jeff Bezos</td></tr>
+<tr><td>Resilience</td><td>Jack Ma</td></tr>
+<tr><td>Vision</td><td>Steve Jobs</td></tr>
+<tr><td>Adaptability</td><td>Reed Hastings</td></tr>
+<tr><td>Passion</td><td>Sara Blakely</td></tr>
+<tr><td>Customer focus</td><td>Starbucks "third place"</td></tr>
+<tr><td>Persistence</td><td>Walt Disney</td></tr>
+<tr><td>Networking</td><td>Richard Branson</td></tr>
+<tr><td>Leadership</td><td>Indra Nooyi</td></tr>
+</table>
+</details>
+
+<details class="sub"><summary>4 mindset domains (core)</summary>
+<ul class="leaf">
+<li>Initiative &amp; self-reliance — internal locus of control</li>
+<li>Future orientation — optimistic, goal-oriented</li>
+<li>Opportunity recognition — problems as opportunities</li>
+<li>Creativity &amp; innovation — idea maps, brainstorming</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Extended 8 domains (Q&amp;A sheet version)</summary>
+<ul class="leaf">
+<li>Initiative &amp; self-reliance, Opportunity recognition, Future orientation, Creativity &amp; innovation</li>
+<li>Critical thinking — the <strong>5 Whys</strong> technique to find root cause</li>
+<li>Communication &amp; collaboration — e.g. Uber × Spotify partnership</li>
+<li>Flexibility &amp; adaptability — iterate vs. pivot</li>
+<li>Comfort with risk — tolerance for ambiguity, calculated risk-taking, resilience to loss</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Developing the mindset</summary>
+<ul class="leaf">
+<li><strong>Discover</strong> → market research &amp; interviews to find unmet needs</li>
+<li><strong>Design</strong> → generate &amp; test solutions from empathy research</li>
+<li><strong>Prototype / Make</strong> → simple testable version validating the hypothesis</li>
+</ul>
+</details>
+</details>
+
+<!-- ============ 3 ============ -->
+<details class="branch c-purple">
+<summary>03 · Entrepreneurship Mindset Skills</summary>
+
+<details class="sub"><summary>4 skill categories</summary>
+<ul class="leaf">
+<li><strong>Cognitive</strong> — spotting gaps, critical thinking, creativity, financial literacy</li>
+<li><strong>Behavioural</strong> — resilience/grit, risk-taking, self-directed learning, resourcefulness</li>
+<li><strong>Relational</strong> — communication/persuasion, collaboration, networking, empathy</li>
+<li><strong>Mindset foundations</strong> — growth mindset, ownership, ethical judgment</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Growth vs. fixed mindset (Dweck)</summary>
+<ul class="leaf">
+<li><strong>Fixed</strong> — abilities are static, avoids challenges, gives up easily</li>
+<li><strong>Growth</strong> — abilities develop with effort, embraces challenges, treats failure as feedback</li>
+<li>Benefits: resilience, perseverance, lasting love of learning</li>
+</ul>
+</details>
+</details>
+
+<!-- ============ 4 ============ -->
+<details class="branch c-teal">
+<summary>04 · Corporate &amp; Social Entrepreneurship</summary>
+
+<details class="sub"><summary>The "Embattled Corporation" — 4 turbulence sources</summary>
+<ul class="leaf">
+<li>Customers — fragmented markets, rising expectations</li>
+<li>Competitors — narrow profitable niches, harder to differentiate</li>
+<li>Technology — new ways to manage info/production/logistics/sales</li>
+<li>Legal/regulatory/ethical — more accountability, litigation risk</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Corporate entrepreneurship (intrapreneurship)</summary>
+<ul class="leaf">
+<li>Definition: developing new business ideas/opportunities <em>inside</em> an established corporation</li>
+<li>3 components: <strong>Innovation</strong> + <strong>Corporate Venturing</strong> + <strong>Strategic Renewal</strong></li>
+<li>Corporate venturing pros: innovation/knowledge transfer, easier external finance, motivated staff. Cons: risky equity, needs venture-mgmt infrastructure, less control</li>
+<li>Strategic renewal: sustained regeneration, domain redefinition, organisational rejuvenation, business model reconstruction</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Building an intrapreneurial culture</summary>
+<ul class="leaf">
+<li>Set explicit goals, give feedback/positive reinforcement</li>
+<li>Reward results, don't punish failure</li>
+<li>Grant autonomy, work discretion, time for future projects</li>
+<li>Keep teams small (3M rule), stay close to the customer</li>
+<li>Famous rule-sets: 3M Innovation Rules, IBM EBO Program, "Corporate Innovator's Commandments"</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Social entrepreneurship</summary>
+<ul class="leaf">
+<li>Definition: entrepreneurial drive + primary focus on social impact over profit</li>
+<li><strong>4 elements (Robinson)</strong>: social impact, social innovation, sustainability, measurement</li>
+<li>NOT social entrepreneurship: pure social service (children's home) or pure activism (Mother Teresa)</li>
+<li><strong>Bottom of the Pyramid (BOP)</strong>: &gt;90% of adults in India/Africa in lowest wealth tier vs. ~20% in developed countries — a major underserved target market</li>
+</ul>
+</details>
+</details>
+
+<!-- ============ 5 ============ -->
+<details class="branch c-amber">
+<summary>05 · Sources of Innovation — Peter Drucker</summary>
+
+<p class="note">"The entrepreneur always searches for change, responds to it, and exploits it as an opportunity." — Drucker</p>
+
+<details class="sub"><summary>Inside the business/industry (sources 1–3)</summary>
+<ul class="leaf">
+<li><strong>The Unexpected</strong> — failure/success/external shock (New Coke 1985; Java Jacket)</li>
+<li><strong>Incongruity</strong> — gap between what is and what's assumed (M-Pesa vs. branch banking)</li>
+<li><strong>Process Needs</strong> — fixing weak workflow spots (ATMs → mobile/agency banking)</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Outside the enterprise/industry (sources 4–7)</summary>
+<ul class="leaf">
+<li><strong>Industry/Market Structure Change</strong> — old structure becomes obsolete (Uber vs. taxi dispatch)</li>
+<li><strong>Demographics</strong> — most reliable/predictable trend indicator</li>
+<li><strong>Changes in Perception, Mood &amp; Meaning</strong> — "glass half full vs. half empty"</li>
+<li><strong>New Knowledge</strong> — longest lead time, needs convergence of knowledge streams</li>
+</ul>
+</details>
+<p class="note">Kenyan examples: M-Pesa (2007), Tap2Eat by Wawira Njiru</p>
+</details>
+
+<!-- ============ 6 ============ -->
+<details class="branch c-amber">
+<summary>06 · Disruptive Innovation Theory — Christensen (1997)</summary>
+
+<details class="sub"><summary>Core definition &amp; types</summary>
+<ul class="leaf">
+<li>Starts niche/underperforming, improves over time, displaces incumbents</li>
+<li><strong>Low-end disruption</strong> — cheaper/simpler, moves upmarket (Netflix DVD → streaming)</li>
+<li><strong>New-market disruption</strong> — creates an entirely new market (Tesla/EVs)</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Who it targets first</summary>
+<ul class="leaf">
+<li><strong>Overserved customers</strong> — paying for more than they need</li>
+<li><strong>Underserved/non-consumers</strong> — couldn't access incumbent product at all (M-Pesa/unbanked)</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Innovator's Dilemma</summary>
+<ul class="leaf">
+<li>Sustaining innovation vs. disruptive opportunity trade-off</li>
+<li>Incumbents deprioritize disruption until it's too late (Kodak &amp; digital photography)</li>
+</ul>
+</details>
+
+<details class="sub"><summary>3-stage disruption process</summary>
+<ul class="leaf">
+<li>Entry (simple/cheap, non-consumers) → Iterative improvement → Upmarket movement (AWS example)</li>
+</ul>
+</details>
+</details>
+
+<!-- ============ 6B ============ -->
+<details class="branch c-amber">
+<summary>06B · DOI &amp; TAM (theories of adoption) <span class="badge">extra topic</span></summary>
+
+<details class="sub"><summary>Diffusion of Innovation — Rogers (1962)</summary>
+<ul class="leaf">
+<li>Explains how innovations spread through a population — bell-shaped adoption curve</li>
+<li>Precondition: <em>perceived</em> novelty, not objective novelty</li>
+<li><strong>5-stage decision process</strong>: Knowledge → Persuasion → Decision → Implementation → Confirmation</li>
+<li><strong>5 adopter categories</strong>: Innovators (2.5%) → Early Adopters (13.5%) → Early Majority (34%) → Late Majority (34%) → Laggards (16%)</li>
+<li><strong>5 adoption-speed factors</strong>: Relative Advantage, Compatibility, Complexity, Trialability, Observability</li>
+<li>Applied example: M-Pesa's adoption wave; public-health behaviour-change campaigns</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Technology Acceptance Model — Davis (1989)</summary>
+<ul class="leaf">
+<li><strong>Perceived Usefulness (PU)</strong> — will this improve my performance?</li>
+<li><strong>Perceived Ease of Use (PEOU)</strong> — will this be effortless?</li>
+<li>Causal chain: PEOU → PU → Attitude → Behavioral Intention → Actual Use</li>
+<li>4 practical benefits: predicts adoption, saves money, guides design, improves change management</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Quick comparison</summary>
+<table class="mini">
+<tr><th></th><th>DOI</th><th>TAM</th><th>DIT</th></tr>
+<tr><td>Level</td><td>Society/population</td><td>Individual user</td><td>Market/industry</td></tr>
+<tr><td>Question</td><td>Who adopts, when?</td><td>Will this user use it?</td><td>Can it beat the leader?</td></tr>
+<tr><td>Year</td><td>1962</td><td>1989</td><td>1997</td></tr>
+</table>
+<p class="note">Case-question pattern: benefit accepted but adoption lags → PEOU problem, not PU. DOI cases: classify groups by adopter category, then identify the driving factor (often Observability or Trialability).</p>
+</details>
+</details>
+
+<!-- ============ 7 ============ -->
+<details class="branch c-rose">
+<summary>07 · Customer Discovery Process</summary>
+
+<details class="sub"><summary>Definition — 3 lenses</summary>
+<ul class="leaf">
+<li>Investors: due diligence</li>
+<li>Design thinkers: empathetic, human-centred process</li>
+<li>Marketers: foundation for resonant messaging</li>
+</ul>
+</details>
+
+<details class="sub"><summary>8-step process</summary>
+<ul class="leaf">
+<li>1. Identify segments → 2. Form hypotheses → 3. Interviews &amp; surveys → 4. Observe behaviour</li>
+<li>5. Iterate on feedback → 6. Build MVP → 7. Test MVP → 8. Analyse &amp; refine</li>
+</ul>
+</details>
+<p class="note">Not a one-off — continues after launch as needs evolve. Worked example: food-delivery startup pivots from "speed" to "quality/temperature" after interviews.</p>
+</details>
+
+<!-- ============ 8 ============ -->
+<details class="branch c-rose">
+<summary>08 · The Lean Startup Methodology <span class="badge">heaviest exam weighting</span></summary>
+
+<details class="sub"><summary>Core loop &amp; concepts</summary>
+<ul class="leaf">
+<li>Build → Measure → Learn loop (cycles repeatedly)</li>
+<li><strong>Validated learning</strong> — real customer behaviour, not opinion</li>
+<li>Worked example: Zappos (photographed shoes, bought only after real order)</li>
+</ul>
+</details>
+
+<details class="sub"><summary>MVP benefits</summary>
+<ul class="leaf">
+<li>Quickly validate idea, minimise risk, improve dev focus, gain customer insight, speed to market, attract investors</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Key metrics to validate a hypothesis</summary>
+<ul class="leaf">
+<li>User Acquisition, User Retention, Engagement, Conversion Rate</li>
+<li>Customer Lifetime Value (CLV), Net Promoter Score (NPS), Cost per Acquisition (CAC/CPA)</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Engines of growth</summary>
+<ul class="leaf">
+<li><strong>Sticky</strong> — retention-driven</li>
+<li><strong>Viral</strong> — spreads via customers themselves</li>
+<li><strong>Paid</strong> — sustainable only if CLV &gt; CAC</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Related concepts</summary>
+<ul class="leaf">
+<li><strong>Beachhead market</strong> — big enough to matter, small enough to dominate, urgent shared need</li>
+<li><strong>Market sizing</strong> — top-down vs. bottom-up (bottom-up: slow, may underestimate, hard to project growth)</li>
+<li><strong>Bill Gross factors</strong> — Timing, Team/Execution, Idea, Business Model, Funding (timing ranked most important)</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Companies built the lean-startup way</summary>
+<ul class="leaf">
+<li>Dropbox (demo video), Airbnb (own apartment test), Zappos, Spotify, Instagram (pivot), Netflix (DVD→streaming pivot), Slack, GE FastWorks (lean inside a large corporate)</li>
+</ul>
+</details>
+</details>
+
+<!-- ============ 9 ============ -->
+<details class="branch c-blue">
+<summary>09 · Business Model &amp; Value Proposition Canvas</summary>
+
+<details class="sub"><summary>Business Model Canvas — 9 blocks</summary>
+<ul class="leaf">
+<li>Customer Segments, Value Proposition, Channels, Customer Relationships, Revenue Streams</li>
+<li>Key Resources, Key Activities, Key Partners, Cost Structure</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Value Proposition Canvas</summary>
+<ul class="leaf">
+<li><strong>Customer Profile</strong>: Jobs, Pains, Gains</li>
+<li><strong>Value Map</strong>: Products/Services, Pain Relievers, Gain Creators</li>
+<li>"Fit" = value map clearly matches the customer profile's top pains/gains/jobs</li>
+<li>Value prop statement components: pain + gain + solution + why-better-than-competitors</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Business model innovation</summary>
+<ul class="leaf">
+<li>Rethinking overall strategy (who/how/pricing), not just product features</li>
+<li>Examples: Netflix, Airbnb, Tesla direct-to-consumer</li>
+</ul>
+</details>
+
+<details class="sub"><summary>Types of business models</summary>
+<ul class="leaf">
+<li>Product-based, Service-based, Subscription-based, Platform-based (multi-sided, e.g. M-Pesa/Uber)</li>
+<li>Franchise, Freemium (pros: easy acquisition/data; cons: low conversion), Licensing</li>
+</ul>
+</details>
+</details>
+
+<!-- ============ 10 ============ -->
+<details class="branch c-blue">
+<summary>10 · Lean Canvas Tool — Ash Maurya</summary>
+
+<details class="sub"><summary>9 blocks</summary>
+<ul class="leaf">
+<li>Problem, Solution, Key Metrics, Unique Value Proposition (centre), Unfair Advantage</li>
+<li>Channels, Customer Segments, Cost Structure, Revenue Streams</li>
+</ul>
+</details>
+<p class="note">Faster/more testable than a full business plan; one-page, visual, structured for a team to align around. Meant to be revisited as assumptions get tested, not filled once.</p>
+</details>
+
+<!-- ============ 11 ============ -->
+<details class="branch c-blue">
+<summary>11 · Business Idea Feasibility Analysis</summary>
+
+<details class="sub"><summary>4 forms</summary>
+<ul class="leaf">
+<li><strong>Product/Service</strong> — Desirability (concept test) + Demand (talk to customers, AdWords/landing pages)</li>
+<li><strong>Industry/Target Market</strong> — industry attractiveness + target market size/reachability</li>
+<li><strong>Organizational</strong> — management prowess + resource sufficiency (6–12 critical resources)</li>
+<li><strong>Financial</strong> — start-up cash needed, comparable performance, overall attractiveness</li>
+</ul>
+</details>
+</details>
+
+<!-- ============ 12 ============ -->
+<details class="branch c-rose">
+<summary>12 · How It All Connects</summary>
+<ul class="leaf">
+<li>1. Recognize an opportunity (trends / problem / gap)</li>
+<li>2. Generate ideas (brainstorming, focus groups, research)</li>
+<li>3. Test feasibility (product, market, organizational, financial)</li>
+<li>4. Map the business model (Lean Canvas or BMC)</li>
+<li>5. Validate with customers (Customer Discovery)</li>
+<li>6. Build → Measure → Learn (Lean Startup) toward product-market fit</li>
+</ul>
+</details>
+
+<footer>Compiled from 11 course lecture decks, supplementary Q&amp;A notes (DOI/TAM), and three past exam papers · IT Innovation &amp; Entrepreneurship</footer>
+</div>
+</body>
+</html>
