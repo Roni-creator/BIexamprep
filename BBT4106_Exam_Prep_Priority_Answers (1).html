@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBT4106 / BCM3103 – Exam Prep Answer Sheet (Past Paper Priority)</title>
+<style>
+  :root{
+    --ink:#1c2430; --sub:#5b6672; --line:#e3e7ec;
+    --accent:#1f6f5c; --accent-soft:#e7f3ef;
+    --accent2:#8a4b2c; --accent2-soft:#f6ede4;
+    --bg:#fbfaf7; --card:#ffffff;
+    --hi:#b3261e; --hi-soft:#fbe9e7;
+    --mid:#8a6d1f; --mid-soft:#fbf3df;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+  header.top{background:linear-gradient(135deg,#16332c,#1f6f5c);color:#f3f7f5;padding:34px 24px 26px;text-align:center;}
+  header.top .eyebrow{font-family:Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:.76rem;opacity:.85;margin-bottom:10px;}
+  header.top h1{font-size:1.7rem;margin:0 0 8px;}
+  header.top .meta{font-family:Arial,Helvetica,sans-serif;font-size:.85rem;opacity:.9;}
+  nav.toc{max-width:900px;margin:-20px auto 30px;background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 6px 18px rgba(20,40,35,.08);padding:16px 22px;font-family:Arial,Helvetica,sans-serif;font-size:.85rem;}
+  nav.toc .toc-title{font-weight:700;color:var(--accent);margin-bottom:8px;font-family:Georgia,serif;font-size:1rem;}
+  nav.toc ol{columns:2;column-gap:24px;margin:0;padding-left:1.1em;}
+  nav.toc li{break-inside:avoid;margin-bottom:5px;}
+  nav.toc a{color:var(--ink);text-decoration:none;}
+  nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+  main{max-width:860px;margin:0 auto;padding:0 20px 60px;}
+  section{margin-bottom:36px;scroll-margin-top:16px;}
+  h2.sec-title{font-size:1.35rem;color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:8px;margin:0 0 6px;}
+  .freq-banner{font-family:Arial,Helvetica,sans-serif;font-size:.8rem;font-weight:700;padding:6px 12px;border-radius:6px;display:inline-block;margin-bottom:16px;}
+  .freq-3{background:var(--hi-soft);color:var(--hi);}
+  .freq-2{background:var(--mid-soft);color:var(--mid);}
+  .freq-1{background:var(--accent-soft);color:var(--accent);}
+  h3.q-title{font-size:1.05rem;color:var(--accent2);margin:22px 0 8px;}
+  p{margin:0 0 10px;}
+  ul,ol{margin:0 0 12px;padding-left:1.3em;}
+  li{margin-bottom:5px;}
+  table{width:100%;border-collapse:collapse;margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;font-size:.86rem;}
+  th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top;}
+  th{background:var(--accent);color:#fff;}
+  tr:nth-child(even) td{background:#f6f5f1;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:0 0 14px;}
+  .note{font-family:Arial,Helvetica,sans-serif;font-size:.83rem;color:var(--sub);background:#f2f2ee;border-radius:8px;padding:10px 14px;margin:0 0 14px;}
+  .note .label{font-weight:700;color:var(--ink);}
+  code.inline{background:#eef0f2;padding:1px 6px;border-radius:4px;font-size:.88em;font-family:'Courier New',monospace;}
+  pre.code{background:#282c34;color:#e6e6e6;padding:12px 14px;border-radius:8px;overflow-x:auto;font-size:.82rem;line-height:1.5;margin:0 0 14px;font-family:'Courier New',monospace;}
+  footer.page-footer{text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:.78rem;color:var(--sub);padding:20px;border-top:1px solid var(--line);max-width:860px;margin:0 auto;}
+  @media (max-width:640px){ nav.toc ol{columns:1;} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="eyebrow">BBT4106 / BCM3103 · July 2025 Papers + CAT2 Groups A/B/C</div>
+  <h1>Exam Prep Answer Sheet — Priority Ranked</h1>
+  <div class="meta">Built from overlap across 5 past papers · answer the 3× items cold, then 2×, then 1×</div>
+</header>
+
+<nav class="toc">
+  <div class="toc-title">Contents (ranked by how often it appeared)</div>
+  <ol>
+    <li><a href="#p1">Roles: analyst/miner/BA/engineer/scientist (3×)</a></li>
+    <li><a href="#p2">CLV regression output interpretation (3×)</a></li>
+    <li><a href="#p3">SVM vs Random Forest — demand classification (3×)</a></li>
+    <li><a href="#p4">DAX vs M / Power Query (3×)</a></li>
+    <li><a href="#p5">Decision tree partitioning / CART distribution-free (3×)</a></li>
+    <li><a href="#p6">KDD 9 phases (2×, worth 10 marks)</a></li>
+    <li><a href="#p7">Bias / variance / irreducible error (2×)</a></li>
+    <li><a href="#p8">Random Forest vs single tree — loan default (2×)</a></li>
+    <li><a href="#p9">Kafka: topics, partitions, brokers, offsets (2×)</a></li>
+    <li><a href="#p10">Kafka Connect: connectors, transforms, converters (2×)</a></li>
+    <li><a href="#p11">Gini impurity calculation (2×)</a></li>
+    <li><a href="#p12">Residual plots (2×)</a></li>
+    <li><a href="#p13">EDA data types: nominal/ordinal/interval/ratio (2×)</a></li>
+    <li><a href="#p14">KPI attributes + 3 levels of indicators (2×)</a></li>
+    <li><a href="#p15">Preventing overfitting in non-parametric models (2×)</a></li>
+    <li><a href="#p17">Visualization: form follows function &amp; chart chooser (Module 3)</a></li>
+    <li><a href="#p18">Star schema data modelling in Power BI (Module 3)</a></li>
+    <li><a href="#p19">Hierarchies for drill-down / roll-up (Module 3)</a></li>
+    <li><a href="#p20">Filters, visuals &amp; tooltips in Power BI (Module 3)</a></li>
+    <li><a href="#p21">Publishing &amp; sharing a Power BI report/dashboard (Module 3)</a></li>
+    <li><a href="#p16">One-off topics (CDC/Debezium, ClickHouse, VIF, Scorecard, dashboards, logistic regression, stats tests, Power BI)</a></li>
+    <li><a href="#p22">⚠️ Bonus: Data Warehousing (Inmon/Kimball, ETL, OLAP/OLTP) — verify relevance first</a></li>
+    <li><a href="#p23">CAT1 (18 May 2026) — scenario-style Module 1/2 questions</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="p1">
+  <h2 class="sec-title">1. Distinguish: Data Analyst / Data Miner / Business Analyst / Data Engineer / Data Scientist</h2>
+  <span class="freq-banner freq-3">Appeared 3×</span>
+  <table>
+    <tr><th>Role</th><th>Focus</th></tr>
+    <tr><td>Data Miner</td><td>Discovers hidden patterns/correlations in large datasets using inductive reasoning, without a prior hypothesis. Output: models and patterns.</td></tr>
+    <tr><td>Data Analyst</td><td>Starts from a specific question/hypothesis (e.g. "why did sales drop?"). Extracts insights to support decisions. Uses SQL, Power BI, Excel. Output: reports, visualisations, recommendations.</td></tr>
+    <tr><td>Business Analyst</td><td>Improves business processes, operations, and strategy. Acts as liaison between stakeholders — interviews, gap analysis, requirement specification, process improvement (SOPs). Looks at people, processes, and systems, not just data.</td></tr>
+    <tr><td>Data Engineer</td><td>Builds and maintains the data infrastructure/pipelines (ETL/ELT, data warehouses/lakes) that the other roles depend on. Handles data selection, cleaning, and transformation stages of KDD.</td></tr>
+    <tr><td>Data Scientist</td><td>Interdisciplinary — combines statistics, ML, visualisation, NLP, and domain science to discover knowledge, primarily for scientific (not purely business) purposes. Data mining is a subset of data science.</td></tr>
+  </table>
+  <div class="note"><span class="label">1-line version if short on time:</span> Miner finds patterns → Analyst answers questions with data → Business Analyst turns insight into process/strategy → Engineer builds the pipes that carry the data → Scientist applies the broader scientific method across all of it.</div>
+</section>
+
+<section id="p2">
+  <h2 class="sec-title">2. CLV / Purchase Frequency Regression Output</h2>
+  <span class="freq-banner freq-3">Appeared 3× — identical numbers every time, memorize this exact answer</span>
+  <div class="card">
+    <pre class="code">              Estimate  Std.Error  t-value   p-value
+(Intercept)     52.25     0.90      57.79    <2e-16
+Purchase Freq.  19.54     0.17      114.91   <2e-16
+R² = 0.9637, Adjusted R² = 0.9636, F-statistic = 1.32e+04 (p < 0.001)</pre>
+  </div>
+  <ol>
+    <li><strong>Coefficient of Purchase Freq. (19.54):</strong> For every one-unit increase in purchase frequency, Customer Lifetime Value increases by an average of 19.54 units, holding other factors constant.</li>
+    <li><strong>R² (0.9637):</strong> About 96.37% of the variation in CLV is explained by Purchase Frequency — an extremely strong fit.</li>
+    <li><strong>p-value of the F-statistic (<0.001):</strong> The model as a whole is statistically significant — the relationship between Purchase Frequency and CLV is very unlikely to be due to chance.</li>
+    <li><strong>Intercept (52.25):</strong> The predicted CLV when Purchase Frequency is zero.</li>
+    <li><strong>Suitable for business decision-making?</strong> Yes — the coefficient is highly significant (p<2e-16), R² is very high, and the F-test confirms overall model significance, so it can reliably guide decisions (though one should still check assumptions like linearity and residual patterns, and that it's not overfit to one dataset).</li>
+  </ol>
+</section>
+
+<section id="p3">
+  <h2 class="sec-title">3. SVM vs Random Forest — Classifying "High Demand" vs "Low Demand"</h2>
+  <span class="freq-banner freq-3">Appeared 3× — identical wording every time</span>
+  <table>
+    <tr><th>Support Vector Machine (SVM)</th><th>Random Forest</th></tr>
+    <tr><td>Finds the optimal hyperplane (decision boundary) that maximises the margin between "High Demand" and "Low Demand" classes. Can use kernels (e.g. RBF) to handle non-linear boundaries.</td><td>Builds many decision trees on random subsets of data/features and combines their votes (ensemble/bagging) to classify each product.</td></tr>
+    <tr><td>Works well with high-dimensional data and clear margins, but the boundary is a mathematical hyperplane — hard to explain intuitively.</td><td>Each individual tree follows simple if-then splits (e.g. "if past sales > X and season = holiday → High Demand") which non-technical people can follow.</td></tr>
+  </table>
+  <p><strong>Which is easier to explain to managers?</strong> Random Forest — because it's built from decision trees with human-readable if-then rules and feature importance rankings, whereas SVM's hyperplane/kernel math is abstract and harder to translate into plain business language.</p>
+</section>
+
+<section id="p4">
+  <h2 class="sec-title">4. DAX vs M (Power Query) in Power BI</h2>
+  <span class="freq-banner freq-3">Appeared 3×</span>
+  <div class="term card">
+    <strong>DAX (Data Analysis Expressions):</strong> A formula language used to create <em>calculated columns, measures, and calculated tables</em> — it operates <em>after</em> data is loaded into the Power BI data model, performing calculations and aggregations at query/report time.
+  </div>
+  <div class="term card">
+    <strong>M (Power Query language):</strong> Used in Power Query Editor <em>before</em> data is loaded — for shaping/transforming/cleaning raw data (merging tables, removing columns, changing types, unpivoting, etc.) during the ETL stage.
+  </div>
+  <p><strong>Key difference:</strong> M transforms data on the way in (ETL); DAX calculates and analyses data that's already loaded into the model (reporting/analysis layer).</p>
+  <div class="card">
+    <strong>Example DAX measure:</strong><br>
+    <code class="inline">Total Sales = SUM(Sales[SalesAmount])</code><br><br>
+    This creates a measure that sums the SalesAmount column across whatever filter context is applied (e.g. by region, by month, by product) — it dynamically recalculates depending on how it's sliced in a visual.
+  </div>
+</section>
+
+<section id="p5">
+  <h2 class="sec-title">5. Decision Tree Partitioning &amp; CART as "Distribution-Free"</h2>
+  <span class="freq-banner freq-3">Appeared 3×</span>
+  <h3 class="q-title">Two items required to partition the input space</h3>
+  <ol>
+    <li><strong>A splitting attribute/feature</strong> — which input variable to split on at that node (chosen via a criterion like Gini impurity or information gain).</li>
+    <li><strong>A splitting value/threshold (split point)</strong> — the value of that attribute which divides observations into two (or more) branches, e.g. "Age < 30" vs "Age ≥ 30", or for categorical data, which category goes left vs right.</li>
+  </ol>
+  <h3 class="q-title">CART as a "distribution-free model"</h3>
+  <p>It means CART makes <strong>no assumptions about the underlying statistical distribution</strong> of the input data (unlike parametric models such as linear/logistic regression, which assume things like normality or linearity). CART is a <strong>non-parametric</strong> algorithm — it partitions the input space recursively based on the data itself, so it can model any shape of relationship without requiring the data to follow a specific distribution (e.g. Gaussian).</p>
+</section>
+
+<section id="p6">
+  <h2 class="sec-title">6. KDD — 9 Sequential Phases</h2>
+  <span class="freq-banner freq-2">Appeared 2× — worth 10 marks when asked, highest payoff per minute of memorization</span>
+  <ol>
+    <li><strong>Problem Definition &amp; Goal Setting</strong> — understand the problem, end-user requirements, and environment.</li>
+    <li><strong>Data Selection</strong> — discover accessible data, select relevant data, integrate into one dataset; ensure ethical collection and representative sampling.</li>
+    <li><strong>Data Cleansing &amp; Pre-Processing</strong> — remove outliers/noise, impute missing values (e.g. fix invalid postal codes, currency symbols).</li>
+    <li><strong>Data Transformation</strong> — scaling, centering, standardisation, normalisation, encoding (one-hot/label), dimensionality reduction.</li>
+    <li><strong>Selection of the Data Mining Task</strong> — decide to describe (associations/clusters), predict (classification/regression), or optimise/prescribe.</li>
+    <li><strong>Selection of the Data Mining Algorithm</strong> — bench-test several algorithms, shortlist top performers.</li>
+    <li><strong>Utilisation of the Algorithm</strong> — train the model; hyperparameter tuning, ensembling.</li>
+    <li><strong>Interpretation &amp; Evaluation</strong> — validated by domain experts (not the IT practitioner); if invalid, repeat from Step 2.</li>
+    <li><strong>Consolidation</strong> — operationalise the knowledge into an information system/production environment.</li>
+  </ol>
+  <div class="note"><span class="label">Memory trick:</span> "Problem → Select → Clean → Transform → Pick Task → Pick Algorithm → Use it → Judge it → Ship it."</div>
+</section>
+
+<section id="p7">
+  <h2 class="sec-title">7. Irreducible Error, Bias Error, Variance Error</h2>
+  <span class="freq-banner freq-2">Appeared 2×</span>
+  <table>
+    <tr><th>Type</th><th>Definition</th><th>Business example</th></tr>
+    <tr><td>Irreducible error</td><td>Error independent of the model/algorithm; caused by the problem framing itself (e.g. missing variables) — cannot be reduced no matter which algorithm is used.</td><td>A model predicting loan default can't account for a sudden personal emergency that isn't in any dataset.</td></tr>
+    <tr><td>Bias error</td><td>Error from simplifying assumptions the model makes; high in linear/parametric models. Leads to underfitting.</td><td>A linear regression assumes sales grow at a constant rate, missing seasonal spikes — systematically under/over-predicting.</td></tr>
+    <tr><td>Variance error</td><td>How much the model's estimate changes when the training data changes; high in complex/non-linear models. Leads to overfitting.</td><td>A deep decision tree trained on last month's data perfectly fits it, but performs poorly on next month's data because it memorised noise.</td></tr>
+  </table>
+  <p>Reducing bias tends to increase variance and vice versa — the goal is the balance point (found via cross-validation).</p>
+</section>
+
+<section id="p8">
+  <h2 class="sec-title">8. Random Forest vs Single Decision Tree (Loan Default)</h2>
+  <span class="freq-banner freq-2">Appeared 2×</span>
+  <p>A single decision tree can overfit the training data and is sensitive to small changes (high variance) — a slightly different sample of applicants could produce a very different tree. A <strong>Random Forest</strong> builds many trees on random subsets of data/features and averages/votes their predictions, which reduces variance and makes predictions more stable and accurate.</p>
+  <p><strong>Business benefit:</strong> More reliable, generalisable default predictions — reducing the risk of the bank approving bad loans or rejecting good customers based on one overfit tree's quirks (i.e. fewer costly misclassifications).</p>
+</section>
+
+<section id="p9">
+  <h2 class="sec-title">9. Kafka: Topics, Partitions, Brokers, Offsets, Leaders, Followers &amp; ISR</h2>
+  <span class="freq-banner freq-2">Appeared 2× — updated with exact course terminology from Module 2 notes</span>
+  <ul>
+    <li><strong>Topic</strong> — an append-only, immutable log (not a queue) holding one category/kind of event. Records are only ever added to the end, never inserted in the middle.</li>
+    <li><strong>Partition</strong> — a horizontal fragment of a topic's messages, letting the topic spread across multiple brokers in a cluster. This enables <strong>parallel</strong> read/write requests, improving throughput and scalability.</li>
+    <li><strong>Offset</strong> — a unique sequential ID given to each message within a partition. Consumers track which offset they've read up to, enabling them to resume, skip, or replay messages.</li>
+    <li><strong>Broker</strong> — a single Kafka server; many brokers form a Kafka cluster. A single well-resourced broker can store terabytes of messages and handle hundreds of thousands of reads/writes per second.</li>
+    <li><strong>Leader</strong> — every partition has exactly one broker acting as leader, which handles <em>all</em> reads and writes for that partition.</li>
+    <li><strong>Follower</strong> — replicates the leader's log to maintain a consistent copy, but does not serve read/write requests directly. If the leader fails, a follower is promoted to leader.</li>
+    <li><strong>ISR (In-Sync Replicas)</strong> — only followers that are sufficiently up-to-date with the leader are eligible for promotion. This guarantees consistency and prevents a "split-brain" scenario (two brokers both thinking they're the leader).</li>
+  </ul>
+  <div class="note"><span class="label">Broker/partition distribution rule:</span> N partitions with N brokers → 1 partition per broker. More brokers than partitions → extra brokers get none. Fewer brokers than partitions → some brokers hold multiple partitions (not recommended — causes uneven load).</div>
+  <p><strong>Why this gives scalability + fault tolerance:</strong> Partitions spread across brokers let Kafka process reads/writes in parallel (scalability); leader/follower replication with ISR means a broker failure doesn't lose data or availability (fault tolerance).</p>
+</section>
+
+<section id="p10">
+  <h2 class="sec-title">10. Kafka Connect: Connectors, Transforms, Converters</h2>
+  <span class="freq-banner freq-2">Appeared 2× (converters asked with 3 format examples in one paper) — updated with course-exact memory aid</span>
+  <p>Kafka Connect is a framework for scalable, fault-tolerant streaming integration between Kafka and external systems (databases, cloud services, search indexes, key-value stores). External systems act as <strong>sources</strong> (upstream — data flows into Kafka) or <strong>sinks</strong> (downstream — data flows out of Kafka).</p>
+  <ul>
+    <li><strong>Connector</strong> — the plugin (packaged as a JAR) that links Kafka to an external system; built by vendors (Confluent) or open-source (Debezium). <em>Connectors move data.</em></li>
+    <li><strong>Transform (SMT — Single Message Transform)</strong> — optional, lightweight per-record changes as data passes through (renaming a field, deleting PII, replacing N/A with NULL). <em>Transforms modify data.</em> This lightweight "t" is the lowercase t in <strong>EtLT</strong>.</li>
+    <li><strong>Converter</strong> — handles serialisation/deserialisation of data, independent of which connector is used. <em>Converters format data.</em> Common formats: <strong>JSONConverter</strong> (human-readable, larger payload), <strong>AvroConverter</strong> (compact binary, works with Schema Registry), <strong>ProtobufConverter</strong> (compact, strongly typed, by Google).</li>
+  </ul>
+  <div class="note"><span class="label">Memory aid (suitcase analogy):</span> Serialisation is like packing clothes into a suitcase before a flight — you can't carry clothes loose onto a plane, you pack them into a structured, portable format. On arrival, you unpack (deserialise).</div>
+  <div class="note"><span class="label">Trivial (SMT) vs non-trivial transforms:</span> SMTs handle each record independently with minimal memory (renaming, type conversion, PII removal) — no joins/aggregations/windowing. Non-trivial work (aggregations, joins, pattern detection, ML training) is stateful and compute-intensive, requiring a dedicated stream-processing layer like Apache Flink, Kafka Streams, ksqlDB, or Spark Structured Streaming — not something Kafka Connect itself does.</div>
+</section>
+
+<section id="p11">
+  <h2 class="sec-title">11. Gini Impurity Calculation</h2>
+  <span class="freq-banner freq-2">Appeared 2× — practice the formula itself</span>
+  <p><strong>Formula:</strong> <code class="inline">Gini = 1 − Σ(pᵢ)²</code>, where pᵢ is the proportion of each class within a group.</p>
+  <p><strong>Worked example</strong> (using the "Made Repeat Purchase" outcome, 10 rows, 5 Yes / 5 No):</p>
+  <p>For a feature like "Subscribed to Newsletter" — split the data into Yes-subscribers and No-subscribers, then compute the Gini impurity of the "Made Repeat Purchase" outcome <em>within each branch</em>, and take the weighted average across branches.</p>
+  <div class="card">
+    Steps to answer this type of question:
+    <ol>
+      <li>Split the dataset by the feature's values (e.g. Yes/No).</li>
+      <li>Within each split, count how many "Yes"/"No" outcomes there are for the target (Made Repeat Purchase).</li>
+      <li>Compute Gini for each branch: <code class="inline">1 − (p_yes² + p_no²)</code></li>
+      <li>Weight each branch's Gini by (branch size ÷ total size) and sum → that's the feature's overall Gini impurity.</li>
+      <li>Repeat for every feature; the feature with the <strong>lowest</strong> weighted Gini impurity is the best split (purest separation).</li>
+    </ol>
+  </div>
+  <div class="note"><span class="label">Sanity check:</span> Gini = 0 means a branch is perfectly pure (all one class); Gini = 0.5 means a 50/50 split (maximum impurity for 2 classes).</div>
+</section>
+
+<section id="p12">
+  <h2 class="sec-title">12. Diagnostic EDA — Residuals vs Fitted / Component+Residual Plots</h2>
+  <span class="freq-banner freq-2">Appeared 2× (2 different plot types, same logic) — updated with full Diagnostic EDA table from Module 2</span>
+  <p>These plots belong to <strong>Diagnostic EDA</strong> — done <em>after</em> a statistical test, to confirm its assumptions hold (otherwise the p-value can't be trusted). Full assumption table:</p>
+  <table>
+    <tr><th>Assumption</th><th>Test/Plot</th><th>Pass condition</th></tr>
+    <tr><td>Linearity (X→Y relationship)</td><td>Residuals vs Fitted plot</td><td>No pattern; residuals scattered randomly around the 0.0 line</td></tr>
+    <tr><td>Independence of errors</td><td>Durbin-Watson test (H₀: no autocorrelation)</td><td>DW statistic close to 2; p > 0.05 → fail to reject H₀ → pass</td></tr>
+    <tr><td>Normality of residuals</td><td>Q-Q plot (not relevant for logistic regression)</td><td>Points fall along the straight diagonal line</td></tr>
+    <tr><td>Homoscedasticity (equal variance)</td><td>Scale-Location plot + Breusch-Pagan test (H₀: homoscedastic)</td><td>Points randomly scattered, roughly horizontal fitted line; p ≥ 0.05 → pass</td></tr>
+    <tr><td>No multicollinearity</td><td>Variance Inflation Factor (VIF)</td><td>VIF near 1 = fine; above 5 = problematic</td></tr>
+    <tr><td>No influential outliers</td><td>Cook's Distance plot</td><td>No points with large bubble size at top/bottom-right of the plot</td></tr>
+  </table>
+  <p><strong>For a Residuals vs Fitted (or Component+Residual) plot specifically:</strong> Describe the pattern you see — a random, flat scatter around zero (no curve, no funnel/fan widening) signals the assumption passed; a visible curve or systematically widening/narrowing spread signals non-linearity or heteroscedasticity, meaning it has <strong>not</strong> passed. Judge the actual plot given in the question against this — don't just assume it passes.</p>
+</section>
+
+<section id="p13">
+  <h2 class="sec-title">13. EDA Data Types: Nominal, Ordinal, Interval, Ratio</h2>
+  <span class="freq-banner freq-2">Appeared 2× — updated with course's exact Dimensions vs Measures framing</span>
+  <p>Your course splits data into two groups first: <strong>Dimensions</strong> (categorical/qualitative data used to organise into groups — e.g. species, county, gender) and <strong>Measures</strong> (quantitative/numeric data you can do math on — e.g. revenue, quantity sold). This distinction determines which statistical test is appropriate — you can average "age" but not "religion".</p>
+  <table>
+    <tr><th>Type</th><th>Group</th><th>Definition</th><th>Example</th></tr>
+    <tr><td>Nominal</td><td>Dimension</td><td>Ordering of values has no intrinsic meaning</td><td>Counties in Kenya, gender, eye colour</td></tr>
+    <tr><td>Ordinal</td><td>Dimension</td><td>Ordering has intrinsic meaning — every value has its place</td><td>Education level (1st/2nd/3rd year), satisfaction ratings, credit ratings</td></tr>
+    <tr><td>Interval</td><td>Measure</td><td>Numeric, equal intervals, but <strong>can go below zero</strong> (zero is not "absence of")</td><td>Temperature in °C/°F</td></tr>
+    <tr><td>Ratio</td><td>Measure</td><td>Numeric, equal intervals, <strong>cannot go below zero</strong> — zero means true absence of the quantity</td><td>Age, height, sales, number of customers</td></tr>
+  </table>
+  <p>Measures are also either <strong>discrete</strong> (countable whole numbers) or <strong>continuous</strong> (infinitely divisible). Time series and spatial data are additional dimension types: time series pairs each value with a date/time (e.g. sales per quarter); spatial data uses coordinates/geometries (points, lines, polygons).</p>
+</section>
+
+<section id="p14">
+  <h2 class="sec-title">14. KPI Attributes &amp; The 3 Levels of KPI Indicators</h2>
+  <span class="freq-banner freq-2">Appeared 2×</span>
+  <table>
+    <tr><th>Attribute</th><th>Hypothetical example: "New Customer Growth"</th></tr>
+    <tr><td>Measure</td><td>Number of new customers acquired in the current financial year</td></tr>
+    <tr><td>Target</td><td>1,000 new customers by end of FY 2026</td></tr>
+    <tr><td>Source</td><td>CRM system</td></tr>
+    <tr><td>Responsible User</td><td>Customer Care / Sales Manager</td></tr>
+    <tr><td>Frequency</td><td>Monthly reporting</td></tr>
+  </table>
+  <p><strong>3 levels of KPI indicators:</strong></p>
+  <ul>
+    <li><strong>Raw numbers</strong> — a frequency/count over a period, e.g. "1,000 new customers this year."</li>
+    <li><strong>Progress</strong> — expressed as % complete toward a target, e.g. "72% of the way to the 1,000-customer goal."</li>
+    <li><strong>Change</strong> — a "before vs after" comparison telling a story, e.g. "22% increase in new customers vs. last year."</li>
+  </ul>
+</section>
+
+<section id="p15">
+  <h2 class="sec-title">15. Preventing Overfitting in Non-Parametric Algorithms</h2>
+  <span class="freq-banner freq-2">Appeared 2×</span>
+  <p><strong>Why it's a disadvantage:</strong> Non-parametric models (e.g. deep decision trees, kNN with small k) are highly flexible and can fit the training data so closely that they capture noise and outliers rather than the true underlying trend — this hurts generalisation to new/unseen data (high variance).</p>
+  <p><strong>Two prevention techniques:</strong></p>
+  <ul>
+    <li><strong>Cross-validation</strong> (e.g. k-fold) with a held-back validation/test set — detects overfitting by checking if performance holds on unseen folds.</li>
+    <li><strong>Regularisation / pruning</strong> — penalising model complexity (e.g. pruning a decision tree, limiting max depth, L1/L2 regularisation) to force the model to focus on broader trends rather than memorising every data point.</li>
+  </ul>
+</section>
+
+<section id="p17">
+  <h2 class="sec-title">17. Visualization: "Form Follows Function" &amp; the Chart Chooser</h2>
+  <span class="freq-banner freq-1">Module 3 — LO2</span>
+  <p><strong>Core principle:</strong> the chart type is chosen because of the message you need to convey, not for visual appeal. Always start by asking "what am I trying to show?" — then pick the chart that matches.</p>
+  <table>
+    <tr><th>Message</th><th>What it does</th><th>Chart types</th></tr>
+    <tr><td>Comparison</td><td>Sets one variable apart from another to show how they interact</td><td>Bar/column chart, line chart, multiple bar chart</td></tr>
+    <tr><td>Distribution</td><td>Shows how a collection of values is spread/correlates</td><td>Histogram (column or line), scatter chart</td></tr>
+    <tr><td>Composition</td><td>Shows parts that make up a whole</td><td>Pie chart (static), stacked bar chart, stacked area chart (over time), waterfall chart</td></tr>
+    <tr><td>Relationship</td><td>Shows correlation between two or more variables</td><td>Scatter chart (2 variables), bubble chart (3 variables)</td></tr>
+  </table>
+  <div class="note"><span class="label">Exam angle:</span> if given a business scenario, name the message type first ("this is a composition question because we want to show market share"), then justify the chart choice from that — don't just jump straight to naming a chart.</div>
+</section>
+
+<section id="p18">
+  <h2 class="sec-title">18. Star Schema Data Modelling in Power BI</h2>
+  <span class="freq-banner freq-1">Module 3 — supports LO2</span>
+  <p>A <strong>star schema</strong> has one central <strong>fact table</strong> (holding transactional/quantitative data — the measures, e.g. Sales Amount, Quantity Sold) connected to multiple surrounding <strong>dimension tables</strong> (holding descriptive/categorical context — e.g. Customer, Product, Date, Region). Visually it resembles a star: the fact table in the middle, dimension tables radiating outward, each linked by a key (e.g. CustomerID, ProductID).</p>
+  <p><strong>Why it matters in Power BI:</strong> this structure is what table relationships are built on — it lets a single visual pull a quantitative measure from the fact table and slice/filter it by any dimension (e.g. "Total Sales by Region by Month") without duplicating data. It also keeps the model fast, since Power BI's engine is optimised for star-schema-shaped relationships (one-to-many from dimension → fact).</p>
+  <div class="note"><span class="label">Snowflake schema (if it comes up):</span> a variation where dimension tables are further normalised into sub-dimension tables, trading some redundancy-reduction for more complex joins and often slower query performance versus a plain star schema.</div>
+</section>
+
+<section id="p19">
+  <h2 class="sec-title">19. Hierarchies for Drill-Down &amp; Roll-Up</h2>
+  <span class="freq-banner freq-1">Module 3 — supports LO2</span>
+  <p>A <strong>hierarchy</strong> groups related fields into levels of increasing or decreasing granularity, letting a user interact with the same visual at different levels of detail without switching charts.</p>
+  <ul>
+    <li><strong>Drill-down</strong> — moving from a general level to a more detailed one, e.g. clicking from Year → Quarter → Month → Day, or Country → Region → City.</li>
+    <li><strong>Roll-up</strong> — the reverse: aggregating detailed data back up to a summary level, e.g. Day → Month → Year.</li>
+  </ul>
+  <p><strong>Business value:</strong> one visual can serve both an executive who wants the yearly trend and an operations manager who wants the daily breakdown, without building separate dashboards — directly supporting the "customer-facing vs business-facing" distinction in LO2.</p>
+</section>
+
+<section id="p20">
+  <h2 class="sec-title">20. Filters, Visuals &amp; Tooltips in Power BI</h2>
+  <span class="freq-banner freq-1">Module 3 — supports LO2</span>
+  <ul>
+    <li><strong>Filters</strong> — narrow down what data is shown, at three scopes: <strong>visual-level</strong> (affects only one chart), <strong>page-level</strong> (affects everything on the current report page), and <strong>report-level</strong> (affects the entire report across all pages).</li>
+    <li><strong>Visuals</strong> — the charts/tables/cards themselves; each is bound to fields from the data model (dimensions on axes/legends, measures as values).</li>
+    <li><strong>Tooltips</strong> — contextual detail that appears on hover, letting you add extra information (e.g. exact values, a mini chart) without cluttering the main visual — directly supports the "minimise clutter" dashboard design principle.</li>
+  </ul>
+</section>
+
+<section id="p21">
+  <h2 class="sec-title">21. Publishing &amp; Sharing a Power BI Report and Dashboard</h2>
+  <span class="freq-banner freq-1">Module 3 — supports LO2</span>
+  <ol>
+    <li>Build and finalise the report in <strong>Power BI Desktop</strong> (data loaded via Power Query, model built with relationships, visuals added).</li>
+    <li>Click <strong>Publish</strong> (Home ribbon) and sign in to your Power BI account.</li>
+    <li>Choose a destination <strong>workspace</strong> in the <strong>Power BI Service</strong> (the cloud/web platform) to publish to.</li>
+    <li>Once published, open the report in the Power BI Service — you can now <strong>pin individual visuals</strong> from the report to a new or existing <strong>dashboard</strong> (a dashboard is a single-page collection of pinned visuals, possibly from multiple reports).</li>
+    <li><strong>Share</strong> the report or dashboard with others — via a direct share (granting specific people access), publishing to a wider audience via an <strong>app</strong>, or embedding it elsewhere. Access can be controlled through workspace roles/permissions.</li>
+  </ol>
+  <div class="note"><span class="label">Report vs Dashboard — a common exam distinction:</span> a <strong>report</strong> is multi-page, interactive, and built in Desktop (or the Service); a <strong>dashboard</strong> is a single-page, high-level summary built only in the Service by pinning visuals from one or more reports — good for the "customer-facing" quick-glance use case.</div>
+</section>
+
+<section id="p16">
+  <h2 class="sec-title">16. One-Off Topics (each appeared once — know the core idea, don't over-invest time)</h2>
+  <span class="freq-banner freq-1">Appeared 1× each</span>
+
+  <h3 class="q-title">Change Data Capture (CDC) + Debezium</h3>
+  <span class="freq-banner freq-1">Updated with precise Module 2 detail</span>
+  <p><strong>CDC</strong> lets you extract every INSERT, UPDATE, and DELETE from a database into a real-time stream of events, instead of waiting to batch-load data hours later — supporting "as close to real-time as possible" analytics for a 24-7 economy.</p>
+  <p><strong>Debezium</strong> is a set of distributed, Kafka Connect–compatible source connectors. It reads the database's own transaction log (e.g. PostgreSQL's WAL, MySQL's binlog) directly — not the application — detects row-level changes, and emits each one as a Kafka event containing the "before" and "after" state, in the exact order the changes occurred. Downstream Kafka consumers then read these events and react in real-time.</p>
+
+  <h3 class="q-title">ClickHouse — Column-Oriented Data Warehouse Architecture</h3>
+  <span class="freq-banner freq-1">Updated with precise Module 2 detail</span>
+  <p>ClickHouse is an open-source, distributed, column-oriented OLAP database (built by Yandex, 2009; used by Uber, Spotify, Cloudflare, GitLab and others), claimed to be up to 100× faster than MySQL for analytical workloads.</p>
+  <p><strong>Row-oriented vs column-oriented:</strong> row-oriented databases (PostgreSQL, MySQL — good for OLTP/CRUD) store all columns of a row together, so a query like <code class="inline">SELECT AVG(age) FROM emp</code> still reads every column of every row. Column-oriented ClickHouse stores each column separately, so that same query reads <em>only</em> the age column — minimising I/O. Same-type values stored together also compress far better.</p>
+  <p><strong>Architecture:</strong> a ClickHouse cluster is made of <strong>shards</strong> (each a group of replicas), using <strong>asynchronous multi-master replication</strong> — data can be written to any available replica and is then propagated to the rest. ZooKeeper coordinates cluster processes but is not involved in actual query execution. This lets ClickHouse generate reports from petabytes of data with sub-second latency.</p>
+
+  <h3 class="q-title">Multicollinearity &amp; VIF</h3>
+  <p><strong>Multicollinearity</strong> = when two or more predictor variables in a regression are highly correlated with each other. <strong>VIF (Variance Inflation Factor)</strong> values above ~10 (some use 5) indicate serious multicollinearity — e.g. YouTube (82.14), TikTok (47.31), Facebook (103.47) are all severely collinear. <strong>Problem:</strong> it becomes impossible to isolate each predictor's individual effect on the outcome — coefficients become unstable and hard to interpret. <strong>Fix:</strong> remove/combine correlated predictors, or use regularisation (e.g. Ridge regression), or use Principal Component Analysis (PCA).</p>
+
+  <h3 class="q-title">Kaplan &amp; Norton's Balanced Scorecard</h3>
+  <p>Four perspectives, top-down from Mission/Vision → Strategic Objectives → KPIs:</p>
+  <ul>
+    <li><strong>Financial</strong> ("How do we look to shareholders?") — e.g. revenue growth %</li>
+    <li><strong>Customer</strong> ("How do customers see us?") — e.g. Net Promoter Score</li>
+    <li><strong>Internal Business Processes</strong> ("What must we excel at?") — e.g. order fulfilment time</li>
+    <li><strong>Innovation &amp; Learning</strong> ("Can we improve and create value?") — e.g. employee training hours</li>
+  </ul>
+  <p><strong>Leading vs lagging indicators:</strong> A leading indicator predicts future performance (e.g. employee satisfaction → predicts future customer satisfaction); a lagging indicator records past performance only (e.g. last quarter's sales increase). A good dashboard needs both.</p>
+
+  <h3 class="q-title">Five Dashboard Design Principles</h3>
+  <ol>
+    <li><strong>Compactness/Modularity</strong> — fits in the viewer's mind, broken into digestible pieces — avoids cognitive overload.</li>
+    <li><strong>Gradual Reveal</strong> — key metrics first, then context, then detail — prevents overwhelming the audience.</li>
+    <li><strong>Guided Attention</strong> — colour/position/alerts draw the eye to what matters most — ensures critical info isn't missed.</li>
+    <li><strong>Minimise clutter (data-to-ink ratio)</strong> — remove decorative elements, avoid unnecessary 3D/gridlines — speeds up comprehension.</li>
+    <li><strong>Lead to Action</strong> — the dashboard should make clear what to do next — turns information into decisions.</li>
+  </ol>
+
+  <h3 class="q-title">Logistic Regression — Odds Ratio Interpretation</h3>
+  <p>An odds ratio (OR) > 1 means the predictor increases the odds of the outcome; OR < 1 means it decreases the odds. E.g. Support Calls OR = 2.01 → each additional support call more than doubles the odds of renewal (holding other variables constant). Monthly Fee coefficient is negative because higher fees make renewal <em>less</em> likely (OR = 0.96, i.e. odds decrease slightly per unit increase in fee). % change in odds = (OR − 1) × 100 — e.g. Customer Age OR = 1.03 → a 3% increase in odds of renewal per year of age. AUC of 0.72 indicates modest-to-acceptable discriminative ability (better than random guessing at 0.5, but not excellent — usually 0.7–0.8 is considered acceptable). One limitation of logistic regression: it assumes a linear relationship between predictors and the log-odds of the outcome, and struggles to capture complex non-linear relationships without manual feature engineering.</p>
+
+  <h3 class="q-title">Statistical Tests: Regression vs Comparison vs Correlation</h3>
+  <span class="freq-banner freq-1">Updated with exact test lists from Module 2</span>
+  <table>
+    <tr><th>Category</th><th>Question it answers</th><th>Example tests</th></tr>
+    <tr><td>Regression (X → Y)</td><td>How does X affect Y?</td><td>Simple/multiple linear regression, logistic regression, Poisson regression, ordinal regression, Cox regression</td></tr>
+    <tr><td>Comparison (A vs B vs C)</td><td>Is there a difference between groups?</td><td>t-Test, ANOVA, Kruskal-Wallis H test, Wilcoxon signed-rank/rank-sum (Mann-Whitney U)</td></tr>
+    <tr><td>Correlation (A vs B)</td><td>Is there a relationship? (not causation)</td><td>Pearson's r, Spearman's rank correlation (ρ), Kendall's Tau (τ), Chi-square test of independence</td></tr>
+  </table>
+
+  <h3 class="q-title">Power BI: Table Relationships &amp; Creating a Bar Chart</h3>
+  <p><strong>Relationships</strong> connect tables (e.g. a Sales table to a Products table) via a common key/column, enabling data from multiple tables to be combined in one visual without duplicating data — created in the Model view by dragging one table's key field onto the matching field in another table.</p>
+  <p><strong>Bar chart steps:</strong> (1) Load and clean data via Power Query, (2) go to Report view, (3) select the Bar Chart visual from the Visualizations pane, (4) drag a categorical field (e.g. Region) to the Axis and a numeric field (e.g. Sales) to Values, (5) Power BI aggregates the numeric field (usually Sum) per category, (6) interpret by comparing bar lengths across categories to spot the highest/lowest performers.</p>
+
+  <h3 class="q-title">Quick Measures vs DAX</h3>
+  <p><strong>Quick Measures</strong> are pre-built calculation templates in Power BI's UI (e.g. running total, % of total) that generate DAX automatically without you writing it. Use them for common calculations to save time and reduce errors. <strong>Limitation:</strong> less flexible/customisable than hand-written DAX, and can produce more complex/less optimised code than an experienced author would write by hand.</p>
+
+  <h3 class="q-title">Four Stages of the Data Pipeline: Ingest, Store, Process, Consume</h3>
+  <ul>
+    <li><strong>Ingest</strong> — collecting raw data from sources (APIs, sensors, transactional systems) into the pipeline.</li>
+    <li><strong>Store</strong> — persisting the data in a data warehouse, lake, or mart for durability and later access.</li>
+    <li><strong>Process</strong> — cleaning, transforming, and/or modelling the data (ETL/ELT, feature engineering).</li>
+    <li><strong>Consume</strong> — the processed data is used via dashboards, reports, APIs, or ML models to drive decisions.</li>
+  </ul>
+</section>
+
+<section id="p22">
+  <h2 class="sec-title">22. ⚠️ Bonus: Data Warehousing Fundamentals (from a BBT4105 paper — verify this is on YOUR syllabus before relying on it)</h2>
+  <span class="freq-banner freq-1">Not confirmed in your BBT4106 course outline's Module-Topic matrix — check with a classmate first</span>
+
+  <h3 class="q-title">Information vs Knowledge</h3>
+  <p><strong>Information</strong> is data that has been processed/organised to be meaningful (e.g. "sales rose 12% in Q3"). <strong>Knowledge</strong> is information combined with experience, context, and judgement that enables action/decision-making (e.g. understanding <em>why</em> sales rose and what to do next). This mirrors the DIKAR chain: Data → Information → Knowledge → Action → Results.</p>
+
+  <h3 class="q-title">Inmon's Four Characteristics of a Data Warehouse</h3>
+  <ul>
+    <li><strong>Subject-oriented</strong> — organised around key business subjects (customers, sales, products) rather than individual applications.</li>
+    <li><strong>Integrated</strong> — data from multiple, inconsistent source systems is made consistent (naming, units, formats).</li>
+    <li><strong>Time-variant</strong> — data is stored with a time dimension, showing how values change over time (unlike operational systems which show only the current state).</li>
+    <li><strong>Non-volatile</strong> — once loaded, data is not updated/deleted, only appended to — providing a stable historical record.</li>
+  </ul>
+
+  <h3 class="q-title">Inmon's ICIF vs Kimball's Business Dimensional Lifecycle</h3>
+  <table>
+    <tr><th></th><th>Inmon (Corporate Information Factory)</th><th>Kimball (Business Dimensional Lifecycle)</th></tr>
+    <tr><td>Approach</td><td>Top-down: build one centralised, normalised enterprise data warehouse first, then derive department-specific data marts from it</td><td>Bottom-up: build individual, dimensionally-modelled (star schema) data marts per business process first, later conformed into an enterprise view</td></tr>
+    <tr><td>Speed to value</td><td>Slower initial delivery, but more consistent enterprise-wide data</td><td>Faster initial delivery per department, risk of inconsistency across marts if not well governed</td></tr>
+    <tr><td>Data structure</td><td>Normalised (3NF) at the core</td><td>Denormalised, dimensional (star schema) throughout</td></tr>
+  </table>
+
+  <h3 class="q-title">Data Granularity</h3>
+  <p>Granularity refers to the level of detail/summarisation of data stored — fine granularity (e.g. individual transaction rows) supports flexible, detailed analysis but requires more storage; coarse granularity (e.g. daily totals) is more compact but limits analysis. Data warehouses typically store finer granularity than a manager would query directly, allowing roll-up to any needed level — unlike operational systems, which store only current, transaction-level data with no historical granularity choice.</p>
+
+  <h3 class="q-title">ETL — Extract, Transform, Load</h3>
+  <ul>
+    <li><strong>Extract</strong> — pulling data from multiple heterogeneous sources (relational databases, CSV files, APIs). Challenges: differing formats/schemas, connectivity/authentication issues, rate limits. Solutions: standardised connectors/ingestion tools, staging areas, scheduled/incremental extraction.</li>
+    <li><strong>Transform</strong> — cleaning and reshaping data. Common issues: different date formats (standardise to one format, e.g. ISO 8601), missing product IDs (impute/flag/exclude depending on business rule), inconsistent currency formats (convert to one base currency with a documented exchange rate/date).</li>
+    <li><strong>Load</strong> — writing transformed data into the warehouse. <strong>Full reload</strong> replaces the entire dataset each run (simpler, but slow/wasteful for large data). <strong>Incremental loading</strong> only loads new/changed records (faster, more efficient) — generally recommended for large, frequently-updated sources like global sales data, using a change-tracking mechanism (timestamps or CDC).</li>
+  </ul>
+
+  <h3 class="q-title">OLAP vs OLTP</h3>
+  <table>
+    <tr><th>Aspect</th><th>OLTP (Online Transaction Processing)</th><th>OLAP (Online Analytical Processing)</th></tr>
+    <tr><td>Purpose</td><td>Day-to-day operational transactions (e.g. processing an order)</td><td>Analysis, reporting, decision support</td></tr>
+    <tr><td>Data structure</td><td>Highly normalised, row-oriented</td><td>Denormalised/dimensional, often column-oriented</td></tr>
+    <tr><td>Query type</td><td>Simple, fast reads/writes on few rows</td><td>Complex aggregations across millions of rows</td></tr>
+    <tr><td>Example</td><td>A bank's ATM transaction system</td><td>A sales data warehouse used for quarterly trend analysis</td></tr>
+  </table>
+
+  <h3 class="q-title">Facts, Measures &amp; Hierarchies</h3>
+  <ul>
+    <li><strong>Facts</strong> — the quantitative, measurable business events stored in a fact table (e.g. a sales transaction row).</li>
+    <li><strong>Measures</strong> — the specific numeric values within a fact that can be aggregated (e.g. Sales Amount, Quantity Sold, Profit).</li>
+    <li><strong>Hierarchies</strong> — ordered levels within a dimension that support drill-down/roll-up (e.g. Year → Quarter → Month; Country → Region → City).</li>
+  </ul>
+
+  <h3 class="q-title">Star Schema vs Snowflake Schema</h3>
+  <table>
+    <tr><th></th><th>Star Schema</th><th>Snowflake Schema</th></tr>
+    <tr><td>Structure</td><td>Fact table directly connected to flat, denormalised dimension tables</td><td>Dimension tables further split/normalised into sub-dimensions</td></tr>
+    <tr><td>Advantage</td><td>Simpler joins, faster query performance</td><td>Less data redundancy, saves storage space</td></tr>
+    <tr><td>Disadvantage</td><td>Some data redundancy in dimension tables</td><td>More complex joins, can be slower to query</td></tr>
+  </table>
+
+  <h3 class="q-title">Classification, Clustering &amp; Association Rule Mining (business scenarios)</h3>
+  <p><strong>Classification</strong> — predicts a predefined category/label for new data based on patterns learned from labelled historical data. For a loyalty-program response prediction: train a model (e.g. decision tree, logistic regression) on past customers labelled "Responded"/"Did Not Respond", using features like purchase frequency (indicates engagement level) and past promotional response history (a direct behavioural signal) to predict new customers' likely response.</p>
+  <p><strong>Clustering</strong> — groups customers with similar characteristics (spending habits, frequency, product preferences) without predefined labels, revealing natural segments (e.g. "frequent low-spenders", "occasional high-spenders") that marketing can target with tailored campaigns instead of one-size-fits-all messaging.</p>
+  <p><strong>Association rule mining</strong> — discovers "if X then Y" relationships between items frequently purchased together (e.g. "customers who buy bread also buy butter 70% of the time" — market basket analysis). Businesses use this to optimise product placement (placing associated items near each other) or cross-sell/bundle recommendations.</p>
+
+  <h3 class="q-title">Metadata in a Data Warehouse</h3>
+  <p>Metadata is "data about data" — describing the source, structure, meaning, transformations, and lineage of the data stored in the warehouse (e.g. where a field came from, when it was last updated, what unit it's measured in). <strong>Two reasons it matters:</strong> (1) it enables data lineage/traceability, letting analysts trust and audit where numbers came from; (2) it helps users correctly interpret and locate the data they need without having to reverse-engineer the schema themselves.</p>
+
+  <h3 class="q-title">Five Attributes for Identifying Dashboard KPIs</h3>
+  <p>Beyond the Measure/Target/Source/Responsible User/Frequency set already in your notes, a KPI should also be evaluated for: <strong>relevance</strong> (tied directly to a strategic objective), <strong>measurability</strong> (quantifiable with reliable data), <strong>actionability</strong> (the audience can actually do something in response), <strong>timeliness</strong> (available frequently enough to act on), and <strong>clarity</strong> (unambiguous to its intended audience).</p>
+
+  <h3 class="q-title">Data-to-Ink Ratio</h3>
+  <p>Coined by Edward Tufte — the proportion of a chart's "ink" (visual elements) that actually represents data, versus decorative elements (heavy gridlines, 3D effects, unnecessary borders/backgrounds). It should be optimised (maximised) by removing non-essential visual elements, because excess "chart junk" distracts from the data itself, slows comprehension, and can visually mislead.</p>
+
+  <h3 class="q-title">Critiquing a Random Grid Dashboard Layout</h3>
+  <p><strong>Three problems with a random layout:</strong> (1) no visual hierarchy — the most important KPI doesn't stand out, forcing the viewer to hunt for it; (2) unrelated charts placed near each other break logical grouping, making it harder to follow a narrative; (3) inconsistent sizing/alignment increases cognitive load and looks unprofessional/untrustworthy. <strong>Two improvements:</strong> group related visuals together (e.g. all revenue metrics in one zone) and size/position the most critical KPI prominently (e.g. top-left, since that's where eyes land first in left-to-right reading patterns).</p>
+</section>
+
+<section id="p23">
+  <h2 class="sec-title">23. CAT1 — 18th May 2026 (Actual Sat Paper, Correct Unit Code)</h2>
+  <span class="freq-banner freq-3">Confirmed BBT4106 — scenario-style versions of core Module 1/2 concepts, likely to recur reworded</span>
+  <p>This CAT wraps familiar concepts in business scenarios rather than asking for definitions directly — expect the real exam to do the same. Practice re-explaining each core concept "as applied to a scenario," not just as a definition.</p>
+
+  <h3 class="q-title">(a) Kenya Data Protection Act 2019 — data minimisation before loading to a warehouse</h3>
+  <p>The Act requires data to be collected/processed only for a specified, lawful purpose and limited to what's necessary (<strong>data minimisation</strong>). Since a fraud model only needs transaction amounts and timestamps, the ETL <strong>Transform</strong> step should strip names, phone numbers, and national ID numbers (PII) before loading — dropping them, or pseudonymising a customer key if some linkage is still needed. This is why <strong>EtLT</strong> (not plain ELT) applies: a lightweight transform removes PII right after extraction, before raw sensitive data ever lands in the warehouse.</p>
+
+  <h3 class="q-title">(b) DevOps practices for a sales dashboard's ETL/SQL/ML pipeline</h3>
+  <p>Maps the Plan→Develop→Test→Deploy→Release→Operate→Monitor loop onto this data product: <strong>CI/CD</strong> integrates and tests every pipeline/SQL/model change in hours, catching breakage before production; <strong>environment management</strong> mirrors production for safe testing; <strong>automated data testing</strong> validates data quality and model output continuously; <strong>version control (Git)</strong> tracks every pipeline change with full history; <strong>monitoring</strong> catches silent breakage (e.g. an upstream schema change quietly corrupting dashboard numbers) before a bad decision is made from bad data.</p>
+
+  <h3 class="q-title">(c) Kafka scalability &amp; fault tolerance (topics/partitions/brokers/offsets/leaders/followers)</h3>
+  <p>See Section 9 for the full answer — partitions spread across brokers enable parallel throughput (scalability); leader/follower replication with promotion-on-failure gives fault tolerance; offsets let consumers track and resume their read position.</p>
+
+  <h3 class="q-title">(d) Kafka Connect: connectors, transforms, converters — DB → Kafka → warehouse</h3>
+  <p>A <strong>source connector</strong> pulls change records from the database into Kafka; a <strong>sink connector</strong> later pushes processed records into the warehouse. <strong>Transforms (SMTs)</strong> apply lightweight per-record edits in transit (renaming/dropping fields). <strong>Converters</strong> serialise/deserialise each record (JSON/Avro/Protobuf) so producer and consumer agree on format at each end of the pipeline.</p>
+
+  <h3 class="q-title">(e) CDC + Debezium for real-time order updates</h3>
+  <p><strong>CDC</strong> captures every INSERT/UPDATE/DELETE as it happens instead of batch-extracting later. <strong>Debezium</strong>, a Kafka Connect source connector, reads the database's own transaction log directly (not the application), emitting each change as a Kafka event with before/after state, in order. Downstream consumers (the analytics dashboard) subscribe and update near-instantly — achieving "appear immediately" without repeatedly polling the database.</p>
+
+  <h3 class="q-title">(f) ClickHouse for billions of sales records in seconds</h3>
+  <p>As a <strong>column-oriented</strong> store, ClickHouse reads only the columns a query needs (e.g. product, amount, date) instead of every column of every row, and same-type column data compresses far better. Its distributed architecture spreads data across <strong>shards</strong> with <strong>asynchronous multi-master replication</strong>, letting queries execute in parallel across nodes/cores — this combination is what delivers sub-second aggregation over billions of rows.</p>
+
+  <div class="note"><span class="label">Pattern to notice:</span> every question here took a Module 1/2 concept you already know and wrapped it in a named business (a bank, a retailer, an online store). When you see a scenario in the real exam, first identify which core concept it's actually testing, then answer with the concept's mechanics <em>applied to that scenario's specific numbers/entities</em> — don't just recite the definition in the abstract.</div>
+</section>
+
+</main>
+
+<footer class="page-footer">
+  Compiled from: BBT4106 &amp; BCM3103 July 2025 finals, and BBT4106 CAT2 Groups A/B/C · Strathmore University
+</footer>
+
+</body>
+</html>
