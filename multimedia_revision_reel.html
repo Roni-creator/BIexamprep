@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Multimedia Applications — Revision Reel</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg:#152125;
+  --bg-panel:#1D2E33;
+  --bg-panel-hi:#233A40;
+  --rule:rgba(237,230,214,0.12);
+  --text:#EDE6D6;
+  --text-dim:#9FB3B0;
+  --amber:#D9A441;
+  --cyan:#5FA8A0;
+  --rose:#C97064;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  line-height:1.55;
+}
+::selection{background:var(--amber);color:#17242A;}
+
+/* ---------- HEADER ---------- */
+header{
+  padding:56px 24px 32px;
+  max-width:960px;
+  margin:0 auto;
+  border-bottom:1px solid var(--rule);
+}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  margin-bottom:14px;
+}
+h1{
+  font-family:'Fraunces',serif;
+  font-optical-sizing:auto;
+  font-weight:700;
+  font-size:clamp(32px,5vw,52px);
+  margin:0 0 10px;
+  letter-spacing:-0.01em;
+}
+.sub{
+  color:var(--text-dim);
+  font-size:15px;
+  max-width:640px;
+}
+.examnote{
+  margin-top:20px;
+  padding:14px 16px;
+  background:var(--bg-panel);
+  border-left:3px solid var(--amber);
+  font-size:13.5px;
+  color:var(--text-dim);
+  border-radius:0 4px 4px 0;
+}
+.examnote b{color:var(--text);}
+
+/* ---------- TIMELINE SCRUBBER ---------- */
+.scrubber-wrap{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(21,33,37,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+  padding:10px 24px 14px;
+}
+.scrubber-inner{max-width:960px;margin:0 auto;}
+.scrub-readout{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--text-dim);
+  margin-bottom:8px;
+}
+#scrub-label{color:var(--amber);font-weight:500;}
+.track{
+  position:relative;
+  height:6px;
+  background:var(--bg-panel-hi);
+  border-radius:3px;
+  overflow:visible;
+}
+#playhead-fill{
+  position:absolute;left:0;top:0;height:100%;
+  background:linear-gradient(90deg,var(--cyan),var(--amber));
+  border-radius:3px;
+  width:0%;
+  transition:width .25s ease;
+}
+.ticks{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  margin-top:6px;
+}
+.tick{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9.5px;
+  color:var(--text-dim);
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:6px 2px 0;
+  text-align:center;
+  flex:1;
+  border-top:2px solid var(--bg-panel-hi);
+  transition:color .2s, border-color .2s;
+}
+.tick:hover{color:var(--text);}
+.tick.active{color:var(--amber);border-top-color:var(--amber);}
+
+/* ---------- MAIN ---------- */
+main{max-width:960px;margin:0 auto;padding:24px 24px 100px;}
+
+.section{
+  border:1px solid var(--rule);
+  border-radius:8px;
+  margin-bottom:16px;
+  background:var(--bg-panel);
+  overflow:hidden;
+  scroll-margin-top:110px;
+}
+.section-head{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:18px 20px;
+  cursor:pointer;
+  user-select:none;
+}
+.timecode{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:var(--cyan);
+  white-space:nowrap;
+  min-width:96px;
+}
+.section-title{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:20px;
+  flex:1;
+}
+.qtags{display:flex;gap:6px;flex-wrap:wrap;}
+.qtag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;
+  color:var(--amber);
+  border:1px solid rgba(217,164,65,0.4);
+  padding:2px 7px;
+  border-radius:10px;
+  white-space:nowrap;
+}
+.chevron{
+  color:var(--text-dim);
+  transition:transform .25s ease;
+  font-size:14px;
+}
+.section.open .chevron{transform:rotate(90deg);}
+.section-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+  padding:0 20px;
+}
+.section.open .section-body{padding:0 20px 22px;}
+.section-body-inner{padding-top:2px;}
+
+h3.h{
+  font-family:'Fraunces',serif;
+  font-size:15px;
+  font-weight:600;
+  color:var(--cyan);
+  margin:20px 0 8px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+h3.h:first-child{margin-top:4px;}
+p{margin:0 0 10px;color:var(--text);font-size:14.5px;}
+p.def{
+  border-left:3px solid var(--amber);
+  padding:10px 14px;
+  background:rgba(217,164,65,0.06);
+  border-radius:0 4px 4px 0;
+  font-size:14.5px;
+}
+ul{margin:0 0 10px;padding-left:20px;}
+li{margin-bottom:5px;font-size:14.5px;}
+strong{color:var(--amber);font-weight:600;}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:10px 0 16px;
+  font-size:13.5px;
+}
+th,td{
+  text-align:left;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule);
+}
+th{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:var(--text-dim);
+  font-weight:500;
+}
+tr:last-child td{border-bottom:none;}
+
+.formula{
+  font-family:'IBM Plex Mono',monospace;
+  background:var(--bg-panel-hi);
+  padding:10px 14px;
+  border-radius:4px;
+  font-size:14px;
+  color:var(--amber);
+  margin:8px 0;
+  display:inline-block;
+}
+
+/* sample question / clapperboard */
+.slate{
+  background:var(--bg-panel-hi);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:16px 18px;
+  margin:14px 0;
+}
+.slate-head{
+  display:flex;
+  justify-content:space-between;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--rose);
+  margin-bottom:10px;
+  border-bottom:1px dashed rgba(201,112,100,0.4);
+  padding-bottom:8px;
+}
+.slate p{margin-bottom:8px;}
+.slate .ans-label{color:var(--cyan);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;}
+
+footer{
+  text-align:center;
+  color:var(--text-dim);
+  font-size:12.5px;
+  padding:30px 24px 60px;
+  font-family:'IBM Plex Mono',monospace;
+}
+
+@media(max-width:640px){
+  .ticks{overflow-x:auto;}
+  .tick{font-size:8.5px;}
+  .section-title{font-size:17px;}
+  .timecode{min-width:70px;font-size:10.5px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">BBIT · Multimedia Applications — CAT Revision</div>
+  <h1>The Revision Reel</h1>
+  <p class="sub">Every topic from your course, cut together in sequence — scrub through the timeline or open each reel below. Built from your exam guide and study notes.</p>
+  <div class="examnote">
+    <b>Exam mapping:</b> Q1 covers all topics · Q2 = Text + Image · Q3 = Video/Animation + Compression · Q4 = Sound · Q5 = Trends + MDLC
+  </div>
+</header>
+
+<div class="scrubber-wrap">
+  <div class="scrubber-inner">
+    <div class="scrub-readout">
+      <span>NOW PLAYING</span>
+      <span id="scrub-label">00:00:00:00 — Intro</span>
+    </div>
+    <div class="track"><div id="playhead-fill"></div></div>
+    <div class="ticks" id="ticks"></div>
+  </div>
+</div>
+
+<main id="main">
+
+  <div class="section" data-tc="00:00:00:00" data-label="Intro">
+    <div class="section-head" onclick="toggleSection(this)">
+      <span class="timecode">00:00:00:00</span>
+      <span class="section-title">Intro to Multimedia</span>
+      <span class="qtags"><span class="qtag">Q1</span></span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+      <p class="def">Multimedia is the integration of multiple media elements — text, audio, images, video, and animation — delivered through computer systems using hardware and software to create, store, and present information.</p>
+      <p><strong>Minoli & Keinath:</strong> multimedia is an interdisciplinary, application-oriented technology that leverages the multi-sensory nature of humans.</p>
+      <ul>
+        <li><strong>Interdisciplinary</strong> — combines graphic design, computer science, audio/video production</li>
+        <li><strong>Application-oriented</strong> — applied in real-world contexts</li>
+        <li><strong>Multi-sensory</strong> — sight→images, hearing→audio, touch→haptics, smell/taste→emotion &amp; memory (indirect)</li>
+      </ul>
+      <h3 class="h">Goals</h3>
+      <ul><li>Improve communication efficiency · Enhance understanding · Interactive learning · Engage multiple senses · User-friendly delivery</li></ul>
+      <h3 class="h">Historical Evolution</h3>
+      <table>
+        <tr><th>Era</th><th>Developments</th></tr>
+        <tr><td>Pre-1980s</td><td>Text-based computing, limited graphics</td></tr>
+        <tr><td>1980s–1990s</td><td>GUI introduced, CD-ROM</td></tr>
+        <tr><td>1990s–2000s</td><td>Internet &amp; WWW, widespread multimedia apps</td></tr>
+        <tr><td>2000s–Now</td><td>Streaming, mobile, social media, cloud multimedia</td></tr>
+      </table>
+      <h3 class="h">Uses</h3>
+      <ul>
+        <li>Education — simulations, e-learning</li>
+        <li>Business/Marketing — presentations, advertising</li>
+        <li>Entertainment — gaming, film, music</li>
+        <li>Social Media — posts, video calls</li>
+        <li>Healthcare — medical imaging, telemedicine</li>
+        <li>Knowledge Systems — digital libraries</li>
+      </ul>
+      <h3 class="h">Multimedia Application</h3>
+      <p>A designed platform/toolset supporting interactive use of multimedia elements, enabling storage, compression, retrieval and delivery to meet a user or business objective. Key traits: integration, interactivity, digital representation, usability.</p>
+    </div></div>
+  </div>
+
+  <div class="section" data-tc="00:02:14:03" data-label="Text">
+    <div class="section-head" onclick="toggleSection(this)">
+      <span class="timecode">00:02:14:03</span>
+      <span class="section-title">Text</span>
+      <span class="qtags"><span class="qtag">Q2</span></span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+      <p class="def">The most basic, most widely used multimedia element — usually paired with other media types.</p>
+      <h3 class="h">Functions</h3>
+      <ul><li>Supports other media · Structures abstract concepts · Adds context/clarity to visuals · Enhances storytelling &amp; learning</li></ul>
+      <h3 class="h">Typography Terms</h3>
+      <ul>
+        <li><strong>Typeface</strong> — a set of characters sharing a consistent visual style</li>
+        <li><strong>Glyph</strong> — a single character/symbol</li>
+        <li><strong>Font</strong> — a specific version of a typeface</li>
+        <li><strong>Font-weight</strong> — thickness of the glyphs</li>
+        <li><strong>Typography</strong> — arranging type for readable, clear, effective language</li>
+      </ul>
+      <table>
+        <tr><th>Category</th><th>Characteristics</th><th>Best Use</th></tr>
+        <tr><td>Serif</td><td>Classic, small decorative strokes (Times New Roman)</td><td>Print, formal docs</td></tr>
+        <tr><td>Sans Serif</td><td>Informal, legible (Roboto, Calibri)</td><td>Screens, digital UI</td></tr>
+        <tr><td>Script</td><td>Mimics handwriting (Pacifico)</td><td>Invitations, decorative</td></tr>
+        <tr><td>Monospaced</td><td>Equal character width</td><td>Code, tables</td></tr>
+        <tr><td>Display</td><td>Striking, eye-catching</td><td>Titles, headlines</td></tr>
+      </table>
+      <h3 class="h">Design Principles</h3>
+      <ul>
+        <li><strong>Readability</strong> — ease of understanding large text</li>
+        <li><strong>Legibility</strong> — ease of recognising individual characters</li>
+        <li><strong>Contrast</strong> — text vs. background difference</li>
+        <li><strong>Consistency</strong> — uniform styling throughout</li>
+        <li><strong>Spacing</strong> — line/letter spacing, margins</li>
+        <li><strong>Hierarchy</strong> — showing importance &amp; structure</li>
+      </ul>
+      <h3 class="h">Character Encoding</h3>
+      <table>
+        <tr><th>System</th><th>Notes</th></tr>
+        <tr><td>ASCII</td><td>Number per character (A=65), English only</td></tr>
+        <tr><td>Unicode</td><td>Almost all languages</td></tr>
+        <tr><td>UTF-8</td><td>Web standard (A = U+0041 → 41)</td></tr>
+        <tr><td>UTF-16</td><td>Common in programming languages</td></tr>
+        <tr><td>UTF-32</td><td>Least memory efficient</td></tr>
+      </table>
+      <h3 class="h">Limitations</h3>
+      <ul><li>Insufficient alone · Accessibility issues · Weak for complex info · Limited expressiveness · Ambiguity · Space constraints</li></ul>
+    </div></div>
+  </div>
+
+  <div class="section" data-tc="00:07:41:19" data-label="Images">
+    <div class="section-head" onclick="toggleSection(this)">
+      <span class="timecode">00:07:41:19</span>
+      <span class="section-title">Images</span>
+      <span class="qtags"><span class="qtag">Q2</span></span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+      <p class="def">A stored, processed, and displayed representation of a visual object — more efficient than text alone.</p>
+      <h3 class="h">Digital Basics</h3>
+      <ul>
+        <li><strong>Pixel</strong> — smallest unit of a digital image</li>
+        <li><strong>Resolution</strong> — number of pixels in an image</li>
+        <li><strong>PPI</strong> — pixels packed per inch of screen</li>
+        <li><strong>DPI</strong> — dots a printer places per inch</li>
+      </ul>
+      <h3 class="h">Bit Depth</h3>
+      <table>
+        <tr><th>Depth</th><th>Detail</th><th>Use</th></tr>
+        <tr><td>1-bit</td><td>2 values — black &amp; white only</td><td>Simple graphics, text</td></tr>
+        <tr><td>8-bit</td><td>256 values — grayscale</td><td>Grayscale images</td></tr>
+        <tr><td>24-bit (True Color)</td><td>RGB, 0–255 each — 16.7M colours</td><td>Photography</td></tr>
+        <tr><td>32-bit</td><td>24-bit + Alpha channel</td><td>Transparency</td></tr>
+        <tr><td>48-bit</td><td>16 bits/channel</td><td>Professional photography/print</td></tr>
+      </table>
+      <h3 class="h">Raster vs Vector</h3>
+      <ul>
+        <li><strong>Raster</strong> — pixel grid, degrades on enlarging, great for photos (JPEG, PNG, BMP, GIF)</li>
+        <li><strong>Vector</strong> — mathematical equations, scales perfectly, great for logos/icons (SVG, AI)</li>
+      </ul>
+      <h3 class="h">Colour Models</h3>
+      <ul>
+        <li><strong>RGB</strong> — light-based, screens (0–255 each)</li>
+        <li><strong>CMYK</strong> — ink-based printing</li>
+        <li><strong>HEX</strong> — RGB shorthand (#FF0000)</li>
+        <li><strong>HSL/HSV</strong> — Hue, Saturation, Lightness/Value</li>
+      </ul>
+      <table>
+        <tr><th>Colour</th><th>Association</th></tr>
+        <tr><td>Blue</td><td>Trust, reliability</td></tr>
+        <tr><td>Red</td><td>Urgency, passion, energy</td></tr>
+        <tr><td>Green</td><td>Growth, sustainability</td></tr>
+        <tr><td>Black</td><td>Luxury, sophistication, power</td></tr>
+        <tr><td>Yellow</td><td>Optimism, clarity, warmth</td></tr>
+        <tr><td>Orange</td><td>Creativity, fun</td></tr>
+      </table>
+      <h3 class="h">Compression &amp; Optimization</h3>
+      <ul>
+        <li><strong>Lossy</strong> (JPEG) — permanent data removal, best for photos</li>
+        <li><strong>Lossless</strong> (PNG) — no removal, best for transparency/graphics</li>
+        <li>Optimization → faster loads, smoother browsing, search visibility, inclusivity — via right format, responsive images, compression, CDN</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="section" data-tc="00:14:08:07" data-label="Sound">
+    <div class="section-head" onclick="toggleSection(this)">
+      <span class="timecode">00:14:08:07</span>
+      <span class="section-title">Sound &amp; Audio</span>
+      <span class="qtags"><span class="qtag">Q4</span></span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+      <p class="def">Sound is a mechanical, longitudinal wave produced by vibrations that propagate through a medium as compressions and rarefactions.</p>
+      <h3 class="h">Wave Characteristics</h3>
+      <ul>
+        <li><strong>Pitch/Frequency</strong> — higher frequency = higher pitch</li>
+        <li><strong>Amplitude/Loudness</strong> — magnitude of disturbance</li>
+        <li><strong>Timbre</strong> — differentiates same-frequency sounds</li>
+        <li><strong>Wavelength</strong> — distance between wave peaks</li>
+      </ul>
+      <p><strong>Sound vs Audio:</strong> Sound = physical wave. Audio = digital representation of sound.</p>
+      <h3 class="h">Digitization Process</h3>
+      <ul>
+        <li><strong>1. Sampling</strong> — measuring analog signal at intervals (Hz). Nyquist: fs ≥ 2×fmax. Below that → aliasing.</li>
+        <li><strong>2. Anti-aliasing</strong> — low-pass filter before sampling</li>
+        <li><strong>3. Quantization</strong> — rounding amplitudes to discrete levels. Bit depth 8/16/24/32 — more bits = finer resolution. Dithering adds noise before rounding to reduce distortion.</li>
+      </ul>
+      <div class="formula">R = fs × b × C</div>
+      <div class="formula">File Size = (fs × b × C × T) / 8</div>
+      <p style="font-size:13px;color:var(--text-dim)">CD-quality stereo example: 44.1kHz × 16 × 2 = 1.411 Mbit/s</p>
+      <h3 class="h">Channels</h3>
+      <table>
+        <tr><th>Type</th><th>Description</th><th>Use</th></tr>
+        <tr><td>Mono</td><td>One channel</td><td>Podcasts, PA</td></tr>
+        <tr><td>Stereo</td><td>Left/Right channels</td><td>Music, home audio</td></tr>
+        <tr><td>Spatial</td><td>Multi-channel, immersive</td><td>Gaming, cinema, VR</td></tr>
+      </table>
+      <h3 class="h">Formats</h3>
+      <table>
+        <tr><th>Format</th><th>Type</th><th>Use</th></tr>
+        <tr><td>WAV / AIFF</td><td>Uncompressed (PCM)</td><td>Recording, studio editing</td></tr>
+        <tr><td>FLAC / ALAC</td><td>Lossless compressed</td><td>Music archives</td></tr>
+        <tr><td>MP3</td><td>Lossy compressed</td><td>Music distribution</td></tr>
+        <tr><td>AAC</td><td>Lossy compressed</td><td>Mobile/streaming</td></tr>
+        <tr><td>Opus</td><td>Lossy, low latency</td><td>WebRTC/conferencing</td></tr>
+        <tr><td>MIDI</td><td>Symbolic instructions, not audio</td><td>Composition, education</td></tr>
+      </table>
+      <h3 class="h">Compression &amp; Streaming</h3>
+      <ul>
+        <li>Perceptual coding uses frequency/temporal masking + critical bands; guides bit allocation (MP3/AAC)</li>
+        <li>Streaming types: full download, progressive, on-demand, live, real-time</li>
+        <li>HLS (Apple, adaptive) · MPEG-DASH (international standard) · WebRTC (low-latency, Opus)</li>
+        <li>Artefacts: muffling, pre-echo, warbling, metallic sound, stereo collapse, noise pumping</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="section" data-tc="00:22:30:11" data-label="Video">
+    <div class="section-head" onclick="toggleSection(this)">
+      <span class="timecode">00:22:30:11</span>
+      <span class="section-title">Video</span>
+      <span class="qtags"><span class="qtag">Q3</span></span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+      <p class="def">A time-based, multi-sensory, interactive medium combining visual frames, audio, and timing data — a fast sequence of still images with synchronized sound creating the illusion of motion.</p>
+      <h3 class="h">Key Terms</h3>
+      <ul>
+        <li><strong>Frames</strong> — individual still images · <strong>Aspect Ratio</strong> — frame shape · <strong>Bitrate</strong> — data/second</li>
+        <li><strong>Frame Rate</strong> — fps (24/30/60) · <strong>Resolution</strong> — total pixels · <strong>Codec</strong> — compression algorithm (H.264) · <strong>Container</strong> — file wrapper (MP4)</li>
+      </ul>
+      <table>
+        <tr><th>Resolution</th><th>Name</th><th>Dimensions</th></tr>
+        <tr><td>480p</td><td>ED</td><td>854×480</td></tr>
+        <tr><td>720p</td><td>HD</td><td>1280×720</td></tr>
+        <tr><td>1080p</td><td>Full HD</td><td>1920×1080</td></tr>
+        <tr><td>4K</td><td>Ultra HD</td><td>3840×2160</td></tr>
+      </table>
+      <p><strong>Chroma Key</strong> — layer-based compositing (green/blue screen) replacing one colour with another background.</p>
+      <p><strong>Advantages:</strong> captures interest, boosts retention, clarifies complex actions, incorporates other media. <strong>Disadvantages:</strong> expensive, memory/processing/equipment-heavy.</p>
+    </div></div>
+  </div>
+
+  <div class="section" data-tc="00:27:55:02" data-label="Animation">
+    <div class="section-head" onclick="toggleSection(this)">
+      <span class="timecode">00:27:55:02</span>
+      <span class="section-title">Animation</span>
+      <span class="qtags"><span class="qtag">Q3</span></span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+      <p class="def">Creating the illusion of movement by displaying a sequence of still images in rapid succession.</p>
+      <table>
+        <tr><th></th><th>2D</th><th>3D</th></tr>
+        <tr><td>Space</td><td>Flat, frame-by-frame</td><td>Three-dimensional, real light/shadow</td></tr>
+        <tr><td>Advantage</td><td>Faster, less computing power</td><td>More realistic, unlimited viewpoints</td></tr>
+        <tr><td>Disadvantage</td><td>Less realistic, limited viewpoints</td><td>Slower, more computing power</td></tr>
+      </table>
+      <p><strong>3D Rendering</strong> — computing a 2D image output from a 3D scene, calculating light interactions.</p>
+      <p><strong>Production process:</strong> Brief/Research → Script/Concept → Storyboard → Style/Illustration → Voiceover → Animation → Sound effects.</p>
+      <p><strong>Software:</strong> Krita, Blender, DaVinci Resolve, Autodesk Maya, Adobe.</p>
+      <p><strong>Disney's 12 Principles:</strong> squash &amp; stretch, anticipation, staging, straight-ahead &amp; pose-to-pose, follow-through &amp; overlap, slow in/out, arcs, secondary action, timing, exaggeration, solid drawing, appeal.</p>
+    </div></div>
+  </div>
+
+  <div class="section" data-tc="00:33:10:20" data-label="Compression">
+    <div class="section-head" onclick="toggleSection(this)">
+      <span class="timecode">00:33:10:20</span>
+      <span class="section-title">Multimedia Compression</span>
+      <span class="qtags"><span class="qtag">Q3</span></span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+      <p class="def">Reducing the data required to store, transmit, or process multimedia content while maintaining acceptable quality.</p>
+      <h3 class="h">Redundancy Types</h3>
+      <table>
+        <tr><th>Type</th><th>Description</th></tr>
+        <tr><td>Statistical/Coding</td><td>Frequent values get shorter codes</td></tr>
+        <tr><td>Temporal</td><td>Consecutive frames similar — store differences</td></tr>
+        <tr><td>Spatial</td><td>Neighbouring pixels similar — store once</td></tr>
+        <tr><td>Perceptual/Psychovisual</td><td>Remove details the eye won't notice</td></tr>
+        <tr><td>Spectral</td><td>Correlated channels/frequencies — remove overlap</td></tr>
+        <tr><td>Structural</td><td>Repeating patterns — store once, reference later</td></tr>
+        <tr><td>Psychoacoustic</td><td>Remove sounds the ear won't hear</td></tr>
+      </table>
+      <h3 class="h">Lossless vs Lossy</h3>
+      <ul>
+        <li><strong>Lossless</strong> — no data removed (RLE, Huffman, Dictionary coding); exact reconstruction</li>
+        <li><strong>Lossy</strong> — permanent removal (Quantization, Transform coding, Perceptual coding); approximate reconstruction</li>
+      </ul>
+      <h3 class="h">Image Compression</h3>
+      <ul>
+        <li><strong>JPEG</strong> — DCT on 8×8 blocks, converts pixels → frequency components; lossy; eye tolerates colour loss more than brightness loss</li>
+        <li><strong>PNG</strong> — lossless (DEFLATE), supports transparency</li>
+        <li><strong>AVIF</strong> — AV1-based, better compression</li>
+        <li><strong>Generation loss</strong> — quality drops each time a lossy image is re-saved</li>
+        <li>Example ratio: 25MB → 4MB JPEG = 6.25:1</li>
+      </ul>
+      <h3 class="h">Audio Compression</h3>
+      <ul>
+        <li>Psychoacoustic modelling drives lossy audio compression</li>
+        <li>FLAC uses prediction + residual + entropy coding (lossless)</li>
+        <li>Lossless preferred in music production — avoids generation loss</li>
+        <li>Bit allocation distributes bits by perceptual importance</li>
+      </ul>
+      <h3 class="h">Video Compression</h3>
+      <ul>
+        <li><strong>I-frame</strong> — complete, independent image</li>
+        <li><strong>P-frame</strong> — predicts from previous I/P, stores differences</li>
+        <li><strong>B-frame</strong> — predicts from past + future frames, most efficient</li>
+        <li><strong>Motion estimation</strong> — finds matching blocks in reference frames; a motion vector describes displacement</li>
+        <li>Uncompressed example: 1280×720, 30fps, 24-bit ≈ 79.1 MB/s ≈ 4.75 GB/min</li>
+        <li><strong>Container</strong> (MP4, MKV) wraps video/audio/subtitles · <strong>Codec</strong> (H.264, H.265) encodes/decodes the data</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="section" data-tc="00:41:02:15" data-label="Trends">
+    <div class="section-head" onclick="toggleSection(this)">
+      <span class="timecode">00:41:02:15</span>
+      <span class="section-title">Multimedia Trends</span>
+      <span class="qtags"><span class="qtag">Q5</span></span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+      <p class="def">The emerging technologies, tools, and consumption patterns reshaping how multimedia content is created, distributed, and experienced.</p>
+      <table>
+        <tr><th>Trend</th><th>Description</th></tr>
+        <tr><td>AI-Generated Content</td><td>Text-to-image/video/voice tools generate assets directly from prompts</td></tr>
+        <tr><td>Extended Reality (XR)</td><td>Umbrella for VR (fully digital), AR (real-world overlays), Mixed Reality</td></tr>
+        <tr><td>Immersive/Spatial Media</td><td>360° video, volumetric video, spatial audio</td></tr>
+        <tr><td>Hyper-Personalization</td><td>AI-driven prediction tailors content to viewing habits in real time</td></tr>
+        <tr><td>Short-Form/Mobile-First</td><td>Vertical, bite-sized content for phone-first consumption</td></tr>
+        <tr><td>Interactive/Shoppable Media</td><td>Second-screen polls/voting; buy what you see, in-stream</td></tr>
+        <tr><td>Cloud-Based Production</td><td>Creation/editing/rendering on cloud infrastructure for remote collaboration</td></tr>
+        <tr><td>Multi-CDN/Adaptive Streaming</td><td>Traffic spread across CDNs; adaptive bitrate for reliability at scale</td></tr>
+      </table>
+      <h3 class="h">Emerging Directions</h3>
+      <ul><li>Holographic/volumetric telepresence · Brain-computer interfaces (BCI) · Multisensory media (touch, smell, taste)</li></ul>
+      <h3 class="h">Challenges</h3>
+      <ul><li>Authenticity vs. "AI slop" · IP protection for AI-assisted work · Data privacy amid personalization · Digital divide in access</li></ul>
+      <div class="slate">
+        <div class="slate-head"><span>LIKELY EXAM ANGLE</span><span>Q5</span></div>
+        <p>Identify 2–3 current trends and explain how each affects one phase of the MDLC — e.g. how AI content generation changes the Material Collection or Development phase.</p>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="section" data-tc="00:47:18:00" data-label="MDLC">
+    <div class="section-head" onclick="toggleSection(this)">
+      <span class="timecode">00:47:18:00</span>
+      <span class="section-title">Multimedia Development Life Cycle</span>
+      <span class="qtags"><span class="qtag">Q5</span></span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+      <p class="def">A structured sequence of steps guiding a project from idea to delivered product. Without it: disorganization, quality loss, missed deadlines, wasted resources.</p>
+      <p style="font-family:'IBM Plex Mono',monospace;color:var(--cyan);font-size:13px;letter-spacing:.02em">PLANNING → DESIGN → MATERIAL COLLECTION → DEVELOPMENT → TESTING → DEPLOYMENT → FOLLOW-UP <span style="color:var(--text-dim)">(Management runs across all phases)</span></p>
+      <ul>
+        <li><strong>1. Planning</strong> — define the idea, kick-off meeting, project scope, understand audience, define core message, market research</li>
+        <li><strong>2. Design</strong> — structure/navigation/content plan; goals: simplicity, consistency, user involvement, affordability; brainstorm → storyboard; information design; prototyping (catch problems early)</li>
+        <li><strong>3. Material Collection</strong> — gather/create raw media; sources: borrow (open-source), lease, purchase, make your own; legal clearance is critical</li>
+        <li><strong>4. Development</strong> — longest, most resource-intensive; integrate materials, program, connect databases, use authoring tools</li>
+        <li><strong>5. Testing</strong> — functionality, usability, compatibility, accessibility; catch bugs, validate UX, protect reputation</li>
+        <li><strong>6. Deployment</strong> — publish/distribute; timing, scalability, backup &amp; recovery, staged rollout</li>
+        <li><strong>7. Follow-Up</strong> — keep meeting objectives post-launch; gather feedback, fix issues, improve continuously</li>
+      </ul>
+      <p><strong>Management</strong> (runs across all phases): planning, estimating, monitoring, controlling — people, technologies, resources, environment.</p>
+    </div></div>
+  </div>
+
+  <div class="section" data-tc="00:55:40:08" data-label="Sample Qs">
+    <div class="section-head" onclick="toggleSection(this)">
+      <span class="timecode">00:55:40:08</span>
+      <span class="section-title">Sample CAT Questions</span>
+      <span class="qtags"><span class="qtag">All</span></span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+      <div class="slate">
+        <div class="slate-head"><span>Q1 · 5 MARKS</span><span>Minoli &amp; Keinath</span></div>
+        <p>Interpret the definition and explain "multi-sensory nature" in the context of multimedia.</p>
+        <p class="ans-label">Answer</p>
+        <p>Interdisciplinary (combines fields) · Application-oriented (real-world use) · Multi-sensory (sight→images, hearing→audio, touch→haptics, smell/taste→emotion &amp; memory, indirectly).</p>
+      </div>
+      <div class="slate">
+        <div class="slate-head"><span>Q2 · 6 MARKS</span><span>Text design principles</span></div>
+        <p>Discuss THREE text design principles.</p>
+        <p class="ans-label">Answer</p>
+        <p>Any three of: Readability, Legibility, Contrast, Consistency, Spacing, Hierarchy.</p>
+      </div>
+      <div class="slate">
+        <div class="slate-head"><span>Q3 · 2 MARKS</span><span>Text alone insufficient</span></div>
+        <p>"Text used alone as a media type is not sufficient." Explain the accuracy of this statement.</p>
+        <p class="ans-label">Answer</p>
+        <p>Combining media improves engagement, understanding, and interactivity. Retention rises when multiple senses are engaged (e.g. ~50% for see+hear, ~80% for see+hear+do). Text alone struggles to convey complex visual/spatial information.</p>
+      </div>
+      <div class="slate">
+        <div class="slate-head"><span>Q4 · 2 MARKS</span><span>24-bit vs 32-bit</span></div>
+        <p>State the major difference between 24-bit and 32-bit image depth.</p>
+        <p class="ans-label">Answer</p>
+        <p>24-bit = RGB, 8 bits/channel → 16.7M colours. 32-bit adds an Alpha channel for transparency/opacity control.</p>
+      </div>
+      <div class="slate">
+        <div class="slate-head"><span>Q5 · 2 MARKS</span><span>GIMP — watermark</span></div>
+        <p>Which layer property softens a watermark blocking an image in GIMP?</p>
+        <p class="ans-label">Answer</p>
+        <p>Opacity — reducing it makes the watermark layer partly transparent, letting the image show through.</p>
+      </div>
+      <div class="slate">
+        <div class="slate-head"><span>Q6 · 3 MARKS</span><span>GIMP — gradient hides tree</span></div>
+        <p>A gradient is applied and the tree becomes invisible — what went wrong and how is it fixed?</p>
+        <p class="ans-label">Answer</p>
+        <p>The gradient was applied on the same layer as the tree. Fix: separate layers for tree and gradient, apply the gradient on its own layer, keep the tree layer in front, and select the correct layer before editing.</p>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="section" data-tc="01:02:00:00" data-label="Formulas">
+    <div class="section-head" onclick="toggleSection(this)">
+      <span class="timecode">01:02:00:00</span>
+      <span class="section-title">Formulas &amp; Key Differences</span>
+      <span class="qtags"><span class="qtag">All</span></span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="section-body"><div class="section-body-inner">
+      <h3 class="h">Formulas</h3>
+      <div class="formula">Audio Bitrate: R = fs × b × C</div>
+      <div class="formula">Audio File Size: (fs × b × C × T) / 8</div>
+      <div class="formula">Video Size: width × height × bit depth × frame rate × duration</div>
+      <div class="formula">Compression Ratio: Original Size ÷ Compressed Size</div>
+      <div class="formula">Nyquist: fs ≥ 2 × fmax</div>
+      <div class="formula">Dynamic Range ≈ 6.02b dB</div>
+      <h3 class="h">Key Differences</h3>
+      <ul>
+        <li><strong>Lossless vs Lossy</strong> — no removal/exact/larger files vs. removal/approximate/smaller files</li>
+        <li><strong>Raster vs Vector</strong> — pixels, degrades on scale (photos) vs. equations, scales perfectly (logos)</li>
+        <li><strong>2D vs 3D Animation</strong> — faster/less realistic vs. slower/more realistic, unlimited viewpoints</li>
+        <li><strong>Mono vs Stereo vs Spatial</strong> — 1 channel vs. 2 (L/R) vs. multi-channel 3D immersion</li>
+        <li><strong>Container vs Codec</strong> — wrapper (MP4, MKV) vs. encoding algorithm (H.264, H.265)</li>
+      </ul>
+    </div></div>
+  </div>
+
+</main>
+
+<footer>END OF REEL — good luck in your examination</footer>
+
+<script>
+const sections = Array.from(document.querySelectorAll('.section'));
+const ticksWrap = document.getElementById('ticks');
+const fill = document.getElementById('playhead-fill');
+const label = document.getElementById('scrub-label');
+
+sections.forEach((sec, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'tick';
+  btn.textContent = sec.dataset.label;
+  btn.addEventListener('click', () => {
+    sec.scrollIntoView({behavior:'smooth', block:'start'});
+    if(!sec.classList.contains('open')) toggleSection(sec.querySelector('.section-head'));
+  });
+  ticksWrap.appendChild(btn);
+});
+const tickEls = Array.from(ticksWrap.children);
+
+function toggleSection(headEl){
+  const sec = headEl.parentElement;
+  const body = sec.querySelector('.section-body');
+  const isOpen = sec.classList.contains('open');
+  if(isOpen){
+    body.style.maxHeight = body.scrollHeight + 'px';
+    requestAnimationFrame(()=>{ body.style.maxHeight = '0px'; });
+    sec.classList.remove('open');
+  } else {
+    sec.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+    setTimeout(()=>{ if(sec.classList.contains('open')) body.style.maxHeight = 'none'; }, 360);
+  }
+}
+
+// open the first section by default
+toggleSection(sections[0].querySelector('.section-head'));
+
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const idx = sections.indexOf(entry.target);
+      tickEls.forEach(t=>t.classList.remove('active'));
+      tickEls[idx].classList.add('active');
+      label.textContent = entry.target.dataset.tc + ' — ' + entry.target.dataset.label;
+      fill.style.width = ((idx+1)/sections.length*100) + '%';
+    }
+  });
+}, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+
+sections.forEach(s=>io.observe(s));
+</script>
+
+</body>
+</html>
