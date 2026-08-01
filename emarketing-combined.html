@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBT 4101/4103 — E-Marketing Exam Prep (Complete)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d1b3e;
+    --navy-2:#16295c;
+    --gold:#e0a530;
+    --teal:#2f8f83;
+    --green:#1a7a4c;
+    --paper:#f6f4ee;
+    --ink:#1b1d22;
+    --ink-soft:#5a5f6b;
+    --line:#e0ddd2;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif; margin:0;}
+  a{color:var(--teal);}
+  .wrap{max-width:960px; margin:0 auto; padding:0 28px;}
+
+  /* Hero */
+  header.hero{
+    background:radial-gradient(circle at 15% 20%, var(--navy-2), var(--navy) 65%);
+    color:#fdfcf9;
+    padding:56px 0 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute; right:-80px; top:-80px;
+    width:320px; height:320px; border-radius:50%;
+    background:radial-gradient(circle, rgba(224,165,48,0.35), transparent 70%);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:14px;
+  }
+  header.hero h1{font-size:clamp(28px,5vw,44px); font-weight:600; line-height:1.1; max-width:720px;}
+  header.hero p.sub{color:#c9cee0; max-width:620px; margin-top:14px; font-size:15.5px;}
+  .meta-row{display:flex; gap:24px; flex-wrap:wrap; margin-top:24px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#a9b0c9;}
+  .meta-row span b{color:#fdfcf9; font-weight:500;}
+
+  /* Section-group tabs */
+  nav.groups{
+    background:var(--navy-2);
+  }
+  nav.groups .wrap{display:flex; gap:6px; overflow-x:auto; padding:0; scrollbar-width:none;}
+  nav.groups .wrap::-webkit-scrollbar{display:none;}
+  nav.groups a{
+    white-space:nowrap; font-family:'IBM Plex Mono',monospace; font-size:11.5px;
+    color:#c9cee0; text-decoration:none; padding:12px 16px; display:inline-block;
+    border-bottom:3px solid transparent; letter-spacing:.03em;
+  }
+  nav.groups a:hover{border-bottom-color:var(--gold); color:#fff;}
+
+  /* Sub TOC */
+  nav.toc{
+    background:#fff; border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:10;
+  }
+  nav.toc .wrap{display:flex; gap:16px; overflow-x:auto; padding:12px 28px; scrollbar-width:none;}
+  nav.toc .wrap::-webkit-scrollbar{display:none;}
+  nav.toc a{
+    white-space:nowrap; font-size:12.5px; color:var(--ink-soft); text-decoration:none;
+    padding:6px 10px; border-radius:20px; font-weight:500;
+  }
+  nav.toc a:hover{background:var(--paper); color:var(--navy);}
+
+  main{padding:48px 0 90px;}
+
+  .part-title{
+    padding:40px 0 8px;
+    border-top:1px solid var(--line);
+    margin-top:12px;
+  }
+  .part-title:first-of-type{border-top:none; margin-top:0; padding-top:0;}
+  .part-title .eyebrow-lite{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--teal);
+    letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px; display:block;
+  }
+  .part-title h2{font-size:26px; color:var(--navy);}
+  .part-title p{color:var(--ink-soft); font-size:14px; margin-top:6px; max-width:640px;}
+
+  section{margin-bottom:52px; scroll-margin-top:64px;}
+  .sec-label{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--gold);
+    letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px; display:block;
+  }
+  section h2.sec-h{font-size:23px; margin-bottom:16px; color:var(--navy); border-bottom:2px solid var(--gold); padding-bottom:.4rem;}
+  section h3{font-size:16px; color:var(--navy-2); margin:18px 0 8px; font-family:'Fraunces',serif;}
+  p{margin:0 0 12px; color:var(--ink);}
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius:10px;
+    padding:18px 20px; margin-bottom:14px;
+  }
+  .qa{
+    border-left:3px solid var(--navy);
+    background:#eef1f8;
+    padding:.9rem 1.1rem;
+    border-radius:0 8px 8px 0;
+    margin-bottom:1rem;
+  }
+  .marks{
+    display:inline-block;
+    background:var(--gold);
+    color:#3a2c00;
+    font-size:.68rem;
+    font-weight:700;
+    padding:.15rem .55rem;
+    border-radius:10px;
+    margin-left:.5rem;
+    vertical-align:middle;
+  }
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:680px){.grid2{grid-template-columns:1fr;}}
+
+  ul,ol{margin:0; padding-left:20px;}
+  li{margin-bottom:6px;}
+
+  .pill{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px;
+    background:var(--navy); color:#fff; padding:3px 9px; border-radius:20px; margin-bottom:10px;
+  }
+  .pill.gold{background:var(--gold); color:var(--navy);}
+  .pill.teal{background:var(--teal); color:#fff;}
+
+  .formula{
+    background:var(--navy);
+    color:#ffe9a8;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:1rem;
+    padding:.8rem 1rem;
+    border-radius:8px;
+    margin:.6rem 0;
+    text-align:center;
+  }
+
+  /* SWOT */
+  .swot{display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:.8rem 0;}
+  .swot div{padding:.8rem; border-radius:8px; font-size:.92rem;}
+  .s{background:#e6f4ea;border:1px solid #b6e0c2;}
+  .w{background:#fdeaea;border:1px solid #f3c3c3;}
+  .o{background:#e8f0fc;border:1px solid #c2d6f5;}
+  .t{background:#fff3dd;border:1px solid #f0d79a;}
+  .swot h4{margin:.1rem 0 .4rem;font-size:.82rem;text-transform:uppercase;letter-spacing:.03em;}
+
+  /* Timeline */
+  .timeline{border-left:2px solid var(--line); margin-left:8px; padding-left:24px;}
+  .t-item{position:relative; margin-bottom:20px;}
+  .t-item::before{
+    content:""; position:absolute; left:-30px; top:4px;
+    width:12px; height:12px; border-radius:50%;
+    background:var(--gold); border:2px solid var(--navy);
+  }
+  .t-year{font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--navy); font-size:13px;}
+  .t-item p{margin-top:2px; font-size:14.5px; color:var(--ink-soft);}
+
+  /* Funnel */
+  .funnel{display:flex; flex-direction:column; gap:2px; margin-top:12px;}
+  .funnel-step{
+    color:#fff; text-align:center; padding:12px 10px; font-weight:600; font-size:14px;
+    font-family:'Fraunces',serif;
+  }
+  .funnel-step small{display:block; font-family:'Inter',sans-serif; font-weight:400; font-size:12px; margin-top:3px; opacity:.85;}
+  .fs1{background:var(--navy); width:100%; margin:0 auto;}
+  .fs2{background:var(--navy-2); width:82%; margin:0 auto;}
+  .fs3{background:var(--teal); width:64%; margin:0 auto;}
+  .fs4{background:var(--gold); color:var(--navy); width:46%; margin:0 auto;}
+
+  /* Diffusion bell */
+  .bell-row{display:flex; align-items:flex-end; gap:4px; height:120px; margin-top:16px;}
+  .bell-seg{flex:1; border-radius:4px 4px 0 0; display:flex; align-items:flex-start; justify-content:center; color:#fff; font-family:'IBM Plex Mono',monospace; font-size:11px; padding-top:6px;}
+  .b1{height:35%; background:#c9c2ac;}
+  .b2{height:65%; background:var(--gold); color:var(--navy);}
+  .b3{height:100%; background:var(--navy);}
+  .b4{height:100%; background:var(--navy-2);}
+  .b5{height:48%; background:#c9c2ac;}
+  .bell-labels{display:flex; gap:4px; margin-top:6px;}
+  .bell-labels span{flex:1; text-align:center; font-size:11px; color:var(--ink-soft);}
+
+  table{width:100%; border-collapse:collapse; font-size:13.5px; margin-top:8px; margin-bottom:1rem; background:var(--card);}
+  th,td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
+  th{font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:#fff; background:var(--navy);}
+  tr:nth-child(even) td{background:#faf9f5;}
+
+  .exam-tip{
+    background:#fdf6e3;
+    border-left:4px solid var(--gold);
+    padding:.7rem 1rem;
+    font-size:.88rem;
+    color:#6b5417;
+    margin:.7rem 0;
+    border-radius:0 6px 6px 0;
+  }
+
+  .task-box{
+    background:#fff8e8; border:1px dashed var(--gold); border-radius:10px;
+    padding:20px; margin-top:14px;
+  }
+  .task-box h3{margin-top:0; color:var(--navy);}
+
+  /* Flashcards */
+  .flash{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:.9rem 1.1rem;
+    margin-bottom:.6rem;
+    cursor:pointer;
+    transition:.15s;
+  }
+  .flash:hover{border-color:var(--navy);}
+  .flash .q{font-weight:600;color:var(--navy); font-size:14.5px;}
+  .flash .a{display:none;margin-top:.5rem;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:.5rem; font-size:13.5px;}
+  .flash.open .a{display:block;}
+
+  footer{
+    background:var(--navy); color:#a9b0c9; padding:32px 0; font-size:13px; text-align:center;
+  }
+  footer a{color:var(--gold);}
+
+  ::selection{background:var(--gold); color:var(--navy);}
+
+  /* --- Part 4: Topic-by-Topic Answer Guide (scoped tg- prefix) --- */
+  .tg-topic{
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:22px 24px; margin-bottom:20px; scroll-margin-top:64px;
+  }
+  .tg-topic > h2{
+    margin:0 0 4px; color:var(--navy); font-size:1.2em; border-bottom:2px solid var(--gold);
+    padding-bottom:10px; font-family:'Fraunces',serif;
+  }
+  .tg-q{margin-top:18px;}
+  .tg-qhead{
+    display:flex; flex-wrap:wrap; gap:8px; align-items:baseline;
+    font-weight:bold; color:var(--navy-2); margin-bottom:6px; font-size:.95em;
+  }
+  .tg-src{
+    font-size:.7em; font-weight:normal; background:#f4ede4; color:#8a6a3e;
+    padding:2px 8px; border-radius:12px; letter-spacing:.2px;
+  }
+  .tg-marks{font-size:.75em; font-weight:normal; color:var(--ink-soft);}
+  .tg-ans{margin:0 0 4px; font-size:14.5px;}
+  .tg-ans ul, .tg-ans ol{margin:6px 0; padding-left:22px;}
+  .tg-ans li{margin-bottom:4px;}
+  table.tg-small{border-collapse:collapse; margin:8px 0; font-size:.88em; width:auto;}
+  table.tg-small th, table.tg-small td{border:1px solid var(--line); padding:6px 10px; text-align:left; background:none;}
+  table.tg-small th{background:#f4ede4; color:var(--ink);}
+  .tg-calc{background:#faf7f2; border-left:3px solid var(--gold); padding:8px 14px; margin:8px 0; font-family:'IBM Plex Mono',monospace; font-size:.9em;}
+  .tg-note{font-size:.85em; color:var(--ink-soft); font-style:italic;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Strathmore University · BBT 4101 / BBT 4103</span>
+    <h1>E-Marketing — Complete Exam Prep</h1>
+    <p class="sub">All-in-one revision guide: Lecture 1 fundamentals, Lectures 3 &amp; 4 (segmentation, tactics, channels, content), CAT1 case study, and Lecture 5 (analytics &amp; ROI) — with quick-fire flashcards at the end.</p>
+    <div class="meta-row">
+      <span>Lecturer: <b>Patrick Shabaya</b></span>
+      <span>Focus: <b>Digital Marketing Fundamentals → Strategy &amp; ROI</b></span>
+      <span>Open tasks: <b>Tutorial 1 · Weekly Task</b></span>
+    </div>
+  </div>
+</header>
+
+<nav class="groups">
+  <div class="wrap">
+    <a href="#part1">Part 1 · Fundamentals (L1)</a>
+    <a href="#part2">Part 2 · Segmentation &amp; Channels (L3–4)</a>
+    <a href="#part3">Part 3 · CAT1 &amp; Analytics (L5)</a>
+    <a href="#part4">Part 4 · Topic-by-Topic Guide</a>
+    <a href="#flashcards">Flashcards</a>
+  </div>
+</nav>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#definitions">Definitions</a>
+    <a href="#trad-vs-digital">Traditional vs Digital</a>
+    <a href="#history">History</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#funnel">Purchase Funnel</a>
+    <a href="#media">Paid/Owned/Earned</a>
+    <a href="#platforms">Platforms</a>
+    <a href="#diffusion">Diffusion Theory</a>
+    <a href="#models">B2B/B2C/E-commerce</a>
+    <a href="#seg">Segmentation</a>
+    <a href="#persona">Personas</a>
+    <a href="#targeting">Targeting</a>
+    <a href="#tactics">31 Tactics</a>
+    <a href="#channels">Channels</a>
+    <a href="#content">Content Marketing</a>
+    <a href="#smm">Social Media</a>
+    <a href="#seo">SEO</a>
+    <a href="#crm">CRM</a>
+    <a href="#cat1">CAT1 Case Study</a>
+    <a href="#smart">SMART Objectives</a>
+    <a href="#analytics">Digital Analytics</a>
+    <a href="#roi">ROI Formulas</a>
+    <a href="#social">Social Metrics</a>
+    <a href="#facebook">Facebook Analytics</a>
+    <a href="#t1">Frameworks &amp; Strategy</a>
+    <a href="#t2">Tactics &amp; Tools</a>
+    <a href="#t3">SEO</a>
+    <a href="#t4">PPC &amp; Display</a>
+    <a href="#t5">Content &amp; Journey</a>
+    <a href="#t6">Social Media</a>
+    <a href="#t7">Email</a>
+    <a href="#t8">Website Design</a>
+    <a href="#t9">Web Analytics</a>
+    <a href="#t10">Metrics Calculations</a>
+    <a href="#t11">CRO</a>
+    <a href="#t12">Market Research</a>
+    <a href="#t13">CRM</a>
+    <a href="#t14">Viral Marketing</a>
+    <a href="#t15">Trends &amp; AI</a>
+    <a href="#t16">Campaign Lifecycle</a>
+    <a href="#flashcards">Flashcards</a>
+    <a href="#tasks">Tasks Due</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <!-- ============ PART 1: LECTURE 1 ============ -->
+    <div class="part-title" id="part1">
+      <span class="eyebrow-lite">Part 1 — Lecture 1</span>
+      <h2>E-Marketing Fundamentals</h2>
+      <p>Definitions, history of digital marketing, media types, the purchase funnel, and adoption theory.</p>
+    </div>
+
+    <section id="definitions">
+      <span class="sec-label">01 — Core Definitions</span>
+      <h2 class="sec-h">Marketing vs e-Marketing</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>Marketing</h3>
+          <ul>
+            <li>Activity of promoting and selling products/services, incl. research &amp; advertising</li>
+            <li>Processes for creating, communicating, delivering, exchanging offerings of value</li>
+            <li>Management process for identifying, anticipating, satisfying customer needs — profitably</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>e-Marketing</h3>
+          <ul>
+            <li>Using the internet + related tech alongside traditional media to acquire &amp; deliver services</li>
+            <li>Uses websites, mobile, social networking to reach customers, build awareness, sell</li>
+            <li>Connects marketers with consumers to build relationships and drive sales</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:10px; font-size:13.5px; color:var(--ink-soft);"><b>Exam line to remember:</b> the basics of marketing don't change — it's still about delivering the right message to the right people. Only the <i>channel</i> is new.</p>
+    </section>
+
+    <section id="trad-vs-digital">
+      <span class="sec-label">02 — Comparison</span>
+      <h2 class="sec-h">Traditional vs Content Marketing</h2>
+      <div class="grid2">
+        <div class="card">
+          <span class="pill">Traditional</span>
+          <ul>
+            <li>TV &amp; radio commercials</li>
+            <li>Newspaper / magazine ads</li>
+            <li>Banner ads, direct mail, brochures, fliers</li>
+            <li>Billboards and signs</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="pill teal">Content / Digital</span>
+          <ul>
+            <li>Email newsletters, website articles</li>
+            <li>Blog posts (own or guest)</li>
+            <li>Infographics, videos, webinars, podcasts</li>
+            <li>White papers and e-books</li>
+          </ul>
+        </div>
+      </div>
+      <table>
+        <tr><th>Pros of Traditional</th><th>Cons of Traditional</th></tr>
+        <tr><td>Presence everywhere — mass reach</td><td>More expensive (prime slots, billboards)</td></tr>
+        <tr><td>Simpler if team isn't digital-savvy</td><td>Digital reaches wide audiences more cheaply</td></tr>
+        <tr><td>Better for older / low-screen-time audiences</td><td>Harder to measure results accurately</td></tr>
+        <tr><td>No switching cost / retraining needed</td><td>Campaigns take longer (red tape)</td></tr>
+      </table>
+    </section>
+
+    <section id="history">
+      <span class="sec-label">03 — Tutorial 1 Material</span>
+      <h2 class="sec-h">History of Digital Marketing</h2>
+      <p style="font-size:13.5px; color:var(--ink-soft);">Directly answers: <i>when it started, why it started, key milestones, future direction.</i></p>
+      <div class="timeline">
+        <div class="t-item"><span class="t-year">1990s</span><p>Term "Digital Marketing" first used. Web 1.0 lets users find info but not share it.</p></div>
+        <div class="t-item"><span class="t-year">1993</span><p>First clickable banner ad goes live; HotWired buys early banner ads.</p></div>
+        <div class="t-item"><span class="t-year">1994</span><p>Yahoo launches ("Jerry's Guide to the World Wide Web") — ~1M hits in year one, pushing SEO-style optimization.</p></div>
+        <div class="t-item"><span class="t-year">1996</span><p>More search engines launch: HotBot, LookSmart, Alexa.</p></div>
+        <div class="t-item"><span class="t-year">1998</span><p>Google is born. Microsoft launches MSN search; Yahoo launches web search.</p></div>
+        <div class="t-item"><span class="t-year">2000</span><p>Dot-com bubble bursts — smaller search engines wiped out, giants dominate.</p></div>
+        <div class="t-item"><span class="t-year">2004</span><p>US internet advertising hits ~$2.9B. Web 2.0 arrives — users become active participants, not passive readers.</p></div>
+        <div class="t-item"><span class="t-year">2006</span><p>Search engine traffic surges to ~6.4B/month. Microsoft launches Live Search.</p></div>
+        <div class="t-item"><span class="t-year">2003–07</span><p>MySpace, then Facebook, arrive — social networking + the cookie (tracking user habits) reshape targeting.</p></div>
+        <div class="t-item"><span class="t-year">2010</span><p>WhatsApp and Google Buzz launch.</p></div>
+        <div class="t-item"><span class="t-year">2011–12</span><p>Google+ and Google Panda launch; 2012 becomes "the year of social media" (Facebook/Myspace dominant).</p></div>
+        <div class="t-item"><span class="t-year">2013</span><p>Yahoo acquires Tumblr.</p></div>
+        <div class="t-item"><span class="t-year">2014</span><p>Mobile/smartphone users outnumber PC users for the first time. Facebook Messenger, LinkedIn &amp; iWatch ads launch; Facebook buys WhatsApp.</p></div>
+        <div class="t-item"><span class="t-year">2015</span><p>Snapchat launches Discover. Analytics, wearables, content marketing all mature.</p></div>
+        <div class="t-item"><span class="t-year">2017</span><p>Facebook, YouTube, Instagram, Twitter, Reddit dominate social.</p></div>
+        <div class="t-item"><span class="t-year">2022–23</span><p>Google retires Expanded Text Ads for automated Responsive Search Ads. Video, creator economy, and generative AI enter marketers' content strategies.</p></div>
+        <div class="t-item"><span class="t-year">Now</span><p>TikTok shifts advertising from brand-first to creator-led. "Social commerce" grows — Facebook/TikTok test live shopping, Pinterest builds shopping tools, X (Twitter) pushes toward a commerce platform.</p></div>
+      </div>
+    </section>
+
+    <section id="benefits">
+      <span class="sec-label">04 — Why It Matters</span>
+      <h2 class="sec-h">Benefits of e-Marketing</h2>
+      <div class="grid2">
+        <div class="card">
+          <ul>
+            <li><b>Global reach</b> — trade globally for small investment</li>
+            <li><b>Trackable, measurable results</b> — web analytics</li>
+            <li><b>Personalisation</b> — targeted offers via linked databases</li>
+            <li><b>Lower cost</b> than traditional campaigns</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li><b>Openness</b> — social presence builds loyalty &amp; reputation</li>
+            <li><b>Social currency</b> — content can go viral, passed user-to-user</li>
+            <li><b>Improved conversion rates</b> — customers are a few clicks from purchase</li>
+          </ul>
+        </div>
+      </div>
+      <h3>The 5S Framework</h3>
+      <table>
+        <tr><th>S</th><th>Benefit</th><th>Sample Objective</th></tr>
+        <tr><td>Sell</td><td>Grow sales via wider distribution</td><td>+20% online sales/year</td></tr>
+        <tr><td>Serve</td><td>Add value online</td><td>+30% customers using online services</td></tr>
+        <tr><td>Speak</td><td>Two-way dialogue, closer to customers</td><td>+25% social followers</td></tr>
+        <tr><td>Save</td><td>Cut costs via digital self-service</td><td>40% of enquiries via web self-service</td></tr>
+        <tr><td>Sizzle</td><td>Extend the brand online</td><td>Improve brand awareness metrics</td></tr>
+      </table>
+    </section>
+
+    <section id="funnel">
+      <span class="sec-label">05 — Customer Journey</span>
+      <h2 class="sec-h">The Purchase Funnel</h2>
+      <p>A consumer-focused model showing the journey from stranger to promoter.</p>
+      <div class="funnel">
+        <div class="funnel-step fs1">Awareness <small>Everyone → Target Market</small></div>
+        <div class="funnel-step fs2">Consideration <small>Prospects — interest, evaluation</small></div>
+        <div class="funnel-step fs3">Conversion – Sale <small>Customers — assessment complete</small></div>
+        <div class="funnel-step fs4">Loyalty &amp; Advocacy <small>Repeat customers → Promoters</small></div>
+      </div>
+      <h3>TOFU / MOFU / BOFU</h3>
+      <table>
+        <tr><th>Stage</th><th>Goal</th><th>Tactics</th></tr>
+        <tr><td>TOFU (Top)</td><td>Awareness</td><td>SEO, e-books, online ads, videos, direct email</td></tr>
+        <tr><td>MOFU (Middle)</td><td>Interest / Evaluation</td><td>Case studies, whitepapers, drip email, webinars</td></tr>
+        <tr><td>BOFU (Bottom)</td><td>Commitment / Sale</td><td>Trials, demonstrations</td></tr>
+      </table>
+    </section>
+
+    <section id="media">
+      <span class="sec-label">06 — Channel Strategy</span>
+      <h2 class="sec-h">Paid, Owned &amp; Earned Media</h2>
+      <div class="grid2">
+        <div class="card">
+          <span class="pill">Paid</span>
+          <p style="margin-bottom:6px;">Pay for ads: PPC, CPM, Google AdWords, Display, Facebook ads.</p>
+          <p style="font-size:13px; color:var(--ink-soft); margin:0;"><b>Works:</b> optimized landing pages + organic support. <b>Fails:</b> too-broad audiences.</p>
+        </div>
+        <div class="card">
+          <span class="pill teal">Owned</span>
+          <p style="margin-bottom:6px;">Brand-controlled: website, blog, email list, apps, social profiles. Offline: brochures, business cards.</p>
+        </div>
+        <div class="card">
+          <span class="pill gold">Earned</span>
+          <p style="margin-bottom:6px;">PR, influencer coverage, word-of-mouth, viral/social conversations — online and offline.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="platforms">
+      <span class="sec-label">07 — Infrastructure</span>
+      <h2 class="sec-h">Key Digital Marketing Platforms</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>Devices</h3>
+          <ul>
+            <li>Desktop/browser (Chrome, Edge) &amp; apps</li>
+            <li>Email platforms</li>
+            <li>Feed/API exchange: RSS, Twitter, Facebook</li>
+            <li>Video/IPTV: streaming, firestick</li>
+            <li>Mobile OS, browsers &amp; apps (iOS, Android)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Software &amp; Infrastructure</h3>
+          <ul>
+            <li>SEO, content marketing, MRM, DAM</li>
+            <li>Marketing middleware — DMPs, cloud connectors</li>
+            <li>CRMs (marketing backbone)</li>
+            <li>Big data &amp; cloud computing services</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="diffusion">
+      <span class="sec-label">08 — Adoption Theory</span>
+      <h2 class="sec-h">Diffusion of Innovation (Everett Rogers)</h2>
+      <div class="bell-row">
+        <div class="bell-seg b1">2.5%</div>
+        <div class="bell-seg b2">13.5%</div>
+        <div class="bell-seg b3">34%</div>
+        <div class="bell-seg b4">34%</div>
+        <div class="bell-seg b5">16%</div>
+      </div>
+      <div class="bell-labels">
+        <span>Innovators</span><span>Early Adopters</span><span>Early Majority</span><span>Late Majority</span><span>Laggards</span>
+      </div>
+      <table style="margin-top:20px;">
+        <tr><th>Group</th><th>Who they are</th><th>How to engage</th></tr>
+        <tr><td>Innovators (2.5%)</td><td>Risk-takers, wide networks, high resources</td><td>First access, cutting-edge positioning</td></tr>
+        <tr><td>Early Adopters (13.5%)</td><td>Influential local opinion leaders</td><td>Give them a reason to give feedback</td></tr>
+        <tr><td>Early Majority (34%)</td><td>Followers who read reviews first</td><td>Reviews, YouTube presence</td></tr>
+        <tr><td>Late Majority (34%)</td><td>Sceptics, adopt to avoid missing out</td><td>Case studies, evidence, opinion-leader reviews</td></tr>
+        <tr><td>Laggards (16%)</td><td>Prefer tradition, adopt last</td><td>Social proof, statistics, peer pressure</td></tr>
+      </table>
+    </section>
+
+    <section id="models">
+      <span class="sec-label">09 — Business Models</span>
+      <h2 class="sec-h">B2B / B2C / B2G &amp; E-commerce vs E-business</h2>
+      <table>
+        <tr><th>Model</th><th>Direction</th><th>Example</th></tr>
+        <tr><td>C2C</td><td>Consumer → Consumer</td><td>eBay, Skype, product recommendations</td></tr>
+        <tr><td>B2C</td><td>Business → Consumer</td><td>Amazon (transactional), Unilever (brand)</td></tr>
+        <tr><td>B2B</td><td>Business → Business</td><td>Euroffice, LinkedIn</td></tr>
+        <tr><td>G2C / B2G / G2G</td><td>Government-linked</td><td>Tax (HMRC-style), government e-services</td></tr>
+      </table>
+      <div class="grid2" style="margin-top:16px;">
+        <div class="card">
+          <h3>E-commerce</h3>
+          <p>Financial &amp; informational electronically mediated transactions between an org and a third party. Split into <b>buy-side</b> and <b>sell-side</b>.</p>
+        </div>
+        <div class="card">
+          <h3>E-business</h3>
+          <p>Broader than e-commerce — using digital tech to manage business processes (R&amp;D, marketing, manufacturing, logistics), incorporating both buy-side and sell-side e-commerce.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tasks">
+      <span class="sec-label">Action Items</span>
+      <h2 class="sec-h">Tasks Due This Week</h2>
+      <div class="task-box">
+        <h3>Tutorial 1 — History of e-Marketing</h3>
+        <p>Discuss in detail: when it started, why it started, key milestones, and future direction. Use the History timeline above as your skeleton — expand each milestone with 1–2 sentences of "why it mattered" for full marks.</p>
+      </div>
+      <div class="task-box">
+        <h3>Weekly Task — New Technologies Post-2023</h3>
+        <p>Research developments since 2023: continued rise of generative AI in marketing, AI search/agents (SGE, AI Overviews), further growth of social commerce, and short-form video dominance. Reference: <a href="https://www.simplilearn.com/history-and-evolution-of-digital-marketing-article" target="_blank">simplilearn.com — History &amp; Evolution of Digital Marketing</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============ PART 2: LECTURES 3 & 4 ============ -->
+    <div class="part-title" id="part2">
+      <span class="eyebrow-lite">Part 2 — Lectures 3 &amp; 4</span>
+      <h2>Segmentation, Tactics, Channels &amp; Content</h2>
+      <p>Market segmentation, buyer personas, targeting, the 31 e-marketing tactics, channels, content marketing, social media marketing, SEO, and CRM.</p>
+    </div>
+
+    <section id="seg">
+      <h2 class="sec-h">1. Market Segmentation</h2>
+      <div class="card">
+        <strong>Purpose — segmentation checks:</strong>
+        <ul>
+          <li>What groups of buyers are similar enough that the same product/service appeals to all of them?</li>
+          <li>Does the idea satisfy consumers' needs and add value to existing products?</li>
+          <li>Who's going to buy the product?</li>
+          <li>Will there be enough of these people to make it worth the company's while?</li>
+        </ul>
+      </div>
+
+      <h3>Segmentation categories</h3>
+      <table>
+        <tr><th>Category</th><th>Definition</th><th>Examples</th></tr>
+        <tr><td><strong>Behavioral</strong></td><td>How buyers behave/act toward products</td><td>Benefits sought, usage rate, usage situation, buyer status &amp; loyalty</td></tr>
+        <tr><td><strong>Demographic</strong></td><td>Personal characteristics</td><td>Age, income, ethnicity, education, occupation, religion, social class, family size</td></tr>
+        <tr><td><strong>Geographic</strong></td><td>Divides market by location</td><td>Region, city size, population density, climate</td></tr>
+        <tr><td><strong>Psychographic</strong></td><td>Differentiates by lifestyle/attitude</td><td>Activities, interests, opinions, values, lifestyles</td></tr>
+        <tr><td><strong>Firmographic</strong></td><td>B2B equivalent of demographics — categorizes companies not individuals</td><td>Company size, industry type, annual revenue, number of employees</td></tr>
+      </table>
+
+      <div class="exam-tip"><strong>Exam tip:</strong> Remember the mnemonic <strong>B-D-G-P-F</strong> (Behavioral, Demographic, Geographic, Psychographic, Firmographic). Firmographic = "demographics for businesses."</div>
+
+      <h3>Multi-segment vs. concentrated marketing</h3>
+      <div class="card">
+        <strong>Multi-segment marketing:</strong> lets firms respond to demographic changes/trends across several segments.<br><br>
+        <strong>Concentrated marketing:</strong> used by smaller firms with limited resources; targets one very select group (e.g. one-to-one marketing).
+      </div>
+
+      <h3>Market positioning</h3>
+      <div class="card">
+        <strong>Repositioning</strong> = moving a product to a different place in consumers' minds.<br>
+        <strong>Perceptual map</strong> = two-dimensional graph plotting customer survey data to show where a product stands (or should stand) vs. competitors, based on criteria important to buyers (price, quality, service level, etc.)
+      </div>
+    </section>
+
+    <section id="persona">
+      <h2 class="sec-h">2. Marketing Personas</h2>
+      <div class="card">
+        Also called <strong>buyer/customer personas</strong> — semi-fictional representations of ideal customers based on data &amp; research. They capture demographics, behaviors, motivations, and pain points to guide messaging, product development, and sales strategy.
+      </div>
+      <h3>Typical persona template fields</h3>
+      <ul>
+        <li>Who they are (age, role, location)</li>
+        <li>Goals / Objectives</li>
+        <li>Pain points / Challenges / Frustrations</li>
+        <li>Content &amp; channel preference (where they get info, how they communicate)</li>
+        <li>How to market to them (messaging approach)</li>
+      </ul>
+      <div class="exam-tip"><strong>Exam tip:</strong> If asked to construct a persona, always include: name, demographic snapshot, goals, pain points, preferred channels, and a marketing approach tailored to those pain points.</div>
+    </section>
+
+    <section id="targeting">
+      <h2 class="sec-h">3. Targeting / Differentiated Marketing &amp; One-to-One Marketing</h2>
+      <div class="grid2">
+        <div class="card">
+          <strong>Target/differentiated marketing:</strong> sells to specific segment(s)/group(s).<br>
+          <strong>Mass marketing:</strong> same product to everybody.<br>
+          <strong>One-to-one marketing:</strong> personalizes sells — close, personal relationships, giving customers exactly what they want.
+        </div>
+        <div class="card">
+          <strong>Benefits of segmented targeting:</strong>
+          <ul>
+            <li>Avoid head-on competition</li>
+            <li>Develop new offerings/expand profitable lines</li>
+            <li>Remarket older, less-profitable products</li>
+            <li>Identify early adopters</li>
+            <li>Focus resources on most profitable customers</li>
+            <li>Retain "at-risk" customers</li>
+          </ul>
+        </div>
+      </div>
+      <h3>Steps in one-to-one marketing</h3>
+      <ol>
+        <li>Establish short-term measures to evaluate efforts (e.g. satisfaction ratings, revenue/customer, transaction costs)</li>
+        <li>Identify your customers — gather data on buying patterns, likes/dislikes; use "opt-in" to legally collect contact info</li>
+        <li>Differentiate among customers — determine customer lifetime value, ease of service</li>
+        <li>Interact with customers — prioritize time/money on high-value, high-growth customers</li>
+        <li>Customize products and marketing messages</li>
+      </ol>
+    </section>
+
+    <section id="tactics">
+      <h2 class="sec-h">4. eMarketing Tactics (Strategy vs. Tactic)</h2>
+      <div class="card">
+        <strong>Strategy</strong> = the "what" and "why" (e.g. increase brand awareness for a new launch).<br>
+        <strong>Tactic</strong> = the "how" — specific, actionable, short-term methods within a channel (e.g. targeted Instagram ad campaign with a 20% coupon).<br>
+        <strong>Marketing channel</strong> = the tool/platform/touchpoint used to communicate with a segment along the customer journey.
+      </div>
+
+      <div class="exam-tip"><strong>Exam tip:</strong> A common question is "differentiate strategy from tactic" — Strategy = direction/goal; Tactic = the concrete action executing it.</div>
+
+      <h3>The 31 eMarketing tactics (know a few examples for each)</h3>
+      <table>
+        <tr><th>#</th><th>Tactic</th><th>Key idea</th></tr>
+        <tr><td>1</td><td>Pay-Per-Click (PPC)</td><td>Pay only when someone clicks (Google Ads, Bing Ads, retargeting)</td></tr>
+        <tr><td>2</td><td>Native Advertising &amp; Advertorial</td><td>Paid content that blends into the publication (sponsored blog/magazine ad)</td></tr>
+        <tr><td>3</td><td>Affiliate</td><td>Cross between earned &amp; paid; pay commission for referred traffic/sales</td></tr>
+        <tr><td>4</td><td>Co-Branding &amp; Partnership</td><td>Collaborate with another brand (webinar, podcast, ad)</td></tr>
+        <tr><td>5</td><td>Engagement</td><td>Building connections via social media, comments, surveys</td></tr>
+        <tr><td>6</td><td>Loyalty</td><td>Points/rewards to encourage repeat purchase</td></tr>
+        <tr><td>7</td><td>Retention &amp; Expansion</td><td>Build relationships to increase lifetime value &amp; cross-selling</td></tr>
+        <tr><td>8</td><td>Advocacy</td><td>Earned — customer/fan shares positive sentiment</td></tr>
+        <tr><td>9</td><td>Case Study</td><td>Customer story: problem → solution → results</td></tr>
+        <tr><td>10</td><td>Content Curation</td><td>Sharing content you don't own</td></tr>
+        <tr><td>11</td><td>Crowdsource</td><td>Gathering ideas from customers to create new content</td></tr>
+        <tr><td>12</td><td>Blogging</td><td>Owned content hub — text, audio, video</td></tr>
+        <tr><td>13</td><td>Research</td><td>Curated or original findings (survey, report, blog)</td></tr>
+        <tr><td>14</td><td>Content Syndication</td><td>Publish first on owned channel, then let others republish</td></tr>
+        <tr><td>15</td><td>Repurpose</td><td>Turn existing content into new formats</td></tr>
+        <tr><td>16</td><td>Social Media</td><td>Online communities sharing via micro-messaging, images, video</td></tr>
+        <tr><td>17</td><td>Event</td><td>Planned occasion (conference, webinar, meetup)</td></tr>
+        <tr><td>18</td><td>Live Streaming</td><td>Recording/sharing an event in real time</td></tr>
+        <tr><td>19</td><td>Marketing Automation</td><td>Auto-sends content based on activity/interest (email, popup, ad)</td></tr>
+        <tr><td>20</td><td>Retargeting &amp; Abandonment</td><td>Target past visitors/cart abandoners</td></tr>
+        <tr><td>21</td><td>Marketing A.I.</td><td>Behavior-driven recommendation/recognition tech</td></tr>
+        <tr><td>22</td><td>Interactive</td><td>Back-and-forth — customer action triggers a reaction</td></tr>
+        <tr><td>23</td><td>Contest</td><td>Chance to win in exchange for participation</td></tr>
+        <tr><td>24</td><td>Promo</td><td>Coupons, flyers, posters, ads to attract/retain customers</td></tr>
+        <tr><td>25</td><td>Gamification</td><td>Game-playing techniques applied to content</td></tr>
+        <tr><td>26</td><td>Giveaway</td><td>Prize given to a randomly selected winner</td></tr>
+        <tr><td>27</td><td>Guerilla</td><td>Unconventional, attention-grabbing actions</td></tr>
+        <tr><td>28</td><td>Pricing</td><td>Cost used to influence decisions/capture market share</td></tr>
+        <tr><td>29</td><td>Sales Enablement</td><td>Tools/training to boost sales team efficiency</td></tr>
+        <tr><td>30</td><td>Remarketing</td><td>Targeted ads follow past visitors around the internet</td></tr>
+        <tr><td>31</td><td>Viral Marketing</td><td>Combination of tactics → fast, mass sharing of a marketing piece</td></tr>
+      </table>
+    </section>
+
+    <section id="channels">
+      <h2 class="sec-h">5. E-Marketing Channels</h2>
+      <div class="card">
+        <strong>Channels</strong> = where your marketing happens — the platforms/mediums used to reach an audience online ("the roads you use to deliver your message"). They involve the people, organizations, and activities that move goods from production to consumption.
+      </div>
+      <h3>Types of e-marketing channels</h3>
+      <ul>
+        <li><strong>Content marketing</strong> — creation &amp; distribution of content for a specific audience</li>
+        <li><strong>SEO</strong> — obtaining high-quality traffic from free/organic search results</li>
+        <li><strong>SEM</strong> — combines SEO + PPC (paid + free search traffic)</li>
+        <li><strong>SMM (Social Media Marketing)</strong> — attracting traffic/attention via social platforms</li>
+        <li><strong>Affiliate promotion</strong> — incentivizing influencers to share positive sentiment</li>
+        <li><strong>Email marketing</strong> — using email to promote products/services</li>
+        <li><strong>Instant messaging marketing</strong> — e.g. WhatsApp (1.5B+ monthly users), Messenger, WeChat</li>
+        <li><strong>Network marketing</strong> — leverages associations/groups online; identifying influencers/wholesalers to spread word</li>
+      </ul>
+    </section>
+
+    <section id="content">
+      <h2 class="sec-h">6. Content Marketing</h2>
+      <h3>Content marketing process (sales cycle stages)</h3>
+      <table>
+        <tr><th>Stage</th><th>Best content types</th><th>Example</th></tr>
+        <tr><td><strong>1. Awareness</strong></td><td>Articles, blog posts, e-books, videos, newsletters</td><td>Restaurant blog post on planning a graduation party menu</td></tr>
+        <tr><td><strong>2. Consideration</strong></td><td>Case studies, how-to articles/videos, checklists/worksheets</td><td>"8 Ways to Improve Your Phone Customer Service" checklist</td></tr>
+        <tr><td><strong>3. Closing</strong></td><td>Case studies, UGC, buyer's guides, product videos, research reports</td><td>Consulting firm's research report on strategic planning &amp; growth</td></tr>
+      </table>
+      <div class="exam-tip"><strong>Exam tip:</strong> "Awareness → Consideration → Closing" mirrors the marketing/sales funnel (top, middle, bottom).</div>
+
+      <h3>Getting started with content marketing (5 steps)</h3>
+      <ol>
+        <li><strong>Audience</strong> — understand priorities, challenges, preferences</li>
+        <li><strong>Formats</strong> — pick what best showcases value (video, checklist, etc.)</li>
+        <li><strong>Distribution</strong> — site, email, print for an event</li>
+        <li><strong>Schedule</strong> — short-term plan (3–6 months), avoid overambition</li>
+        <li><strong>Best practice</strong> — clear writing, no jargon</li>
+      </ol>
+
+      <h3>7 types of content marketing</h3>
+      <div class="grid2">
+        <ul>
+          <li>Online content marketing (web pages)</li>
+          <li>Social media content marketing</li>
+          <li>Infographic content marketing</li>
+          <li>Blog content marketing</li>
+        </ul>
+        <ul>
+          <li>Podcast content marketing</li>
+          <li>Video content marketing</li>
+          <li>Paid ad content marketing</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="smm">
+      <h2 class="sec-h">7. Social Media Marketing (SMM)</h2>
+      <h3>5 steps to successful social media marketing</h3>
+      <ol>
+        <li><strong>Define your goal</strong> — traffic, sales, brand awareness, leads, engagement, customer service, branded content, community, promotions</li>
+        <li><strong>Understand your customers (segmentation)</strong> — age, gender, education, occupation, needs, hobbies, location</li>
+        <li><strong>Competitor analysis</strong> — identify social competitors &amp; their campaign strength</li>
+        <li><strong>Pick your social channels</strong> — start with 1–2 platforms ("efficiency vs. effectiveness")</li>
+        <li><strong>Strategize the campaign</strong> — develop &amp; execute a plan you can monitor</li>
+      </ol>
+
+      <h3>Benefits of SMM</h3>
+      <ul>
+        <li>Humanize your business</li>
+        <li>Generate leads and customers</li>
+        <li>Drive traffic</li>
+        <li>Increase brand awareness</li>
+        <li>Build relationships</li>
+      </ul>
+
+      <h3>Platform quick reference</h3>
+      <table>
+        <tr><th>Platform</th><th>Typical audience</th><th>Content strength</th><th>Weakness</th></tr>
+        <tr><td>Facebook</td><td>25–34, boomers</td><td>Photos, links, live video</td><td>Weak organic reach</td></tr>
+        <tr><td>YouTube</td><td>18–35</td><td>How-tos, webinars, explainers</td><td>Resource-heavy video</td></tr>
+        <tr><td>Instagram</td><td>18–34, millennials</td><td>Inspiration, questions/polls</td><td>High ad costs</td></tr>
+        <tr><td>Twitter/X</td><td>25–49, educated/wealthy</td><td>News, discussion, humor</td><td>Small ad audience</td></tr>
+        <tr><td>LinkedIn</td><td>46–55, professionals</td><td>Long-form B2B content</td><td>Complex ad reporting</td></tr>
+        <tr><td>TikTok</td><td>10–19, female-skewed</td><td>Entertainment, challenges</td><td>Relationship-building only</td></tr>
+        <tr><td>Snapchat</td><td>13–17, 13–34 teens</td><td>Silly, feel-good, trends</td><td>Relationship-building only</td></tr>
+      </table>
+
+      <h3>Real campaign examples</h3>
+      <ul>
+        <li><strong>Airbnb</strong> — stunning UGC imagery, "Don't just go there, Live there" campaign</li>
+        <li><strong>Dove</strong> — #SpeakBeautiful (with Twitter) — 168,000+ uses, 800M+ impressions</li>
+      </ul>
+    </section>
+
+    <section id="seo">
+      <h2 class="sec-h">8. Search Engine Optimization (SEO)</h2>
+      <div class="card">
+        <strong>Goal:</strong> help a website rank higher in organic (unpaid) search results. <strong>Keyword research</strong> finds the trigger words your target audience searches for.
+      </div>
+
+      <h3>How SEO works (3 steps)</h3>
+      <ol>
+        <li><strong>Crawling</strong> — Google's crawlers/spiders follow hyperlinks to discover content</li>
+        <li><strong>Indexing</strong> — unique content is added to Google's search index</li>
+        <li><strong>Ranking</strong> — results ordered by relevance using the algorithm's ranking factors</li>
+      </ol>
+
+      <h3>Three types of SEO</h3>
+      <table>
+        <tr><th>Type</th><th>Focus</th></tr>
+        <tr><td><strong>On-site (on-page)</strong></td><td>Optimizing content for users &amp; search engines (keyword research, quality content, keyword placement, titles, meta descriptions, images, internal/external links)</td></tr>
+        <tr><td><strong>Off-site</strong></td><td>Brand assets (people, marks, values, slogans), reputation via listings, press, reviews</td></tr>
+        <tr><td><strong>Technical</strong></td><td>Back-end optimizations for site security &amp; user experience (e.g. page speed)</td></tr>
+      </table>
+
+      <h3>On-page optimization checklist</h3>
+      <ol>
+        <li>Keyword research</li>
+        <li>Create quality content targeting those keywords</li>
+        <li>Place keywords in specific spots</li>
+        <li>Optimize titles (1 H1 tag/page, 55–60 characters)</li>
+        <li>Optimize meta descriptions</li>
+        <li>Optimize images (compress, size)</li>
+        <li>Internal links (to your own posts) + external links (1–3 relevant pages)</li>
+      </ol>
+
+      <div class="exam-tip"><strong>Exam tip:</strong> Users want info in <strong>under 3 seconds</strong> — slow pages risk losing visitors to competitors. Know this stat if asked about page speed.</div>
+
+      <h3>Uses / benefits of SEO</h3>
+      <ul>
+        <li>Brings organic search traffic (long-term, most preferred vs. paid)</li>
+        <li>Generates leads cost-effectively</li>
+        <li>Increases brand awareness</li>
+        <li>Gets you ahead of competition</li>
+        <li>Optimizes for mobile users</li>
+        <li>Builds trust</li>
+      </ul>
+
+      <h3>SEO tools</h3>
+      <ul>
+        <li><strong>Paid SEO software:</strong> Ahrefs, Moz Pro, Screaming Frog, SEMrush</li>
+        <li><strong>Website graders:</strong> simplify SEO, offer guidance</li>
+        <li><strong>Google Analytics:</strong> free — traffic, time on page, engagement, sessions</li>
+        <li><strong>Google Search Console (GSC):</strong> content/technical SEO — Core Web Vitals, query analysis, indexing</li>
+        <li><strong>Keyword research tools:</strong> find realistic targets by volume &amp; competition</li>
+      </ul>
+    </section>
+
+    <section id="crm">
+      <h2 class="sec-h">9. Customer Relationship Management (CRM)</h2>
+      <div class="card">
+        CRM can refer to: <strong>Technology</strong> (a tool/platform to record, report, analyse customer interactions), <strong>Strategy</strong> (a business philosophy on managing customer relationships), or <strong>Process</strong> (the system adopted to nurture those relationships).
+      </div>
+
+      <h3>Four elements of CRM implementation</h3>
+      <table>
+        <tr><th>Element</th><th>Covers</th></tr>
+        <tr><td>Technology</td><td>Applications and infrastructure</td></tr>
+        <tr><td>Strategy</td><td>Business goals and objectives</td></tr>
+        <tr><td>Process</td><td>Procedures and business rules</td></tr>
+        <tr><td>People</td><td>Organizational structure, skills, incentives</td></tr>
+      </table>
+
+      <h3>Benefits &amp; advantages of CRM (know at least 5)</h3>
+      <div class="grid2">
+        <ul>
+          <li>Enhanced contact management</li>
+          <li>Cross-team collaboration</li>
+          <li>Heightened productivity</li>
+          <li>Empowered sales management</li>
+          <li>Accurate sales forecasting</li>
+        </ul>
+        <ul>
+          <li>Reliable reporting</li>
+          <li>Improved sales metrics</li>
+          <li>Increased customer satisfaction &amp; retention</li>
+          <li>Boosted marketing ROI</li>
+        </ul>
+      </div>
+
+      <h3>Customer profiling using a CRM — data points</h3>
+      <ul>
+        <li>Occupation, hobbies, media habits, aspirational role</li>
+        <li>Tastes &amp; preferences, income, education, age</li>
+      </ul>
+
+      <h3>Common CRM software (best-for)</h3>
+      <table>
+        <tr><th>Software</th><th>Best for</th></tr>
+        <tr><td>Salesforce</td><td>Small businesses</td></tr>
+        <tr><td>Pipedrive</td><td>Visual sales pipelines</td></tr>
+        <tr><td>monday Sales CRM</td><td>Project management</td></tr>
+        <tr><td>Oracle NetSuite CRM</td><td>E-commerce</td></tr>
+        <tr><td>Freshsales</td><td>Communication</td></tr>
+        <tr><td>HubSpot CRM</td><td>Integrations</td></tr>
+        <tr><td>Zoho CRM</td><td>Remote/hybrid teams</td></tr>
+        <tr><td>Keap</td><td>Ease of use</td></tr>
+        <tr><td>Quickbase</td><td>Cross-platform integrations</td></tr>
+        <tr><td>Sage CRM</td><td>Customer support</td></tr>
+        <tr><td>SugarCRM</td><td>Midsize businesses</td></tr>
+        <tr><td>Insightly</td><td>Customization</td></tr>
+        <tr><td>Zendesk</td><td>Complete customer life cycle</td></tr>
+      </table>
+    </section>
+
+    <!-- ============ PART 3: CAT1 + LECTURE 5 ============ -->
+    <div class="part-title" id="part3">
+      <span class="eyebrow-lite">Part 3 — CAT1 &amp; Lecture 5</span>
+      <h2>Case Study Review + Strategy Analytics &amp; ROI</h2>
+      <p>The CAT1 life-insurance case study model answer, plus every formula you need for digital marketing, ROI, social, and Facebook analytics.</p>
+    </div>
+
+    <section id="cat1">
+      <h2 class="sec-h">CAT1 — Case Study: Selling Life Insurance</h2>
+      <p style="font-size:.9rem;color:var(--ink-soft)">Case: Mark sells a bundled insurance/savings product (high commission 110%, low 3–6% return) vs. a cheaper, better-value product paired with an annuity (low commission, discouraged by management).</p>
+
+      <div class="qa">
+        <h3>a) Five reasons an organisation needs an e-Marketing strategy <span class="marks">10 marks</span></h3>
+        <ol>
+          <li><strong>Optimal resource allocation</strong> — spend goes to the highest-ROI channels.</li>
+          <li><strong>Targeted audience reach</strong> — reach the exact demographic likely to convert.</li>
+          <li><strong>Competitive advantage</strong> — spot market gaps competitors miss.</li>
+          <li><strong>Data-driven decision making</strong> — replaces guesswork with KPIs/analytics.</li>
+        </ol>
+        <p style="font-size:.88rem;color:var(--ink-soft)"><strong>Remember also:</strong> without a strategy you risk being directionless, having poor digital maturity, losing to competitors, not knowing your online audience/market share, not understanding customers deeply enough, and wasting money through duplication.</p>
+      </div>
+
+      <div class="qa">
+        <h3>b) Main problem at Mark's company <span class="marks">2 marks</span></h3>
+        <p>Beyond the ethical tension (cheap/customer-favouring product vs. expensive/company-favouring product), the core <strong>marketing</strong> issue is <strong>revenue growth</strong> — the company is prioritising profit/market share over customer value.</p>
+      </div>
+
+      <div class="qa">
+        <h3>c) Best model for situational analysis <span class="marks">4 marks</span></h3>
+        <p><strong>SWOT</strong> is most suitable (4Ps also acceptable). It structures internal factors (Strengths/Weaknesses) and external factors (Opportunities/Threats) to build a data-driven strategy while managing risk.</p>
+      </div>
+
+      <div class="qa">
+        <h3>d) SWOT Analysis of the situation <span class="marks">8 marks</span></h3>
+        <div class="swot">
+          <div class="s"><h4>Strengths</h4>Customisable, marketable products</div>
+          <div class="w"><h4>Weaknesses</h4>High cost of products; age-sensitive product design</div>
+          <div class="o"><h4>Opportunities</h4>Modify less-profitable products; tech advancement enabling digital marketing</div>
+          <div class="t"><h4>Threats</h4>New entrants/competition; changing workforce trends (early retirement, younger staff)</div>
+        </div>
+      </div>
+
+      <div class="qa">
+        <h3>e) Value proposition <span class="marks">1 mark</span></h3>
+        <p><em>"Financial protection and peace of mind"</em> — shifting the burden of catastrophic financial loss from the individual to a pool of policyholders in exchange for a predictable premium.</p>
+      </div>
+    </section>
+
+    <section id="smart">
+      <h2 class="sec-h">f) Five SMART Objectives <span class="marks">5 marks</span></h2>
+      <table>
+        <tr><th>Focus</th><th>Objective</th><th>Why it works</th></tr>
+        <tr><td>Lead generation</td><td>500 qualified leads/month from digital channels by end of Q3</td><td>Specific, tracks ad spend justification</td></tr>
+        <tr><td>Conversion</td><td>Quote-to-bind ratio 15% → 22% in 6 months via email + video follow-up</td><td>Directly impacts revenue efficiency</td></tr>
+        <tr><td>Retention</td><td>Reduce churn 10% in 12 months via review reminders</td><td>Retention cheaper than acquisition</td></tr>
+        <tr><td>Visibility (Local SEO)</td><td>+30% organic traffic to branch page in 6 months</td><td>"Near me" search builds local trust</td></tr>
+        <tr><td>Advocacy</td><td>50 new 5-star reviews in Q4</td><td>Social proof drives new policy sales</td></tr>
+      </table>
+    </section>
+
+    <section id="analytics">
+      <h2 class="sec-h">Lecture 5: Digital Marketing Analytics</h2>
+      <h3>What is it?</h3>
+      <p>A <strong>math-based discipline</strong> that finds patterns in marketing data to generate actionable knowledge that improves marketing performance.</p>
+      <p><strong>Methods:</strong> Marketing mix modeling, Demand forecasting, Competitor analytics, Unmet needs analytics, Trend analytics.</p>
+
+      <h3>High-quality data must be:</h3>
+      <ul>
+        <li>Current</li>
+        <li>Comprehensive (no gaps)</li>
+        <li>Error-free</li>
+        <li>As precise as required</li>
+        <li>Relevant to the analysis</li>
+      </ul>
+
+      <h3>B2B vs B2C</h3>
+      <ul>
+        <li><strong>B2C:</strong> appeals to emotional reaction → transactional purchase.</li>
+        <li><strong>B2B:</strong> builds brand recognition/relationships → leads → sales. Relies on keyword analysis, target market data, lead scoring, lead-to-customer ratio.</li>
+      </ul>
+
+      <h3>Types of Analytics</h3>
+      <ul>
+        <li><strong>Web analytics</strong> — measurement/collection/analysis/reporting of internet data to optimize web usage.</li>
+        <li><strong>Clickstream analytics</strong> — tracks: unique/repeat visitor, search terms used, first landing page, time on page, features clicked, cart add/remove, next page, back-button use.</li>
+        <li><strong>Conversion analytics</strong> — a conversion = any counted user action (purchase, level completion, scroll, video play, signup, free trial, form fill).</li>
+      </ul>
+
+      <h3>4 Key Areas of Email Marketing Metrics</h3>
+      <ul>
+        <li><strong>Delivery</strong> — getting to the inbox</li>
+        <li><strong>Engagement</strong> — how people interact with your message</li>
+        <li><strong>Conversion</strong> — business impact</li>
+        <li><strong>List Health</strong> — audience growth &amp; fatigue</li>
+      </ul>
+    </section>
+
+    <section id="roi">
+      <h2 class="sec-h">ROI Formulas — Memorise These</h2>
+
+      <h3>Google Ads Campaign ROI</h3>
+      <div class="formula">ROI = (Revenue − Cost of Goods Sold) / Cost of Goods Sold</div>
+
+      <h3>SEO ROI (concept)</h3>
+      <p>Calculate ROI for each SEO tactic (tools + personnel cost). Track sales funnel conversions by phase, then subtract revenue generated from investment made.</p>
+
+      <h3>Return on Ad Spend (ROAS)</h3>
+      <div class="formula">ROAS = Total Revenue / Total Ad Spend</div>
+      <p style="font-size:.88rem;color:var(--ink-soft)">Tells you revenue earned for every $1 spent on ads.</p>
+
+      <h3>Cost per Result</h3>
+      <div class="formula">Cost per Result = Total Ad Spend / Number of Results</div>
+
+      <h3>Result Rate (Conversion Rate)</h3>
+      <div class="formula">Result Rate = Number of Results / Number of Impressions</div>
+
+      <h3>CPM (Cost per 1000 Impressions)</h3>
+      <p>Cost of achieving 1,000 impressions — measures cost-effectiveness of an ad campaign.</p>
+
+      <h3>CTR (Click-Through-Rate)</h3>
+      <div class="formula">CTR = Clicks / Impressions</div>
+      <p style="font-size:.88rem;color:var(--ink-soft)">100 clicks sounds good — but out of 100,000 impressions it's a weak CTR. Always read clicks relative to impressions.</p>
+    </section>
+
+    <section id="social">
+      <h2 class="sec-h">Social Media Metrics</h2>
+      <table>
+        <tr><th>Metric</th><th>Formula</th><th>Meaning</th></tr>
+        <tr><td>Audience Growth Rate</td><td>(Net New Followers / Total Audience) × 100</td><td>New followers as % of total, not raw count</td></tr>
+        <tr><td>Amplification Rate</td><td>(Total Post Shares / Total Followers) × 100</td><td>How much followers extend your reach</td></tr>
+        <tr><td>Virality Rate</td><td>(Number of Shares / Number of Impressions) × 100</td><td>Shares as % of impressions (not followers)</td></tr>
+        <tr><td>CSAT Score</td><td>(Sum of Scores / Number of Respondents) × 10</td><td>Customer happiness with product/service</td></tr>
+        <tr><td>Net Promoter Score (NPS)</td><td>(Promoters − Detractors) / Total Respondents × 100</td><td>Customer loyalty; Detractors 0–6, Passives 7–8, Promoters 9–10</td></tr>
+      </table>
+    </section>
+
+    <section id="facebook">
+      <h2 class="sec-h">Facebook Analytics</h2>
+      <table>
+        <tr><th>Metric</th><th>Formula / Definition</th></tr>
+        <tr><td>Engagement Rate</td><td>(Likes + Comments + Shares) / Total Followers × 100 &nbsp;<em>(worked example: 400/10,000 × 100% = 4%)</em></td></tr>
+        <tr><td>Organic Reach</td><td>People who saw a post in-feed with no paid distribution</td></tr>
+        <tr><td>Impressions</td><td>Number of times a post appeared on a user's timeline</td></tr>
+        <tr><td>Page Likes/Followers</td><td>An "earned" metric — can't be directly bought</td></tr>
+        <tr><td>Top Contributors</td><td>Users most engaged (like/comment/share most)</td></tr>
+        <tr><td>Audience Retention</td><td>How long people watched a video — flags if footage is too long</td></tr>
+        <tr><td>How People Are Watching</td><td>Recommendations / Followers / Shares</td></tr>
+        <tr><td>Facebook Referral Traffic</td><td>People who clicked a FB post through to your website</td></tr>
+      </table>
+      <h3>Increasing Facebook Followers/Likes</h3>
+      <p>Run Facebook Ads · Invite people to like your page · Create viral content · Host a giveaway · Post attention-grabbing content · Add a Likes pop-up · Try Facebook Live · Partner with an influencer.</p>
+
+      <h3>Facebook Targeting Options</h3>
+      <p>Demographics · Location · Interests · Purchasing behaviours · Life events targeting</p>
+    </section>
+
+    <!-- ============ PART 4: TOPIC-BY-TOPIC ANSWER GUIDE ============ -->
+    <div class="part-title" id="part4">
+      <span class="eyebrow-lite">Part 4 — Exam-Paper Answer Bank</span>
+      <h2>Topic-by-Topic Answer Guide</h2>
+      <p>Model answers organised by topic, compiled from the Aug 2024, Dec 2024, and Dec 2025 (SafariSip) exam papers — 16 topics covering strategy frameworks through campaign lifecycle.</p>
+    </div>
+
+    <section class="tg-topic" id="t1">
+    <h2>1. Marketing Frameworks &amp; Strategy</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Overall campaign goal <span class="tg-src">Aug'24 Q1a</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans">For the iSpionage case, the overall goal is to increase referral traffic from the company blog to the main website, so that more blog readers convert into users of iSpionage's competitive-intelligence tool — i.e. turning content marketing into qualified traffic and leads rather than just readership.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Why marketers need a clear goal <span class="tg-src">Dec'24 Q1a</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>A clear goal gives the campaign direction and lets every tactic (CRM automation, content, workflows) be judged against whether it moves the business toward that goal, avoiding wasted spend on activity that "feels" productive but doesn't serve the objective.</li>
+    <li>It provides a benchmark for measuring success (e.g. Handled's 90-day launch goal), so performance can be tracked and the campaign adjusted if it drifts off target.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">7-S Marketing Mix framework <span class="tg-src">Aug'24 Q1b · Dec'24 Q1b</span><span class="tg-marks">11 / 8 marks</span></div>
+    <div class="tg-ans">The 7S framework analyses a digital campaign's situation under seven elements. Apply each to the case, stating assumptions where the case is silent:
+    <ul>
+    <li><strong>Strategy</strong> – the overall direction (e.g. Handled's strategy of a tech-enabled, personalised concierge moving service on one unified CRM platform).</li>
+    <li><strong>Site</strong> – the company's website/online presence used to reach customers.</li>
+    <li><strong>Scope</strong> – the breadth of online activity: which products/services and markets are covered digitally.</li>
+    <li><strong>Synergy</strong> – how online activity integrates with offline operations (e.g. concierge reps supported by CRM automation).</li>
+    <li><strong>System</strong> – the technology stack/processes running the campaign (e.g. HubSpot's Marketing, Sales, Service and CMS Hubs).</li>
+    <li><strong>Structure</strong> – how the marketing/digital team and reporting lines are organised.</li>
+    <li><strong>Staff</strong> – skills and resourcing needed (e.g. HubSpot consultants, concierge service reps).</li>
+    </ul>
+    State assumptions explicitly, e.g. "assuming the company has an in-house digital team" — assumptions earn credit because the case text doesn't cover every S.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">SMART marketing objectives <span class="tg-src">Aug'24 Q1c · Dec'24 Q1c · SafariSip Q1ii</span><span class="tg-marks">4 / 4 / 2 marks</span></div>
+    <div class="tg-ans">Objectives must be Specific, Measurable, Achievable, Relevant, Time-bound. Examples:
+    <ul>
+    <li><em>iSpionage</em>: "Increase blog-to-main-site referral traffic by 58% within 1 month using an exit-intent popup."</li>
+    <li><em>Handled</em>: "Launch the full HubSpot CRM (Marketing, Sales, Service, CMS Hubs) within 90 days to unify sales, marketing and service."</li>
+    <li><em>SafariSip</em> (from its stated strengths/weaknesses): "Increase email subscribers from the current base to 10,000 active coffee enthusiasts within 12 months" and "Improve website conversion rate by X% within 6 months by upgrading site speed and adding product videos."</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">SafariSip: one strength, two weaknesses (SOSTAC – Situation) <span class="tg-src">SafariSip Q1i</span><span class="tg-marks">3 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Strength:</strong> A high-quality, well-reviewed product with an established multi-channel presence (website + Instagram/Facebook/TikTok with 12,000 combined followers).</li>
+    <li><strong>Weakness 1:</strong> A slow, basic website with limited analytics and no product videos — 68% of surveyed customers called it "uninspiring" or "slow", which hurts conversion.</li>
+    <li><strong>Weakness 2:</strong> Uncoordinated marketing — social posting has no consistent schedule/tracking, email is used without segmentation, and 40% of respondents didn't even know an online store existed.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">SafariSip: strategies to meet the objectives (SOSTAC – Strategy) <span class="tg-src">SafariSip Q1iii</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Content &amp; SEO-led acquisition strategy:</strong> rebuild the website for speed, add product/brewing videos, and target the "buy Kenyan coffee online" / "best Arabica coffee in Kenya" searches to move from page 2 to page 1, driving qualified organic traffic.</li>
+    <li><strong>Integrated retention strategy:</strong> use segmented, automated email nurture sequences plus a loyalty program to convert first-time online buyers into the 10,000-strong repeat-customer list the CEO wants.</li>
+    </ul></div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t2">
+    <h2>2. Digital Marketing Tactics &amp; Tools</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Digital marketing tactics + justification <span class="tg-src">Aug'24 Q1d · Dec'24 Q1d</span><span class="tg-marks">6 marks each</span></div>
+    <div class="tg-ans">Pick any three and justify them against the case goal:
+    <ul>
+    <li><strong>Content marketing</strong> (blog posts, videos) – builds organic traffic and positions the brand as an authority, which is what both cases rely on for awareness.</li>
+    <li><strong>Email marketing</strong> – nurtures warm leads captured on-site into paying customers at low cost.</li>
+    <li><strong>Retargeting/remarketing (e.g. exit-intent popups, display ads)</strong> – recaptures visitors who would otherwise leave without converting, directly fitting the iSpionage popup tactic.</li>
+    <li><strong>Marketing automation via CRM</strong> – frees staff for high-value work while ensuring consistent follow-up, fitting Handled's HubSpot workflows.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">SafariSip: 4 tactics + supporting software tools <span class="tg-src">SafariSip Q1iv</span><span class="tg-marks">8 marks</span></div>
+    <div class="tg-ans">
+    <table class="tg-small">
+    <tr><th>Tactic</th><th>Purpose</th><th>Example tool</th></tr>
+    <tr><td>SEO content &amp; blogging (brewing tutorials, videos)</td><td>Improve organic ranking and educate the 60% who want video/tutorial content</td><td>Yoast SEO, Google Search Console</td></tr>
+    <tr><td>Segmented email marketing</td><td>Send targeted discounts/updates to the 75% who want newsletters</td><td>Mailchimp / HubSpot</td></tr>
+    <tr><td>Social media content calendar &amp; scheduling</td><td>Fix the "no consistent posting schedule" weakness</td><td>Buffer / Hootsuite</td></tr>
+    <tr><td>Paid search &amp; display retargeting</td><td>Recapture the 40% who visited but didn't know about the store</td><td>Google Ads / Meta Ads Manager</td></tr>
+    <tr><td>Web/behaviour analytics</td><td>Diagnose the low-conversion, moderate-traffic problem</td><td>Google Analytics 4</td></tr>
+    </table></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Four popular digital marketing tools <span class="tg-src">Aug'24 Q2b</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Google Analytics</strong> – tracks website traffic, behaviour and conversions.</li>
+    <li><strong>Mailchimp / HubSpot</strong> – email marketing automation and CRM.</li>
+    <li><strong>SEMrush / Ahrefs</strong> – SEO and competitor research.</li>
+    <li><strong>Hootsuite / Buffer</strong> – social media scheduling and monitoring.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Four types of online marketing tactics <span class="tg-src">Dec'24 Q3c</span><span class="tg-marks">8 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Search engine marketing (SEO + PPC)</strong> – capturing intent-driven traffic on Google.</li>
+    <li><strong>Content marketing</strong> – blogs, videos, guides that attract and educate prospects.</li>
+    <li><strong>Social media marketing</strong> – organic posts and paid social ads to build community and reach.</li>
+    <li><strong>Email marketing</strong> – direct, permission-based nurturing of leads and customers.</li>
+    </ul></div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t3">
+    <h2>3. SEO &amp; Organic Search</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Organic vs paid search <span class="tg-src">SafariSip Q3i</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans"><strong>Organic search</strong> results appear because the search engine's algorithm ranks the page as relevant — no fee is paid to appear, but it takes time and SEO effort. <strong>Paid search</strong> results (marked "Ad") appear because the advertiser bids on the keyword and pays per click; placement is immediate but stops the moment the budget runs out. For "coffee in Nairobi", SafariSip could run a paid campaign now while SEO work improves organic ranking over time.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Three techniques to raise organic SERP ranking <span class="tg-src">SafariSip Q3ii</span><span class="tg-marks">6 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>On-page keyword optimisation:</strong> use "coffee in Nairobi" naturally in titles, headers, meta descriptions, and page copy.</li>
+    <li><strong>Technical SEO / site speed:</strong> fix the slow-loading WordPress site, add proper analytics/schema markup, and ensure mobile-friendliness — all direct ranking factors.</li>
+    <li><strong>Local SEO &amp; backlinks:</strong> claim a Google Business Profile for a Nairobi location and earn backlinks from Kenyan food/lifestyle sites to build authority and local relevance.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Five SEO ranking factors <span class="tg-src">Aug'24 Q1f</span><span class="tg-marks">5 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Quality and relevance of content (keyword match to search intent)</li>
+    <li>Backlink quantity and quality (domain authority pointing to the site)</li>
+    <li>Site speed and mobile-friendliness</li>
+    <li>Domain authority / trustworthiness (HTTPS, age of domain)</li>
+    <li>User engagement signals (click-through rate, dwell time, bounce rate)</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">On-page vs off-page optimisation <span class="tg-src">Aug'24 Q3d</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans"><strong>On-page SEO</strong> is everything controlled directly on the website — content quality, keyword placement, meta tags, headers, internal linking, page speed. <strong>Off-page SEO</strong> happens outside the site and builds external authority — backlinks, social shares, influencer mentions, online PR/citations.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Three types of SEO <span class="tg-src">Dec'24 Q4b</span><span class="tg-marks">3 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>On-page SEO</strong> – optimising content and HTML elements on the page itself.</li>
+    <li><strong>Off-page SEO</strong> – earning authority through backlinks, PR and social signals.</li>
+    <li><strong>Technical SEO</strong> – improving crawlability, indexing, site speed and mobile usability.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">SEO vs SEM (with examples) <span class="tg-src">Aug'24 Q5c</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans"><strong>SEO (Search Engine Optimisation)</strong> is the practice of earning free/organic rankings through content and technical improvements — e.g. optimising a blog post so it ranks for "Kenyan coffee beans." <strong>SEM (Search Engine Marketing)</strong> is the broader paid discipline of buying visibility through PPC ads — e.g. running a Google Ads campaign bidding on "buy Kenyan coffee online." SEO is slower but free per click; SEM is fast but costs per click.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Backlinks and how they help SEO/PPC performance <span class="tg-src">Aug'24 Q2c</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans">A backlink is a link from another website to yours. Search engines treat backlinks (especially from reputable, relevant sites) as a vote of confidence, raising domain authority and organic rank. Example: if a well-known coffee blog links to SafariSip's brewing-tutorial page, that page is more likely to rank higher for "how to brew Kenyan coffee," bringing in free qualified traffic that would otherwise need to be paid for via PPC.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Google AdWords' contribution to campaigns <span class="tg-src">Aug'24 Q2d</span><span class="tg-marks">3 marks</span></div>
+    <div class="tg-ans">Google Ads (AdWords) lets marketers bid on keywords so ads appear instantly at the top of search results, giving immediate visibility that organic SEO takes months to earn — e.g. SafariSip could bid on "buy Kenyan coffee online" to appear above page-2 organic listings straight away, and use conversion tracking to measure ROI directly.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Robots exclusion protocol <span class="tg-src">SafariSip Q2iv</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans">The robots exclusion protocol (<code>robots.txt</code>) is a file placed at a website's root that tells search-engine crawlers which pages or directories they may or may not index. It matters because it lets a site control crawl budget and keep private/duplicate pages (e.g. admin or checkout pages) out of search results, while ensuring important pages remain crawlable and rankable.</div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t4">
+    <h2>4. PPC, Paid Search &amp; Display Advertising</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Long-tail vs short-tail keywords <span class="tg-src">SafariSip Q5iv</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans"><strong>Short-tail keywords</strong> (e.g. "coffee") are broad, one or two words, with high search volume but high competition and low buyer intent — good for broad brand awareness. <strong>Long-tail keywords</strong> (e.g. "fine organic Kenyan coffee") are longer, more specific phrases with lower volume but higher intent and conversion rate, and lower cost-per-click — better for PPC campaigns aiming at ready-to-buy customers.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Keyword matching techniques: negative match &amp; phrase match <span class="tg-src">SafariSip Q5v</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans"><strong>Negative match</strong> excludes the ad from showing for specified irrelevant terms — e.g. adding "-free" or "-recipe" as negative keywords stops the ad appearing for people searching for free coffee or coffee recipes, saving budget from unqualified clicks. <strong>Phrase match</strong> shows the ad for searches containing the exact phrase in that order, with extra words allowed before/after — e.g. "fine organic Kenyan coffee" would match "buy fine organic Kenyan coffee online," balancing reach with relevance (tighter than broad match, looser than exact match).</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Reasons Google may reject an ad <span class="tg-src">Aug'24 Q3b</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>The ad violates content policy (e.g. misleading claims, prohibited products, inappropriate content).</li>
+    <li>The landing page is broken, has poor user experience, or doesn't match the ad's claims (destination mismatch).</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Five hallmarks of a good PPC landing page <span class="tg-src">Aug'24 Q3c</span><span class="tg-marks">5 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Message match — headline mirrors the ad's promise/keyword.</li>
+    <li>Single, clear call-to-action (CTA).</li>
+    <li>Fast load speed and mobile responsiveness.</li>
+    <li>Minimal distractions/navigation to keep focus on converting.</li>
+    <li>Trust signals (reviews, security badges, testimonials).</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Types of banners besides display banners <span class="tg-src">SafariSip Q4iii</span><span class="tg-marks">3 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Pop-up/interstitial banners</li>
+    <li>Expandable (rich media) banners</li>
+    <li>Sticky/floating banners (e.g. anchored footer bar)</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Banner ad design brief — 50% off roast coffee beans, November sale <span class="tg-src">SafariSip Q4iv</span><span class="tg-marks">5 marks</span></div>
+    <div class="tg-ans">A hand-drawn/described concept, since this is a design task: a rectangular display banner (e.g. 300×250px) with a warm brown/cream background; the SafariSip steaming-cup-of-coffee logo top-left; large bold headline "50% OFF ROAST BEANS" centred; a supporting line "November Only — SafariSip Coffee"; and a single orange CTA button reading "Shop Now" bottom-right, linking to the online store's sale page. Keep text minimal and the CTA visually dominant, per standard banner best practice (clear offer, brand mark, one action).</div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t5">
+    <h2>5. Content Marketing &amp; the Customer Journey</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Content for each customer-journey stage — SafariSip's new home coffee machine <span class="tg-src">SafariSip Q2ii</span><span class="tg-marks">6 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Awareness stage:</strong> a short teaser/unboxing video introducing the machine, distributed on social media, to create initial visibility.</li>
+    <li><strong>Consideration stage:</strong> a detailed blog post or comparison guide explaining features, brewing methods and benefits vs. alternatives, so buyers can evaluate it.</li>
+    <li><strong>Decision/purchase stage:</strong> customer testimonials/reviews and a limited-time discount email/landing page that push the prospect to complete the purchase.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Content type per purchase-funnel stage (general) <span class="tg-src">Aug'24 Q5a</span><span class="tg-marks">6 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Top of funnel (Awareness):</strong> blog articles, social media posts, infographics — broad, educational, low-commitment.</li>
+    <li><strong>Middle of funnel (Consideration):</strong> case studies, webinars, comparison guides — help evaluate options.</li>
+    <li><strong>Bottom of funnel (Decision):</strong> product demos/free trials, testimonials, pricing pages — push conversion.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Role of content marketing in B2B <span class="tg-src">Dec'24 Q4c</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans">In B2B, buying cycles are longer and involve multiple decision-makers, so content marketing (whitepapers, case studies, webinars) builds trust and thought-leadership over time, educates technical/business buyers, and nurtures leads through a long consideration process rather than pushing an immediate impulse purchase as in B2C.</div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t6">
+    <h2>6. Social Media Marketing</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Three types of social media platforms &amp; uses <span class="tg-src">SafariSip Q4i</span><span class="tg-marks">3 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Visual/image-sharing platforms</strong> (Instagram) – showcase product photography and lifestyle content.</li>
+    <li><strong>Short-video platforms</strong> (TikTok) – brewing tutorials and behind-the-scenes video content.</li>
+    <li><strong>Community/networking platforms</strong> (Facebook) – customer engagement, reviews, groups and customer service.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Three social media use cases for SafariSip + best platform <span class="tg-src">SafariSip Q4ii</span><span class="tg-marks">9 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Brand awareness &amp; storytelling</strong> — Instagram, using high-quality photos of the farm/roasting process.</li>
+    <li><strong>Product education</strong> (brewing tutorials, which 60% of customers want) — TikTok, via short how-to videos.</li>
+    <li><strong>Customer service &amp; community building</strong> — Facebook, via a group or page for reviews and Q&amp;A.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Four social media KPIs <span class="tg-src">Aug'24 Q3a</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Engagement rate (likes, comments, shares relative to followers)</li>
+    <li>Follower/audience growth rate</li>
+    <li>Reach and impressions</li>
+    <li>Click-through rate to the website / conversions from social</li>
+    </ul></div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t7">
+    <h2>7. Email Marketing</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Two types of emails SafariSip could use <span class="tg-src">SafariSip Q5i</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Newsletter emails</strong> — regular updates, brewing tips, and promotions to the subscriber list.</li>
+    <li><strong>Transactional/triggered emails</strong> — order confirmations, abandoned-cart reminders, or welcome emails after sign-up.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Three important components of a B2B corporate-events email <span class="tg-src">SafariSip Q5ii</span><span class="tg-marks">6 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Compelling subject line</strong> — clear, professional, and specific enough to drive opens (e.g. "Elevate Your Next Corporate Event with SafariSip Coffee").</li>
+    <li><strong>Personalised body content</strong> — addressing the recipient's company/role and outlining relevant packages/benefits, not a generic blast.</li>
+    <li><strong>Clear call-to-action</strong> — a single, prominent link/button to "Request a Quote" or "Book a Consultation."</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Ensuring email compatibility across platforms <span class="tg-src">SafariSip Q5iii</span><span class="tg-marks">1 mark</span></div>
+    <div class="tg-ans">Use a responsive, tested email template (test rendering across Gmail, Outlook, Apple Mail, mobile/desktop) — e.g. via a tool like Litmus or Mailchimp's preview feature — before sending.</div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t8">
+    <h2>8. Website Design for E-Marketing</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Three most significant aspects of a website that supports e-marketing <span class="tg-src">SafariSip Q2iii</span><span class="tg-marks">6 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Site speed and performance</strong> — a fast-loading site reduces bounce rate; e.g. compressing images and using caching so safarisip.co.ke loads in under 3 seconds.</li>
+    <li><strong>Clear navigation and calls-to-action</strong> — an intuitive menu and prominent "Buy Now"/"Add to Cart" buttons that guide visitors to conversion.</li>
+    <li><strong>Analytics and tracking integration</strong> — embedding tools like Google Analytics/Tag Manager so behaviour, traffic sources and conversions can be measured and optimised.</li>
+    </ul></div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t9">
+    <h2>9. Web &amp; Digital Marketing Analytics</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Three ways SafariSip can use data analytics <span class="tg-src">SafariSip Q3iii</span><span class="tg-marks">6 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Traffic-source analysis</strong> — identify which channels (social, organic, email) drive the most visitors, confirming the survey finding that 55% arrive via social media.</li>
+    <li><strong>Funnel/drop-off analysis</strong> — pinpoint where visitors abandon the site before purchase, explaining the low-conversion problem despite moderate traffic.</li>
+    <li><strong>Campaign performance dashboards</strong> — track opens/clicks on email campaigns and engagement on social posts to see which content drives sales, enabling continuous optimisation.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Why organisations carry out digital marketing analytics <span class="tg-src">Aug'24 Q4a</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>To measure whether campaigns are meeting objectives and delivering ROI.</li>
+    <li>To understand customer behaviour so future campaigns can be better targeted and optimised.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Five types of data collected in web analytics <span class="tg-src">Aug'24 Q4b</span><span class="tg-marks">5 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Traffic data (visits, unique visitors, page views)</li>
+    <li>Source/referral data (where traffic comes from)</li>
+    <li>Behavioural data (pages visited, time on site, click paths)</li>
+    <li>Conversion data (sign-ups, purchases, goal completions)</li>
+    <li>Demographic/device data (age, location, device type)</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Web analytics — definition <span class="tg-src">Dec'24 Q2b</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans">Web analytics is the collection, measurement, and analysis of website data (traffic, behaviour, conversions) to understand and optimise how users interact with a site.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Usefulness of web traffic analysis to business owners <span class="tg-src">Dec'24 Q2c</span><span class="tg-marks">3 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Reveals which marketing channels are actually driving visitors, so budget can shift to what works.</li>
+    <li>Shows content/pages that engage vs. lose visitors, guiding site improvements.</li>
+    <li>Helps forecast demand and inventory/staffing needs based on traffic patterns.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Web analytics vs content analytics (with examples) <span class="tg-src">Dec'24 Q5b</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans"><strong>Web analytics</strong> measures overall site performance — sessions, bounce rate, conversion rate (e.g. how many of SafariSip's site visitors completed checkout). <strong>Content analytics</strong> focuses specifically on how individual pieces of content perform — e.g. which blog post or video generated the most shares and time-on-page — helping refine the content strategy rather than the whole site.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Why data segmentation matters in web analytics <span class="tg-src">Dec'24 Q5a</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans">Aggregate data can hide important differences between customer groups; segmenting (e.g. by traffic source, device, or age 25–45 coffee lovers) reveals which specific audiences convert best, allows tailored messaging per segment, and prevents high-performing segments being masked by underperforming averages.</div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t10">
+    <h2>10. Metrics Calculations</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Engagement rate <span class="tg-src">Aug'24 Q4c(i)</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans">
+    <div class="tg-calc">
+    Engagement rate = (Likes + Comments + Shares) / Followers × 100<br>
+    = (500 + 300 + 600) / 20,000 × 100<br>
+    = 1,400 / 20,000 × 100<br>
+    <strong>= 7%</strong>
+    </div>
+    </div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Organic reach <span class="tg-src">Aug'24 Q4c(ii)</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans">Organic reach is the number of unique users who saw content without paid promotion. With the figures given (50,000 users, 20 updates published in the month), organic reach per update is typically expressed as a proportion of the audience actually reached — e.g. if 10% of the 50,000 followers see a given post organically, reach ≈ 5,000 per update. <span class="tg-note">(The paper doesn't give a reach-rate percentage, so state the assumed reach rate explicitly and show the formula: Organic reach = Audience size × assumed reach rate.)</span></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Simple ROI <span class="tg-src">Aug'24 Q4c(iii)</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans">
+    <div class="tg-calc">
+    Simple ROI = (Sales growth − Campaign cost) / Campaign cost × 100<br>
+    = (1,000 − 100) / 100 × 100<br>
+    = 900 / 100 × 100<br>
+    <strong>= 900%</strong>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t11">
+    <h2>11. Conversion Rate Optimisation (CRO)</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">What is CRO? Two ways it can be implemented at SafariSip <span class="tg-src">SafariSip Q3iv</span><span class="tg-marks">6 marks</span></div>
+    <div class="tg-ans">Conversion Rate Optimisation is the systematic process of increasing the percentage of website visitors who complete a desired action (e.g. a purchase), usually through testing and refining site elements.
+    <ul>
+    <li><strong>A/B testing checkout &amp; product pages</strong> — testing different layouts, images or CTA button copy on safarisip.co.ke to see which version converts more visitors into buyers.</li>
+    <li><strong>Reducing friction in the buying process</strong> — simplifying checkout steps, adding trust badges/reviews, and speeding up page load, directly targeting the "uninspiring/slow" complaint from 68% of respondents.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Approaches to improve conversion rates (general) <span class="tg-src">Aug'24 Q2a</span><span class="tg-marks">4 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Improve landing page relevance and clarity (message match, strong CTA).</li>
+    <li>Use retargeting/remarketing to bring back visitors who didn't convert the first time.</li>
+    </ul></div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t12">
+    <h2>12. Market Research &amp; Segmentation</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Primary vs secondary research to understand competitors <span class="tg-src">SafariSip Q2i</span><span class="tg-marks">6 marks</span></div>
+    <div class="tg-ans"><strong>Primary research</strong> — data SafariSip collects itself, e.g. mystery-shopping competitor websites, surveying customers on why they chose a rival brand, or interviewing lapsed customers. This gives fresh, specific insight but takes time and cost. <strong>Secondary research</strong> — using existing published data, e.g. industry reports, competitors' public social media metrics, or SEO tools like SEMrush to see competitors' keyword rankings and ad strategies. This is cheaper and faster but less tailored to SafariSip's exact questions. Using both together (as the case's competitor analysis suggests) gives a fuller picture of why rivals use SEO, video and email automation effectively.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Three types of questions the research team may have used in surveys <span class="tg-src">SafariSip Q5vi</span><span class="tg-marks">3 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Closed/multiple-choice questions</strong> — e.g. "How did you discover SafariSip?" with fixed options (social media, search, referral).</li>
+    <li><strong>Rating/Likert-scale questions</strong> — e.g. rating website experience from "very poor" to "excellent."</li>
+    <li><strong>Open-ended questions</strong> — e.g. "What would improve your experience with SafariSip's website?" allowing free-text feedback.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Four buyer characteristics for market segmentation <span class="tg-src">Dec'24 Q2a</span><span class="tg-marks">8 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li><strong>Demographic</strong> — age, income, occupation, education.</li>
+    <li><strong>Geographic</strong> — location, region, urban/rural.</li>
+    <li><strong>Psychographic</strong> — lifestyle, values, interests.</li>
+    <li><strong>Behavioural</strong> — purchase frequency, brand loyalty, usage rate.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Active vs passive customers <span class="tg-src">Dec'24 Q1e</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans"><strong>Active customers</strong> engage regularly with the brand — recent purchasers, frequent visitors/repeat buyers. <strong>Passive customers</strong> are aware of or have purchased from the brand before but are not currently engaging — dormant subscribers or one-time buyers who need re-engagement campaigns to reactivate.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Keyword search in digital marketing <span class="tg-src">Dec'24 Q1f</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans">Keyword search is the process customers use to type relevant terms into search engines to find products/services; marketers research and target these exact terms (via SEO and PPC) so their content/ads appear when potential customers are actively searching.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Why demand for targeted marketing is rising <span class="tg-src">Dec'24 Q1g</span><span class="tg-marks">6 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Growing volumes of customer data (from web/CRM analytics) make precise targeting practically possible.</li>
+    <li>Customers increasingly expect personalised, relevant experiences and disengage from generic mass messaging.</li>
+    <li>Targeted campaigns deliver better ROI, since budget is spent on audiences most likely to convert rather than broad, wasteful reach.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Two benefits of mass marketing to firms <span class="tg-src">Dec'24 Q2d</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Economies of scale — lower cost per exposure when reaching very large audiences with one message.</li>
+    <li>Builds broad brand awareness and recognition quickly across a wide market.</li>
+    </ul></div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t13">
+    <h2>13. CRM &amp; Customer Relationships</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">How a CRM helps a start-up increase sales <span class="tg-src">Aug'24 Q4d</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans">A CRM centralises customer data and interaction history, letting a start-up track leads through the sales pipeline and automate timely follow-ups — e.g. Handled's use of HubSpot to trigger custom workflows so no lead is missed, improving close rates without adding headcount.</div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t14">
+    <h2>14. Viral Marketing</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Two ways to make content go viral <span class="tg-src">Aug'24 Q1e</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Create emotionally resonant content (humour, surprise, inspiration) that people naturally want to share with others.</li>
+    <li>Make sharing easy and incentivised — prominent share buttons, referral rewards, or challenges/hashtags that encourage user participation and re-sharing.</li>
+    </ul></div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t15">
+    <h2>15. E-Marketing Trends, AI/ML &amp; Adoption Challenges</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Internet, AI &amp; ML influence on the growth of e-marketing <span class="tg-src">Dec'24 Q3a</span><span class="tg-marks">5 marks</span></div>
+    <div class="tg-ans">Widespread internet access has put more consumers online, expanding the addressable market for digital campaigns. AI/ML add predictive personalisation — e.g. recommendation engines suggesting products based on browsing history, chatbots providing instant customer service, and automated ad-bidding algorithms that optimise spend in real time — all of which increase relevance and efficiency beyond what manual marketing could achieve.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Why simple ROI is hard to compute accurately <span class="tg-src">Dec'24 Q3b</span><span class="tg-marks">2 marks</span></div>
+    <div class="tg-ans">Simple ROI assumes all sales growth in a period is caused by the marketing campaign, but sales are also influenced by seasonality, word-of-mouth, competitor actions and other factors — so attributing 100% of growth to marketing overstates the campaign's true impact.</div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Reasons the move to e-marketing has remained low <span class="tg-src">Dec'24 Q4a</span><span class="tg-marks">8 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Limited digital skills/knowledge among staff or management, creating resistance to change.</li>
+    <li>Upfront cost of technology and platform subscriptions, which can seem high for smaller firms.</li>
+    <li>Comfort with, and perceived reliability of, traditional methods that have "always worked."</li>
+    <li>Concerns over data privacy/security and lack of trust in digital channels.</li>
+    </ul></div>
+    </div>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Five key challenges of online marketing <span class="tg-src">Aug'24 Q5b</span><span class="tg-marks">5 marks</span></div>
+    <div class="tg-ans"><ul>
+    <li>Intense competition and market saturation online.</li>
+    <li>Rapidly changing algorithms and platform rules (SEO, ad policies).</li>
+    <li>Data privacy regulations limiting tracking and targeting.</li>
+    <li>Measuring true ROI and attribution across multiple touchpoints.</li>
+    <li>Keeping content fresh and engaging amid short attention spans.</li>
+    </ul></div>
+    </div>
+    </section>
+
+    <section class="tg-topic" id="t16">
+    <h2>16. Campaign Management Lifecycle</h2>
+
+    <div class="tg-q">
+    <div class="tg-qhead">Seven critical phases of creating &amp; managing a digital marketing campaign <span class="tg-src">Dec'24 Q5c</span><span class="tg-marks">7 marks</span></div>
+    <div class="tg-ans"><ol>
+    <li><strong>Situation analysis</strong> — assess current position (e.g. SOSTAC's "Situation").</li>
+    <li><strong>Objective setting</strong> — define SMART goals.</li>
+    <li><strong>Strategy formulation</strong> — decide the overall approach to reach objectives.</li>
+    <li><strong>Tactics selection</strong> — choose specific channels/activities (SEO, email, social, PPC).</li>
+    <li><strong>Action/implementation planning</strong> — assign resources, timelines and responsibilities.</li>
+    <li><strong>Execution/launch</strong> — run the campaign across chosen channels.</li>
+    <li><strong>Control/evaluation</strong> — monitor KPIs, measure results, and optimise continuously.</li>
+    </ol>
+    <span class="tg-note">This mirrors the SOSTAC framework (Situation, Objectives, Strategy, Tactics, Action, Control) used across all three papers.</span></div>
+    </div>
+    </section>
+
+    <!-- ============ FLASHCARDS ============ -->
+    <section id="flashcards">
+      <span class="sec-label">Rapid Review</span>
+      <h2 class="sec-h">Quick-Fire Flashcards <span style="font-size:.7rem;color:var(--ink-soft);font-weight:400;">(click to reveal)</span></h2>
+
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: What SWOT category does "high product cost" fall under?</div>
+        <div class="a">A: Weakness (internal, harmful).</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: Difference between Amplification Rate and Virality Rate?</div>
+        <div class="a">A: Amplification = shares ÷ followers. Virality = shares ÷ impressions.</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: NPS Detractor score range?</div>
+        <div class="a">A: 0–6 (Passives 7–8, Promoters 9–10).</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: Google's formula for Ads ROI?</div>
+        <div class="a">A: (Revenue − Cost of Goods Sold) / Cost of Goods Sold.</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: What are the 4 key areas for measuring email marketing success?</div>
+        <div class="a">A: Delivery, Engagement, Conversion, List Health.</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: What is clickstream data?</div>
+        <div class="a">A: Aggregate data on which pages a visitor visits and in what order (unique/repeat visitor, search terms, landing page, time on page, cart activity, back-button use, etc.)</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: Name 3 free/entry-level CMS options mentioned in the lecture.</div>
+        <div class="a">A: WordPress (easiest/most popular), Joomla (ecommerce/social, more technical), Drupal (most technical).</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: What does the Search Network include and who is it ideal for?</div>
+        <div class="a">A: Google Search + Google sites (Maps, Shopping) + non-Google search partners showing AdWords ads. Ideal for Active Customers (actively searching).</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: Mnemonic for the 5 segmentation categories?</div>
+        <div class="a">A: B-D-G-P-F — Behavioral, Demographic, Geographic, Psychographic, Firmographic.</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: Difference between strategy and tactic?</div>
+        <div class="a">A: Strategy = the "what" and "why" (direction/goal). Tactic = the "how" (specific, actionable, short-term method within a channel).</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: What are the 3 steps of how SEO works?</div>
+        <div class="a">A: Crawling → Indexing → Ranking.</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: What are the three main types of media in the Paid/Owned/Earned model?</div>
+        <div class="a">A: Paid (PPC, display ads), Owned (website, blog, email list), Earned (PR, word-of-mouth, viral shares).</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: What percentage of the market are "Innovators" in Diffusion of Innovation theory?</div>
+        <div class="a">A: 2.5% — risk-takers with wide networks and high resources.</div>
+      </div>
+      <div class="flash" onclick="this.classList.toggle('open')">
+        <div class="q">Q: What does the 5S framework stand for?</div>
+        <div class="a">A: Sell, Serve, Speak, Save, Sizzle.</div>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">BBT 4101/4103 — E-Marketing · Combined revision guide (Lecture 1 · Lectures 3–4 · CAT1 + Lecture 5 · Topic-by-Topic Exam-Paper Answer Bank) · Strathmore University · Exam prep companion, not a substitute for lecture notes.</div>
+</footer>
+
+</body>
+</html>
